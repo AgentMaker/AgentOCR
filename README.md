@@ -1,8 +1,33 @@
 # AgentOCR
-## **简介**
+## 简介
 * AgentOCR 是一个基于 PaddleOCR 和 ONNXRuntime 项目开发的跨平台、易部署的 OCR 项目
 
 * 支持 PaddleOCR 的多语言预训练模型，以及 PaddleOCR 训练导出的其他模型
+
+## 安装
+* pip 安装：
+
+    ```shell
+    $ pip install agentocr
+    ```
+
+* 源码安装：
+
+    ```shell
+    $ git clone https://github.com/AgentMaker/AgentOCR
+    $ cd AgentOCR && python setup.py install
+    ```
+
+## 使用指南
+* 快速使用：
+
+    ```python
+    from agentocr import OCRSystem
+
+    ocr = OCRSystem(config_path='config.json')
+
+    results = ocr('test.jpg')
+    ```
 
 ## ONNX 模型
 | Model Name | Model Type | Pretrained Model |
