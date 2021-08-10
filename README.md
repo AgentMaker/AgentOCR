@@ -53,6 +53,7 @@
     |:-:|:-:|:-:|
     | ch_ppocr_mobile_v2.0_det | det | [Download](ch_ppocr_mobile_v2.0_det) |
     | ch_ppocr_server_v2.0_det | det | [Download](ch_ppocr_server_v2.0_det) |
+    | en_ppocr_mobile_v2.0_det | det | [Download](en_ppocr_mobile_v2.0_det) |
     | en_ppocr_mobile_v2.0_table_det | det | [Download](en_ppocr_mobile_v2.0_table_det) |
 
 * 分类模型：
@@ -91,6 +92,7 @@
 
 [ch_ppocr_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/55d7b7e1890c4b81ae17a2d0c4b457d89f47a05407be4563a5b2e212b3fdf70b?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_det.onnx
 [ch_ppocr_server_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/65e5a792fa464c2994814b0a2af2334ada2a9c8150fa42f6ab3cfd22bb744708?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_det.onnx
+[en_ppocr_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/e2daa7431e7d416e98b9ce6ccf80883c74d776d52aba4649806e421eefdc34fb?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_det.onnx
 [en_ppocr_mobile_v2.0_table_det]:https://bj.bcebos.com/v1/ai-studio-online/d28ba772eb1d48a582a7ce16894885d662399f1ee12a4bfaa73d2b4987c3dc31?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_det.onnx
 
 [ch_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/77e67a9bb1cc421a97e037462838f159526b2d0ba3d94a3eb0da35408174edb7?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_rec.onnx
