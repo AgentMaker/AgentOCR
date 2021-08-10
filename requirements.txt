@@ -1,5 +1,6 @@
-pillow
+wget
 numpy
+pillow
 shapely
 pyclipper
 opencv-python
