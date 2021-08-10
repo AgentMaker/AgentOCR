@@ -20,12 +20,18 @@
     ```
 
 ## 使用指南
-* 快速使用：
+* 命令行调用：
+
+    ```shell
+    $ agentocr system --image_dir=test_imgs
+    ```
+
+* 脚本调用：
 
     ```python
     from agentocr import OCRSystem
 
-    ocr = OCRSystem(config_path='config.json')
+    ocr = OCRSystem(config='config.json')
 
     results = ocr('test.jpg')
     ```
