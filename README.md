@@ -51,37 +51,37 @@
 
     | Model Name | Model Type | Pretrained Model |
     |:-:|:-:|:-:|
-    | ch_ppocr_mobile_v2.0_det | det | [Download](ch_ppocr_mobile_v2.0_det) |
-    | ch_ppocr_server_v2.0_det | det | [Download](ch_ppocr_server_v2.0_det) |
-    | en_ppocr_mobile_v2.0_det | det | [Download](en_ppocr_mobile_v2.0_det) |
-    | en_ppocr_mobile_v2.0_table_det | det | [Download](en_ppocr_mobile_v2.0_table_det) |
+    | ch_ppocr_mobile_v2.0_det | det | [Download][ch_ppocr_mobile_v2.0_det] |
+    | ch_ppocr_server_v2.0_det | det | [Download][ch_ppocr_server_v2.0_det] |
+    | en_ppocr_mobile_v2.0_det | det | [Download][en_ppocr_mobile_v2.0_det] |
+    | en_ppocr_mobile_v2.0_table_det | det | [Download][en_ppocr_mobile_v2.0_table_det] |
 
 * 分类模型：
 
     | Model Name | Model Type | Pretrained Model |
     |:-:|:-:|:-:|
-    | ch_ppocr_mobile_v2.0_cls | cls | [Download](ch_ppocr_mobile_v2.0_cls) |
+    | ch_ppocr_mobile_v2.0_cls | cls | [Download][ch_ppocr_mobile_v2.0_cls] |
 
 * 识别模型：
 
     | Model Name | Model Type | Pretrained Model |
     |:-:|:-:|:-:|
-    | ch_ppocr_mobile_v2.0_rec | rec | [Download](ch_ppocr_mobile_v2.0_rec) |
-    | ch_ppocr_server_v2.0_rec | rec | [Download](ch_ppocr_server_v2.0_rec) |
-    | ka_ppocr_mobile_v2.0_rec | rec | [Download](ka_ppocr_mobile_v2.0_rec) |
-    | te_ppocr_mobile_v2.0_rec | rec | [Download](te_ppocr_mobile_v2.0_rec) |
-    | ta_ppocr_mobile_v2.0_rec | rec | [Download](ta_ppocr_mobile_v2.0_rec) |
-    | cht_ppocr_mobile_v2.0_rec | rec | [Download](cht_ppocr_mobile_v2.0_rec) |
-    | japan_ppocr_mobile_v2.0_rec | rec | [Download](japan_ppocr_mobile_v2.0_rec) |
-    | latin_ppocr_mobile_v2.0_rec | rec | [Download](latin_ppocr_mobile_v2.0_rec) |
-    | arabic_ppocr_mobile_v2.0_rec | rec | [Download](arabic_ppocr_mobile_v2.0_rec) |
-    | korean_ppocr_mobile_v2.0_rec | rec | [Download](korean_ppocr_mobile_v2.0_rec) |
-    | french_ppocr_mobile_v2.0_rec | rec | [Download](french_ppocr_mobile_v2.0_rec) |
-    | german_ppocr_mobile_v2.0_rec | rec | [Download](german_ppocr_mobile_v2.0_rec) |
-    | cyrillic_ppocr_mobile_v2.0_rec | rec | [Download](cyrillic_ppocr_mobile_v2.0_rec) |
-    | en_ppocr_mobile_v2.0_table_rec | rec | [Download](en_ppocr_mobile_v2.0_table_rec) |
-    | en_ppocr_mobile_v2.0_number_rec | rec | [Download](en_ppocr_mobile_v2.0_number_rec) |
-    | devanagari_ppocr_mobile_v2.0_rec | rec | [Download](devanagari_ppocr_mobile_v2.0_rec) |
+    | ch_ppocr_mobile_v2.0_rec | rec | [Download][ch_ppocr_mobile_v2.0_rec] |
+    | ch_ppocr_server_v2.0_rec | rec | [Download][ch_ppocr_server_v2.0_rec] |
+    | ka_ppocr_mobile_v2.0_rec | rec | [Download][ka_ppocr_mobile_v2.0_rec] |
+    | te_ppocr_mobile_v2.0_rec | rec | [Download][te_ppocr_mobile_v2.0_rec] |
+    | ta_ppocr_mobile_v2.0_rec | rec | [Download][ta_ppocr_mobile_v2.0_rec] |
+    | cht_ppocr_mobile_v2.0_rec | rec | [Download][cht_ppocr_mobile_v2.0_rec] |
+    | japan_ppocr_mobile_v2.0_rec | rec | [Download][japan_ppocr_mobile_v2.0_rec] |
+    | latin_ppocr_mobile_v2.0_rec | rec | [Download][latin_ppocr_mobile_v2.0_rec] |
+    | arabic_ppocr_mobile_v2.0_rec | rec | [Download][arabic_ppocr_mobile_v2.0_rec] |
+    | korean_ppocr_mobile_v2.0_rec | rec | [Download][korean_ppocr_mobile_v2.0_rec] |
+    | french_ppocr_mobile_v2.0_rec | rec | [Download][french_ppocr_mobile_v2.0_rec] |
+    | german_ppocr_mobile_v2.0_rec | rec | [Download][german_ppocr_mobile_v2.0_rec] |
+    | cyrillic_ppocr_mobile_v2.0_rec | rec | [Download][cyrillic_ppocr_mobile_v2.0_rec] |
+    | en_ppocr_mobile_v2.0_table_rec | rec | [Download][en_ppocr_mobile_v2.0_table_rec] |
+    | en_ppocr_mobile_v2.0_number_rec | rec | [Download][en_ppocr_mobile_v2.0_number_rec] |
+    | devanagari_ppocr_mobile_v2.0_rec | rec | [Download][devanagari_ppocr_mobile_v2.0_rec] |
 
 
 
