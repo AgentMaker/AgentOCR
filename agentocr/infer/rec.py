@@ -27,7 +27,7 @@ import traceback
 import numpy as np
 
 from ..postprocess import build_post_process
-from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args
+from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args, get_char_dict
 
 logger = get_logger()
 
@@ -38,24 +38,25 @@ class TextRecognizer(object):
         self.character_type = args.rec_char_type
         self.rec_batch_num = args.rec_batch_num
         self.rec_algorithm = args.rec_algorithm
+        rec_char_dict_path = get_char_dict(args.rec_char_dict_path)
         postprocess_params = {
             'name': 'CTCLabelDecode',
             "character_type": args.rec_char_type,
-            "character_dict_path": args.rec_char_dict_path,
+            "character_dict_path": rec_char_dict_path,
             "use_space_char": args.use_space_char
         }
         if self.rec_algorithm == "SRN":
             postprocess_params = {
                 'name': 'SRNLabelDecode',
                 "character_type": args.rec_char_type,
-                "character_dict_path": args.rec_char_dict_path,
+                "character_dict_path": rec_char_dict_path,
                 "use_space_char": args.use_space_char
             }
         elif self.rec_algorithm == "RARE":
             postprocess_params = {
                 'name': 'AttnLabelDecode',
                 "character_type": args.rec_char_type,
-                "character_dict_path": args.rec_char_dict_path,
+                "character_dict_path": rec_char_dict_path,
                 "use_space_char": args.use_space_char
             }
         self.postprocess_op = build_post_process(postprocess_params)
@@ -239,8 +240,8 @@ class TextRecognizer(object):
         return rec_res, time.time() - st
 
 
-def main(args, process_id=0):
-    image_file_list = get_image_file_list(args.image_dir)
+def main(args, image_dir, process_id=0):
+    image_file_list = get_image_file_list(image_dir)
     image_file_list = image_file_list[process_id::args.total_process_num]
     text_recognizer = TextRecognizer(args)
     valid_image_file_list = []

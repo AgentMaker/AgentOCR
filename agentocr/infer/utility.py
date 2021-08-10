@@ -26,6 +26,8 @@ import numpy as np
 import onnxruntime as ort
 from PIL import Image, ImageDraw, ImageFont
 
+file_path = os.path.abspath(__file__)
+file_dir = os.path.split(file_path)[0]
 
 model_urls = {
     'cls': {
@@ -56,6 +58,24 @@ model_urls = {
     }
 }
 
+
+def get_char_dict(char_dict_path):
+    if not os.path.isfile(char_dict_path):
+        temp_path = os.path.join(file_dir, '..', 'resources', 'char_dicts', char_dict_path)
+        if os.path.isfile(temp_path):
+            char_dict_path = temp_path
+        elif os.path.isfile(temp_path+'.txt'):
+            char_dict_path = temp_path+'.txt'
+    return char_dict_path
+
+def get_vis_font(vis_font_path):
+    if not os.path.isfile(vis_font_path):
+        temp_path = os.path.join(file_dir, '..', 'resources', 'fonts', vis_font_path)
+        if os.path.isfile(temp_path):
+            vis_font_path = temp_path
+        elif os.path.isfile(temp_path+'.ttf'):
+            vis_font_path = temp_path+'.ttf'
+    return vis_font_path
 
 def str2providers(str):
     available_providers = ort.get_available_providers()
@@ -91,7 +111,6 @@ def init_args():
     parser.add_argument("--providers", type=str, default='')
     
     # params for text detector
-    parser.add_argument("--image_dir", type=str)
     parser.add_argument("--det_algorithm", type=str, default='DB')
     parser.add_argument("--det_model_dir", type=str)
     parser.add_argument("--det_limit_side_len", type=float, default=960)
@@ -170,7 +189,8 @@ def create_session(args, mode, logger):
         if not os.path.exists('pretrained_models'):
             os.mkdir('pretrained_models')
         model_dir = os.path.join('pretrained_models', model_dir+'.onnx')
-        wget.download(url, out=model_dir)
+        if not os.path.isfile(model_dir):
+            wget.download(url, out=model_dir)
 
     if model_dir is None:
         logger.info("not find {} model file path {}".format(mode, model_dir))

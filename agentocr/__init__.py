@@ -18,18 +18,18 @@ class OCRSystem:
     def load(self):
         self.text_sys = TextSystem(self.args)
 
-    def run(self, func):
+    def run(self, func, image_dir):
         del self.text_sys
         if self.args.total_process_num > 1:
             p_list = []
             for process_id in range(self.args.total_process_num):
-                p = Process(target=func, args=(self.args, process_id))
+                p = Process(target=func, args=(self.args, image_dir, process_id))
                 p.start()
                 p_list.append(p)
             for p in p_list:
                 p.join()
         else:
-            func(self.args)
+            func(self.args, image_dir)
         self.load()
 
     def __call__(self, img, det=True, cls=True, rec=True, return_cls=False):
@@ -42,14 +42,14 @@ class OCRSystem:
             results = self.text_sys(cv2.imread(img), det=det, cls=cls, rec=rec, return_cls=return_cls)
         return results
 
-    def predict_det(self):
-        self.run(predict_det)
+    def predict_det(self, image_dir):
+        self.run(predict_det, image_dir)
 
-    def predict_cls(self):
-        self.run(predict_cls)
+    def predict_cls(self, image_dir):
+        self.run(predict_cls, image_dir)
 
-    def predict_rec(self):
-        self.run(predict_rec)
+    def predict_rec(self, image_dir):
+        self.run(predict_rec, image_dir)
 
-    def predict_system(self):
-        self.run(predict_system)
+    def predict_system(self, image_dir):
+        self.run(predict_system, image_dir)

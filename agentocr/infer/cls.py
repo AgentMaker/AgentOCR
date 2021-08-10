@@ -112,8 +112,8 @@ class TextClassifier(object):
         return img_list, cls_res, elapse
 
 
-def main(args, process_id=0):
-    image_file_list = get_image_file_list(args.image_dir)
+def main(args, image_dir, process_id=0):
+    image_file_list = get_image_file_list(image_dir)
     image_file_list = image_file_list[process_id::args.total_process_num]
     text_classifier = TextClassifier(args)
     valid_image_file_list = []

@@ -31,7 +31,7 @@ from .det import TextDetector
 from .cls import TextClassifier
 from .rec import TextRecognizer
 from .utility import draw_ocr_box_txt, get_rotate_crop_image
-from .utility import get_image_file_list, check_and_read_gif, get_logger, parse_args
+from .utility import get_image_file_list, check_and_read_gif, get_logger, parse_args, get_vis_font
 
 
 logger = get_logger()
@@ -142,12 +142,12 @@ def sorted_boxes(dt_boxes):
     return _boxes
 
 
-def main(args, process_id=0):
-    image_file_list = get_image_file_list(args.image_dir)
+def main(args, image_dir, process_id=0):
+    image_file_list = get_image_file_list(image_dir)
     image_file_list = image_file_list[process_id::args.total_process_num]
     text_sys = TextSystem(args)
     is_visualize = True
-    font_path = args.vis_font_path
+    font_path = get_vis_font(args.vis_font_path)
     drop_score = args.drop_score
 
     total_time = 0
