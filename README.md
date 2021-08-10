@@ -24,8 +24,11 @@
 
     ```shell
     $ agentocr det --config=config.json --image_dir=test_imgs
+
     $ agentocr cls --config=config.json --image_dir=test_imgs
+    
     $ agentocr rec --config=config.json --image_dir=test_imgs
+
     $ agentocr system --config=config.json --image_dir=test_imgs
     ```
 
