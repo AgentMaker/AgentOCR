@@ -169,7 +169,7 @@ def create_session(args, mode, logger):
         url = model_urls[mode][model_dir]
         if not os.path.exists('pretrained_models'):
             os.mkdir('pretrained_models')
-        model_dir = os.path.join('pretrained_models', model_dir)
+        model_dir = os.path.join('pretrained_models', model_dir+'.onnx')
         wget.download(url, out=model_dir)
 
     if model_dir is None:
