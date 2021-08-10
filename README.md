@@ -15,6 +15,7 @@
 
     ```shell
     $ git clone https://github.com/AgentMaker/AgentOCR
+    
     $ cd AgentOCR && python setup.py install
     ```
 
