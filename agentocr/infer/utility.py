@@ -112,7 +112,7 @@ def init_args():
     
     # params for text detector
     parser.add_argument("--det_algorithm", type=str, default='DB')
-    parser.add_argument("--det_model_dir", type=str)
+    parser.add_argument("--det_model_dir", type=str, default='ch_ppocr_mobile_v2.0_det')
     parser.add_argument("--det_limit_side_len", type=float, default=960)
     parser.add_argument("--det_limit_type", type=str, default='max')
 
@@ -120,7 +120,7 @@ def init_args():
     parser.add_argument("--det_db_thresh", type=float, default=0.3)
     parser.add_argument("--det_db_box_thresh", type=float, default=0.6)
     parser.add_argument("--det_db_unclip_ratio", type=float, default=1.5)
-    parser.add_argument("--max_batch_size", type=int, default=10)
+    parser.add_argument("--max_batch_size", type=int, default=8)
     parser.add_argument("--use_dilation", type=bool, default=False)
     parser.add_argument("--det_db_score_mode", type=str, default="fast")
 
@@ -136,22 +136,22 @@ def init_args():
 
     # params for text recognizer
     parser.add_argument("--rec_algorithm", type=str, default='CRNN')
-    parser.add_argument("--rec_model_dir", type=str)
+    parser.add_argument("--rec_model_dir", type=str, default='ch_ppocr_mobile_v2.0_rec')
     parser.add_argument("--rec_image_shape", type=str, default="3, 32, 320")
     parser.add_argument("--rec_char_type", type=str, default='ch')
-    parser.add_argument("--rec_batch_num", type=int, default=6)
+    parser.add_argument("--rec_batch_num", type=int, default=8)
     parser.add_argument("--max_text_length", type=int, default=25)
-    parser.add_argument("--rec_char_dict_path", type=str, default="./ppocr/utils/ppocr_keys_v1.txt")
+    parser.add_argument("--rec_char_dict_path", type=str, default="ppocr_keys_v1")
     parser.add_argument("--use_space_char", type=bool, default=True)
-    parser.add_argument("--vis_font_path", type=str, default="./doc/fonts/simfang.ttf")
+    parser.add_argument("--vis_font_path", type=str, default="simfang")
     parser.add_argument("--drop_score", type=float, default=0.5)
 
     # params for text classifier
-    parser.add_argument("--use_angle_cls", type=bool, default=False)
-    parser.add_argument("--cls_model_dir", type=str)
+    parser.add_argument("--use_angle_cls", type=bool, default=True)
+    parser.add_argument("--cls_model_dir", type=str, default='ch_ppocr_mobile_v2.0_cls')
     parser.add_argument("--cls_image_shape", type=str, default="3, 48, 192")
     parser.add_argument("--label_list", type=list, default=['0', '180'])
-    parser.add_argument("--cls_batch_num", type=int, default=6)
+    parser.add_argument("--cls_batch_num", type=int, default=8)
     parser.add_argument("--cls_thresh", type=float, default=0.9)
 
     # multi-process
@@ -160,11 +160,11 @@ def init_args():
     return parser
 
 
-def parse_args(config_path=None):
+def parse_args(config=None):
     parser = init_args()
     args = parser.parse_known_args()[0]
-    if config_path:
-        with open(config_path, 'r', encoding='UTF-8') as f:
+    if config:
+        with open(config, 'r', encoding='UTF-8') as f:
             json_dict = json.load(f)
 
         argparse_dict = vars(args)

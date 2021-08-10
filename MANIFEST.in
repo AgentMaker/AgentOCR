@@ -1,0 +1,2 @@
+recursive-include agentocr/resources/fonts *.ttf
+recursive-include agentocr/resources/char_dicts *.txt

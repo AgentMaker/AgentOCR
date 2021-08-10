@@ -3,7 +3,7 @@ import numpy as np
 
 from multiprocessing import Process
 
-from .infer.utility import parse_args
+from .infer.utility import parse_args, init_args
 from .infer import TextSystem, predict_system
 from .infer import TextDetector, predict_det
 from .infer import TextClassifier, predict_cls
@@ -11,8 +11,14 @@ from .infer import TextRecognizer, predict_rec
 
 
 class OCRSystem:
-    def __init__(self, config_path):
-        self.args = parse_args(config_path)
+    def __init__(self, config=None, args=None):
+        if args is None and config is not None:
+            self.args = parse_args(config)
+        elif args is not None:
+            self.args = args
+        else:
+            raise ValueError ('Please check the config.')
+
         self.load()
 
     def load(self):
@@ -53,3 +59,34 @@ class OCRSystem:
 
     def predict_system(self, image_dir):
         self.run(predict_system, image_dir)
+
+
+def command():
+    import json
+    parser = init_args()
+    parser.add_argument(dest='mode', type=str)
+    parser.add_argument("--config", type=str)
+    parser.add_argument("--image_dir", type=str, required=True)
+    args = parser.parse_known_args()[0]
+
+    if args.config:
+        with open(args.config, 'r', encoding='UTF-8') as f:
+            json_dict = json.load(f)
+
+        argparse_dict = vars(args)
+        argparse_dict.update(json_dict)
+
+    ocr = OCRSystem(args=args)
+
+    if args.mode == 'cls':
+        ocr.predict_cls(args.image_dir)
+    elif args.mode == 'det':
+        ocr.predict_det(args.image_dir)
+    elif args.mode == 'rec':
+        ocr.predict_rec(args.image_dir)
+    elif args.mode == 'system':
+        ocr.predict_system(args.image_dir)
+    else:
+        raise ValueError ('Please check the mode.')
+
+    
