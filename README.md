@@ -29,7 +29,8 @@
     results = ocr('test.jpg')
     ```
 
-## ONNX 模型
+## 预训练模型
+
 | Model Name | Model Type | Pretrained Model |
 |:-:|:-:|:-:|
 | ch_ppocr_mobile_v2.0_cls | cls | [Download](ch_ppocr_mobile_v2.0_cls) |
