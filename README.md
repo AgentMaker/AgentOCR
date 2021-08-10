@@ -23,12 +23,16 @@
 * 命令行调用：
 
     ```shell
+    # 文字检测
     $ agentocr det --config=config.json --image_dir=test_imgs
 
+    # 方向分类
     $ agentocr cls --config=config.json --image_dir=test_imgs
-    
+
+    # 文字识别
     $ agentocr rec --config=config.json --image_dir=test_imgs
 
+    # 串联预测
     $ agentocr system --config=config.json --image_dir=test_imgs
     ```
 
