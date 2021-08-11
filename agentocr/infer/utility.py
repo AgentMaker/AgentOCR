@@ -60,6 +60,45 @@ model_urls = {
 }
 
 
+def get_config(config):
+    if os.path.isfile(config):
+        return config
+    else:
+        latin_language = [
+            'af', 'az', 'bs', 'cs', 'cy', 'da', 'de', 'es', 'et', 'fr', 'ga',
+            'hr', 'hu', 'id', 'is', 'it', 'ku', 'la', 'lt', 'lv', 'mi', 'ms',
+            'mt', 'nl', 'no', 'oc', 'pi', 'pl', 'pt', 'ro', 'rs_latin', 'sk',
+            'sl', 'sq', 'sv', 'sw', 'tl', 'tr', 'uz', 'vi'
+        ]
+        arabic_language = ['ar', 'fa', 'ug', 'ur']
+        cyrillic_language = [
+            'ru', 'rs_cyrillic', 'be', 'bg', 'uk', 'mn', 'abq', 'ady', 'kbd',
+            'ava', 'dar', 'inh', 'che', 'lbe', 'lez', 'tab'
+        ]
+        devanagari_language = [
+            'hi', 'mr', 'ne', 'bh', 'mai', 'ang', 'bho', 'mah', 'sck', 'new',
+            'gom', 'sa', 'bgc'
+        ]
+        others_language = [
+            'ch', 'cht', 'en', 'french', 'german', 'japan', 'ka', 'ta', 'te', 'korean'
+        ]
+        if config in latin_language:
+            language = "latin"
+        elif config in arabic_language:
+            language = "arabic"
+        elif config in cyrillic_language:
+            language = "cyrillic"
+        elif config in devanagari_language:
+            language = "devanagari"
+        elif config in others_language:
+            language = config
+        else:
+            raise ValueError ('Please check your config.')
+        
+        config = os.path.join(file_dir, '..', 'resources', 'configs', language+'.json')
+        return config
+
+
 def get_char_dict(char_dict_path):
     if not os.path.isfile(char_dict_path):
         temp_path = os.path.join(file_dir, '..', 'resources', 'char_dicts', char_dict_path)

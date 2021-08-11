@@ -1,0 +1,8 @@
+{
+    "det_model_dir": "en_ppocr_mobile_v2.0_det",
+    "rec_model_dir": "en_ppocr_mobile_v2.0_number_rec",
+    "rec_char_type": "EN",
+    "rec_char_dict_path": "en_dict",
+    "vis_font_path": "simfang",
+    "cls_model_dir": "ch_ppocr_mobile_v2.0_cls"
+}

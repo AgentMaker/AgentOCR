@@ -3,16 +3,17 @@ import numpy as np
 
 from multiprocessing import Process
 
-from .infer.utility import parse_args, init_args
 from .infer import TextSystem, predict_system
 from .infer import TextDetector, predict_det
 from .infer import TextClassifier, predict_cls
 from .infer import TextRecognizer, predict_rec
+from .infer.utility import parse_args, init_args, get_config
 
 
 class OCRSystem:
     def __init__(self, config=None, args=None):
         if args is None and config is not None:
+            config = get_config(config)
             self.args = parse_args(config)
         elif args is not None:
             self.args = args
@@ -70,7 +71,8 @@ def command():
     args = parser.parse_known_args()[0]
 
     if args.config:
-        with open(args.config, 'r', encoding='UTF-8') as f:
+        config = get_config(args.config)
+        with open(config, 'r', encoding='UTF-8') as f:
             json_dict = json.load(f)
 
         argparse_dict = vars(args)
