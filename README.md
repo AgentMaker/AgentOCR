@@ -11,15 +11,24 @@
 * pip 安装：
 
     ```shell
-    $ pip install agentocr
+    # 安装 AgentOCR
+    $ pip install agentocr 
+    
+    # 根据设备平台安装合适版本的 ONNXRuntime
+    $ pip install onnxruntime
     ```
 
 * 源码安装：
 
     ```shell
+    # 同步 AgentOCR 代码
     $ git clone https://github.com/AgentMaker/AgentOCR
 
+    # 安装 AgentOCR 
     $ cd AgentOCR && python setup.py install
+
+    # 根据设备平台安装合适版本的 ONNXRuntime
+    $ pip install onnxruntime
     ```
 
 ## 使用指南
