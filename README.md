@@ -42,7 +42,7 @@
     ```python
     from agentocr import OCRSystem
 
-    ocr = OCRSystem(config='config.json')
+    ocr = OCRSystem(config='ch')
 
     results = ocr('test.jpg')
     ```
