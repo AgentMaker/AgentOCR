@@ -46,7 +46,7 @@ class OCRSystem:
         if isinstance(img, np.ndarray):
             results = self.text_sys(img, det=det, cls=cls, rec=rec, return_cls=return_cls)
         elif isinstance(img, str):
-            results = self.text_sys(cv2.imread(img), det=det, cls=cls, rec=rec, return_cls=return_cls)
+            results = self.text_sys(cv2.imdecode(np.fromfile(img, dtype=np.uint8), 1), det=det, cls=cls, rec=rec, return_cls=return_cls)
         return results
 
     def predict_det(self, image_dir):
