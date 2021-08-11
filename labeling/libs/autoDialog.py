@@ -35,13 +35,18 @@ class Worker(QThread):
             for Imgpath in self.mImgList:
                 if self.handle == 0:
                     self.listValue.emit(Imgpath)
-                    if self.model == 'paddle':
-                        h, w, _ = cv2.imdecode(np.fromfile(Imgpath, dtype=np.uint8), 1).shape
-                        if h > 32 and w > 32:
-                            self.result_dic = self.ocr.ocr(Imgpath, cls=True, det=True)
-                        else:
-                            print('The size of', Imgpath, 'is too small to be recognised')
+                    if self.model == 'AgentOCR':
+                        img = cv2.imdecode(np.fromfile(Imgpath, dtype=np.uint8), 1)
+                        if img is None:
+                            print('The data of', Imgpath, 'is None.')
                             self.result_dic = None
+                        else:
+                            h, w, _ = img.shape
+                            if h > 32 and w > 32:
+                                self.result_dic = self.ocr.ocr(Imgpath, cls=True, det=True)
+                            else:
+                                print('The size of', Imgpath, 'is too small to be recognised')
+                                self.result_dic = None
 
                     # 结果保存
                     if self.result_dic is None or len(self.result_dic) == 0:
@@ -86,7 +91,7 @@ class AutoDialog(QDialog):
 
         layout = QVBoxLayout()
         layout.addWidget(self.pb)
-        self.model = 'paddle'
+        self.model = 'AgentOCR'
         self.listWidget = QListWidget(self)
         layout.addWidget(self.listWidget)
 
@@ -104,7 +109,7 @@ class AutoDialog(QDialog):
 
         # self.setWindowFlags(Qt.WindowCloseButtonHint)
 
-        self.thread_1 = Worker(self.ocr, self.mImgList, self.parent, 'paddle')
+        self.thread_1 = Worker(self.ocr, self.mImgList, self.parent, 'AgentOCR')
         self.thread_1.progressBarValue.connect(self.handleProgressBarSingal)
         self.thread_1.listValue.connect(self.handleListWidgetSingal)
         self.thread_1.endsignal.connect(self.handleEndsignalSignal)
