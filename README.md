@@ -1,4 +1,10 @@
 # AgentOCR
+![GitHub forks](https://img.shields.io/github/forks/AgentMaker/AgentOCR)
+![GitHub Repo stars](https://img.shields.io/github/stars/AgentMaker/AgentOCR)
+![Pypi Downloads](https://pepy.tech/badge/ppim)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/AgentMaker/AgentOCR?include_prereleases)
+![GitHub](https://img.shields.io/github/license/AgentMaker/AgentOCR)  
+
 ## 简介
 * AgentOCR 是一个基于 [PaddleOCR][PaddleOCR] 和 [ONNXRuntime][ONNXRuntime] 项目开发的一个使用简单、调用方便的 OCR 项目
 
@@ -21,7 +27,7 @@
         ```
 
     * 简单调用：
-    
+
         ```python
         # 导入 OCRSystem 模块
         from agentocr import OCRSystem
