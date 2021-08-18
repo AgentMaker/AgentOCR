@@ -32,31 +32,20 @@
     ```
 
 ## 使用指南
-* 命令行调用：
-
-    ```shell
-    # 文字检测
-    $ agentocr det --config=ch --image_dir=test_imgs
-
-    # 方向分类
-    $ agentocr cls --config=ch --image_dir=test_imgs
-
-    # 文字识别
-    $ agentocr rec --config=ch --image_dir=test_imgs
-
-    # 串联预测
-    $ agentocr system --config=ch --image_dir=test_imgs
-    ```
-
-* 脚本调用：
+* API 快速使用：
 
     ```python
+    # 导入 OCRSystem 模块
     from agentocr import OCRSystem
 
+    # 初始化 OCR 模型
     ocr = OCRSystem(config='ch')
 
-    results = ocr('test.jpg')
+    # 使用模型对图像进行 OCR 识别
+    results = ocr.ocr('test.jpg')
     ```
+
+* 更多细节请参考：[【Package 使用指南】](docs/package_usage.md)
 
 ## 多语言支持
 * 目前预置了如下语言的配置文件，可通过语言缩写直接调用该配置文件：
