@@ -18,6 +18,20 @@
     $ pip install onnxruntime
     ```
 
+* whl 包安装：
+
+    * 下载 whl 包：[链接](https://github.com/AgentMaker/AgentOCR/releases)
+
+    * 安装 whl 包：
+
+        ```shell
+        # 安装 AgentOCR
+        $ pip install agentocr-x.x.x-py3-none-any.whl 
+        
+        # 根据设备平台安装合适版本的 ONNXRuntime
+        $ pip install onnxruntime
+        ```
+
 * 源码安装：
 
     ```shell
