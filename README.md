@@ -8,13 +8,13 @@
 ## 简介
 * AgentOCR 是一个基于 [PaddleOCR][PaddleOCR] 和 [ONNXRuntime][ONNXRuntime] 项目开发的一个使用简单、调用方便的 OCR 项目
 
-* 本项目目前包含 Python 模块 **【AgentOCR】** 和 OCR 标注软件 [**【AgentOCRLabeling】**](labeling/)
+* 本项目目前包含 Python Package **【AgentOCR】** 和 OCR 标注软件 [**【AgentOCRLabeling】**](labeling/)
 
 [PaddleOCR]:https://github.com/PaddlePaddle/PaddleOCR
 [ONNXRuntime]:https://github.com/microsoft/onnxruntime
 
 ## 使用指南
-* Package API 快速使用：
+* Python Package：
 
     * 快速安装：
 
