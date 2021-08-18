@@ -39,7 +39,7 @@
         results = ocr.ocr('test.jpg')
         ```
 
-* 更多安装使用细节请参考：[【Package 使用指南】](docs/package_usage.md)
+    * 更多安装使用细节请参考：[【Package 使用指南】](docs/package_usage.md)
 
 ## 多语言支持
 * 目前预置了如下语言的配置文件，可通过语言缩写直接调用该配置文件：
