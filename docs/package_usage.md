@@ -43,11 +43,11 @@
 
 ## 2 使用
 
-### 2.1 代码使用
-
 > AgentOCR Package 会自动下载 PaddleOCR 中/英文轻量级模型作为默认模型  
 可通过切换其他内置配置文件或自定义配置文件进行模型和参数自定义  
 在 API 接口的使用上，基本和 PPOCR Package 保持一致
+
+### 2.1 代码使用
 
 * 检测 + 方向分类器 + 识别全流程
 
@@ -167,3 +167,94 @@
         # 结果是一个list，每个item只包含分类结果和分类置信度
         ['0', 0.9999924]
 
+## 3 配置
+
+> AgentOCR 使用 json 格式的配置文件来配置各种模型和各项参数
+
+### 3.1 配置文件
+* 快速配置：
+
+    > 可通过如下几个选项快速配置不同的模型文件、字典和可视化字体
+
+    ```json
+    {
+        "det_model_dir": "ch_ppocr_mobile_v2.0_det",
+        "rec_model_dir": "ch_ppocr_mobile_v2.0_rec",
+        "rec_char_type": "ch",
+        "rec_char_dict_path": "ppocr_keys_v1",
+        "vis_font_path": "simfang",
+        "cls_model_dir": "ch_ppocr_mobile_v2.0_cls"
+    }
+    ```
+
+* 完整配置：
+
+    > 详细的参数介绍请参考下一小节的内容
+
+    ```json
+    {
+        "providers": "CPU",
+        "det_algorithm": "DB",
+        "det_model_dir": "ch_ppocr_mobile_v2.0_det",
+        "det_limit_side_len": 960,
+        "det_limit_type": "max",
+        "det_db_thresh": 0.3,
+        "det_db_box_thresh": 0.6,
+        "det_db_unclip_ratio": 1.5,
+        "max_batch_size": 10,
+        "use_dilation": false,
+        "det_db_score_mode": "fast",
+        "det_east_score_thresh": 0.8,
+        "det_east_cover_thresh": 0.1,
+        "det_east_nms_thresh": 0.2,
+        "det_sast_score_thresh": 0.5,
+        "det_sast_nms_thresh": 0.2,
+        "det_sast_polygon": false,
+        "rec_algorithm": "CRNN",
+        "rec_model_dir": "ch_ppocr_mobile_v2.0_rec",
+        "rec_image_shape": "3, 32, 320",
+        "rec_char_type": "ch",
+        "rec_batch_num": 6,
+        "max_text_length": 25,
+        "rec_char_dict_path": "ppocr_keys_v1",
+        "use_space_char": true,
+        "vis_font_path": "simfang",
+        "drop_score": 0.5,
+        "use_angle_cls": true,
+        "cls_model_dir": "ch_ppocr_mobile_v2.0_cls",
+        "cls_image_shape": "3, 48, 192",
+        "label_list": ["0", "180"],
+        "cls_batch_num": 6,
+        "cls_thresh": 0.9,
+        "total_process_num": 1,
+        "show_log": true
+    }
+    ```
+
+### 3.2 参数说明
+| 字段                    | 说明                                                                                                                                                                                                                 | 默认值                  |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
+| det_algorithm           | 使用的检测算法类型                                                                                                                                                                                                   | DB                      |
+| det_model_dir          |  检测模型文件 |   None        |
+| det_max_side_len        | 检测算法前向时图片长边的最大尺寸，当长边超出这个值时会将长边resize到这个大小，短边等比例缩放                                                                                                                         | 960                     |
+| det_db_thresh           | DB模型输出预测图的二值化阈值                                                                                                                                                                                         | 0.3                     |
+| det_db_box_thresh       | DB模型输出框的阈值，低于此值的预测框会被丢弃                                                                                                                                                                           | 0.5                     |
+| det_db_unclip_ratio     | DB模型输出框扩大的比例                                                                                                                                                                                               | 2                       |
+| det_east_score_thresh   | EAST模型输出预测图的二值化阈值                                                                                                                                                                                       | 0.8                     |
+| det_east_cover_thresh   | EAST模型输出框的阈值，低于此值的预测框会被丢弃                                                                                                                                                                         | 0.1                     |
+| det_east_nms_thresh     | EAST模型输出框NMS的阈值                                                                                                                                                                                              | 0.2                     |
+| rec_algorithm           | 使用的识别算法类型                                                                                                                                                                                                   | CRNN                    |
+| rec_model_dir          | 识别模型文件 | None |
+| rec_image_shape         | 识别算法的输入图片尺寸                                                                                                                                                                                             | "3,32,320"              |
+| rec_char_type           | 识别算法的字符类型，中英文(ch)、英文(en)、法语(french)、德语(german)、韩语(korean)、日语(japan)                                                                                                                                                                               | ch                      |
+| rec_batch_num           | 进行识别时，同时前向的图片数                                                                                                                                                                                         | 30                      |
+| max_text_length         | 识别算法能识别的最大文字长度                                                                                                                                                                                         | 25                      |
+| rec_char_dict_path      | 识别模型字典路径，当rec_model_dir使用方式2传参时需要修改为自己的字典路径                                                                                                                                                | ./ppocr/utils/ppocr_keys_v1.txt                        |
+| use_space_char          | 是否识别空格                                                                                                                                                                                                         | TRUE                    |
+| drop_score          | 对输出按照分数(来自于识别模型)进行过滤，低于此分数的不返回                                                                                                                                                                                                         | 0.5                    |
+| use_angle_cls          | 是否加载分类模型                                                                                                                                                                                                         | FALSE                    |
+| cls_model_dir          | 分类模型文件 | None                    |
+| cls_image_shape          | 分类算法的输入图片尺寸                                                                           | "3, 48, 192"                    |
+| label_list          | 分类算法的标签列表                                                                           | ['0', '180']                  |
+| cls_batch_num          | 进行分类时，同时前向的图片数                                                                          |30                 |
+| show_log                     | 是否打印det和rec等信息                                                                                                                                                                                                | FALSE                    |
