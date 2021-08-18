@@ -7,59 +7,33 @@
 [PaddleOCR]:https://github.com/PaddlePaddle/PaddleOCR
 [ONNXRuntime]:https://github.com/microsoft/onnxruntime
 
-## 安装
-* pip 安装：
+## 使用指南
+* Package API 快速使用：
 
-    ```shell
-    # 安装 AgentOCR
-    $ pip install agentocr 
-    
-    # 根据设备平台安装合适版本的 ONNXRuntime
-    $ pip install onnxruntime
-    ```
-
-* whl 包安装：
-
-    * 下载 whl 包：[链接](https://github.com/AgentMaker/AgentOCR/releases)
-
-    * 安装 whl 包：
+    * 快速安装：
 
         ```shell
         # 安装 AgentOCR
-        $ pip install agentocr-x.x.x-py3-none-any.whl 
+        $ pip install agentocr 
         
         # 根据设备平台安装合适版本的 ONNXRuntime
         $ pip install onnxruntime
         ```
 
-* 源码安装：
+    * 简单调用：
+    
+        ```python
+        # 导入 OCRSystem 模块
+        from agentocr import OCRSystem
 
-    ```shell
-    # 同步 AgentOCR 代码
-    $ git clone https://github.com/AgentMaker/AgentOCR
+        # 初始化 OCR 模型
+        ocr = OCRSystem(config='ch')
 
-    # 安装 AgentOCR 
-    $ cd AgentOCR && python setup.py install
+        # 使用模型对图像进行 OCR 识别
+        results = ocr.ocr('test.jpg')
+        ```
 
-    # 根据设备平台安装合适版本的 ONNXRuntime
-    $ pip install onnxruntime
-    ```
-
-## 使用指南
-* API 快速使用：
-
-    ```python
-    # 导入 OCRSystem 模块
-    from agentocr import OCRSystem
-
-    # 初始化 OCR 模型
-    ocr = OCRSystem(config='ch')
-
-    # 使用模型对图像进行 OCR 识别
-    results = ocr.ocr('test.jpg')
-    ```
-
-* 更多细节请参考：[【Package 使用指南】](docs/package_usage.md)
+* 更多安装使用细节请参考：[【Package 使用指南】](docs/package_usage.md)
 
 ## 多语言支持
 * 目前预置了如下语言的配置文件，可通过语言缩写直接调用该配置文件：
