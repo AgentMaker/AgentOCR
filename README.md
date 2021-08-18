@@ -1,7 +1,7 @@
 # AgentOCR
 ![GitHub forks](https://img.shields.io/github/forks/AgentMaker/AgentOCR)
 ![GitHub Repo stars](https://img.shields.io/github/stars/AgentMaker/AgentOCR)
-![Pypi Downloads](https://pepy.tech/badge/ppim)
+![Pypi Downloads](https://pepy.tech/badge/agentocr)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/AgentMaker/AgentOCR?include_prereleases)
 ![GitHub](https://img.shields.io/github/license/AgentMaker/AgentOCR)  
 
