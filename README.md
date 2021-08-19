@@ -39,7 +39,7 @@
         results = ocr.ocr('test.jpg')
         ```
     
-    * Notebook：[【快速使用】](examples/quick_start.ipynb)
+    * Jupyter Notebook：[【快速使用】](examples/quick_start.ipynb)
     * 更多安装使用细节请参考：[【Package 使用指南】](docs/package_usage.md)
 
 ## 多语言支持
