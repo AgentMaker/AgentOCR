@@ -188,7 +188,7 @@
 
     ```json
     {
-        "providers": "",
+        "providers": "auto",
         "det_algorithm": "DB",
         "det_model_dir": "ch_ppocr_mobile_v2.0_det",
         "det_limit_side_len": 960,
