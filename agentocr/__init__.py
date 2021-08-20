@@ -48,10 +48,10 @@ class OCRSystem:
             func(self.args, image_dir)
         self.load()
 
-    def __call__(self, img, det=True, cls=True, rec=True, return_cls=False):
+    def __call__(self, img, det=True, cls=False, rec=True, return_cls=False):
         return self.ocr(img, det=det, cls=cls, rec=rec, return_cls=return_cls)
 
-    def ocr(self, img, det=True, cls=True, rec=True, return_cls=False):
+    def ocr(self, img, det=True, cls=False, rec=True, return_cls=False):
         if isinstance(img, np.ndarray):
             results = self.text_sys(img,
                                     det=det,
