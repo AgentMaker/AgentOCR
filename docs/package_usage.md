@@ -55,6 +55,8 @@
     from agentocr import OCRSystem
 
     # 通过 config 参数来进行模型配置，内置多国语言的配置文件
+    # 也可以根据 3.1 配置文件中的选项，指定自定义配置，比如通过下面的代码指定运行后端：
+    # ocr = OCRSystem(config='ch', providers='cuda,cpu')
     ocr = OCRSystem(config='ch')
 
     # 设置测试图片路径
@@ -74,13 +76,11 @@
     ```python
     from agentocr import OCRSystem
 
-    # 通过 config 参数来进行模型配置，内置多国语言的配置文件
     ocr = OCRSystem(config='ch')
 
-    # 设置测试图片路径
     img_path = 'test.jpg'
 
-    # 调用 OCR API 进行全流程识别
+    # 关闭分类选项
     result = ocr.ocr(img_path, cls=False)
     ```
 
@@ -95,13 +95,11 @@
     ```python
     from agentocr import OCRSystem
 
-    # 通过 config 参数来进行模型配置，内置多国语言的配置文件
     ocr = OCRSystem(config='ch')
 
-    # 设置测试图片路径
     img_path = 'test.jpg'
 
-    # 调用 OCR API 进行全流程识别
+    # 关闭检测并开启分类选项
     result = ocr.ocr(img_path, det=False, cls=True)
     ```
 
@@ -115,13 +113,11 @@
     ```python
     from agentocr import OCRSystem
 
-    # 通过 config 参数来进行模型配置，内置多国语言的配置文件
     ocr = OCRSystem(config='ch')
 
-    # 设置测试图片路径
     img_path = 'test.jpg'
 
-    # 调用 OCR API 进行全流程识别
+    # 关闭识别选项
     result = ocr.ocr(img_path, rec=False)
     ```
 
@@ -136,13 +132,11 @@
     ```python
     from agentocr import OCRSystem
 
-    # 通过 config 参数来进行模型配置，内置多国语言的配置文件
     ocr = OCRSystem(config='ch')
 
-    # 设置测试图片路径
     img_path = 'test.jpg'
 
-    # 调用 OCR API 进行全流程识别
+    # 关闭检测选项
     result = ocr.ocr(img_path, det=False)
     ```
 
@@ -154,13 +148,11 @@
     ```python
     from agentocr import OCRSystem
 
-    # 通过 config 参数来进行模型配置，内置多国语言的配置文件
     ocr = OCRSystem(config='ch')
 
-    # 设置测试图片路径
     img_path = 'test.jpg'
 
-    # 调用 OCR API 进行全流程识别
+    # 关闭检测、识别并开启分类选项
     result = ocr.ocr(img_path, det=False, cls=True, rec=False)
     ```
 
