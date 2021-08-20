@@ -144,9 +144,6 @@ def str2providers(str):
 def init_args():
     parser = argparse.ArgumentParser()
 
-    # params for config
-    parser.add_argument("--show_log", type=bool, default=True)
-
     # params for onnx engine
     parser.add_argument("--providers", type=str, default='')
     
@@ -186,7 +183,6 @@ def init_args():
     parser.add_argument("--drop_score", type=float, default=0.5)
 
     # params for text classifier
-    parser.add_argument("--use_angle_cls", type=bool, default=True)
     parser.add_argument("--cls_model_dir", type=str, default='ch_ppocr_mobile_v2.0_cls')
     parser.add_argument("--cls_image_shape", type=str, default="3, 48, 192")
     parser.add_argument("--label_list", type=list, default=['0', '180'])
@@ -195,6 +191,9 @@ def init_args():
 
     # multi-process
     parser.add_argument("--total_process_num", type=int, default=1)
+
+    # params for config
+    parser.add_argument("--show_log", type=bool, default=True)
 
     return parser
 

@@ -188,7 +188,7 @@
 
     ```json
     {
-        "providers": "CPU",
+        "providers": "",
         "det_algorithm": "DB",
         "det_model_dir": "ch_ppocr_mobile_v2.0_det",
         "det_limit_side_len": 960,
@@ -208,7 +208,7 @@
         "rec_model_dir": "ch_ppocr_mobile_v2.0_rec",
         "rec_image_shape": "3, 32, 320",
         "rec_char_type": "ch",
-        "rec_batch_num": 6,
+        "rec_batch_num": 8,
         "max_text_length": 25,
         "rec_char_dict_path": "ppocr_keys_v1",
         "use_space_char": true,
@@ -217,7 +217,7 @@
         "cls_model_dir": "ch_ppocr_mobile_v2.0_cls",
         "cls_image_shape": "3, 48, 192",
         "label_list": ["0", "180"],
-        "cls_batch_num": 6,
+        "cls_batch_num": 8,
         "cls_thresh": 0.9,
         "total_process_num": 1,
         "show_log": true
@@ -225,7 +225,7 @@
     ```
 
 ### 3.2 参数说明
-| 字段                    | 说明                                                                                                                                                                                                                 | 默认值                  |
+| 字段       | 说明                                                                                                               | 默认值                  |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
 | providers               | 使用的计算后端，使用字符串设定使用顺序，使用逗号分隔，不区分大小写，如 “cuda,cpu”，默认空字符串，为所有可用后端自动选择（可能并非最佳顺序）                  |  ""                |
 | det_algorithm           | 使用的检测算法类型                                                                                                                                                                                                   | DB                      |
