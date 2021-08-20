@@ -1,4 +1,5 @@
 import cv2
+import onnxruntime
 import numpy as np
 
 from multiprocessing import Process
@@ -7,11 +8,18 @@ from .infer import TextSystem, predict_system
 from .infer import TextDetector, predict_det
 from .infer import TextClassifier, predict_cls
 from .infer import TextRecognizer, predict_rec
-from .infer.utility import parse_args, init_args, get_config
+from .infer.utility import parse_args, init_args, get_config, get_logger
 
 
 class OCRSystem:
     def __init__(self, config='ch', **kwargs):
+        self.logger = get_logger()
+        available_providers = [
+            provider[:-17]
+            for provider in onnxruntime.get_available_providers()
+        ]
+        self.logger.info(
+            'All available providers: {}'.format(available_providers))
         config = get_config(config)
         self.args, self.argparse_dict = parse_args(config)
 
@@ -26,7 +34,8 @@ class OCRSystem:
         if self.args.total_process_num > 1:
             p_list = []
             for process_id in range(self.args.total_process_num):
-                p = Process(target=func, args=(self.args, image_dir, process_id))
+                p = Process(target=func,
+                            args=(self.args, image_dir, process_id))
                 p.start()
                 p_list.append(p)
             for p in p_list:
@@ -40,9 +49,18 @@ class OCRSystem:
 
     def ocr(self, img, det=True, cls=True, rec=True, return_cls=False):
         if isinstance(img, np.ndarray):
-            results = self.text_sys(img, det=det, cls=cls, rec=rec, return_cls=return_cls)
+            results = self.text_sys(img,
+                                    det=det,
+                                    cls=cls,
+                                    rec=rec,
+                                    return_cls=return_cls)
         elif isinstance(img, str):
-            results = self.text_sys(cv2.imdecode(np.fromfile(img, dtype=np.uint8), 1), det=det, cls=cls, rec=rec, return_cls=return_cls)
+            results = self.text_sys(cv2.imdecode(
+                np.fromfile(img, dtype=np.uint8), 1),
+                                    det=det,
+                                    cls=cls,
+                                    rec=rec,
+                                    return_cls=return_cls)
         return results
 
     def predict_det(self, image_dir):
@@ -77,6 +95,4 @@ def command():
     elif args.mode == 'system':
         ocr.predict_system(args.image_dir)
     else:
-        raise ValueError ('Please check the mode.')
-
-    
+        raise ValueError('Please check the mode.')

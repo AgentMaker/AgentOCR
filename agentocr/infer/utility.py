@@ -238,9 +238,9 @@ def create_session(args, mode, logger):
 
     sess_options = ort.SessionOptions()
     providers = str2providers(args.providers)
-    logger.info('Using providers: {}'.format(providers))
+    logger.info('Using providers: {}'.format([provider[:-17] for provider in providers]))
     if 'DmlExecutionProvider' in providers:
-        logger.info('Disable mem_pattern because using the DmlExecutionProvider.')
+        logger.info('Disable mem_pattern because using the Dml Provider.')
         sess_options.enable_mem_pattern = False
     
     session = ort.InferenceSession(model_dir, providers=providers, sess_options=sess_options)
