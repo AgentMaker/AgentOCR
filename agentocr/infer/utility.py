@@ -209,7 +209,7 @@ def parse_args(config=None):
 
         argparse_dict = vars(args)
         argparse_dict.update(json_dict)
-    return args
+    return args, argparse_dict
 
 
 def create_session(args, mode, logger):

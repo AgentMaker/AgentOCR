@@ -11,15 +11,11 @@ from .infer.utility import parse_args, init_args, get_config
 
 
 class OCRSystem:
-    def __init__(self, config=None, args=None):
-        if args is None and config is not None:
-            config = get_config(config)
-            self.args = parse_args(config)
-        elif args is not None:
-            self.args = args
-        else:
-            raise ValueError ('Please check the config.')
+    def __init__(self, config='ch', **kwargs):
+        config = get_config(config)
+        self.args, self.argparse_dict = parse_args(config)
 
+        self.argparse_dict.update(kwargs)
         self.load()
 
     def load(self):
@@ -69,16 +65,8 @@ def command():
     parser.add_argument("--config", type=str)
     parser.add_argument("--image_dir", type=str, required=True)
     args = parser.parse_known_args()[0]
-
-    if args.config:
-        config = get_config(args.config)
-        with open(config, 'r', encoding='UTF-8') as f:
-            json_dict = json.load(f)
-
-        argparse_dict = vars(args)
-        argparse_dict.update(json_dict)
-
-    ocr = OCRSystem(args=args)
+    args, argparse_dict = parse_args(args.config)
+    ocr = OCRSystem(**argparse_dict)
 
     if args.mode == 'cls':
         ocr.predict_cls(args.image_dir)
