@@ -47,13 +47,13 @@
 
     | 语种 | 描述 | 缩写 | | 语种 | 描述 | 缩写 |
     | --- | --- | --- | ---|--- | --- | --- |
-    |中文（繁体）|chinese and english|ch(t)| |保加利亚文|Bulgarian |bg|
+    |中文|chinese and english|ch| |保加利亚文|Bulgarian |bg|
     |英文|english|en| |乌克兰文|Ukranian|uk|
     |法文|french|fr| |白俄罗斯文|Belarusian|be|
     |德文|german|german| |泰卢固文|Telugu |te|
     |日文|japan|japan| |阿巴扎文|Abaza |abq|
     |韩文|korean|korean| |泰米尔文|Tamil |ta|
-    |中文繁体|chinese traditional |ch_tra| |南非荷兰文 |Afrikaans |af|
+    |中文繁体|chinese traditional |cht| |南非荷兰文 |Afrikaans |af|
     |意大利文| Italian |it| |阿塞拜疆文 |Azerbaijani    |az|
     |西班牙文|Spanish |es| |波斯尼亚文|Bosnian|bs|
     |葡萄牙文| Portuguese|pt| |捷克文|Czech|cs|
