@@ -28,7 +28,7 @@ import traceback
 import numpy as np
 
 from ..postprocess import build_post_process
-from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args
+from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args, init_args
 
 logger = get_logger()
 
@@ -146,4 +146,5 @@ def main(args, image_dir, process_id=0):
 
 
 if __name__ == "__main__":
-    main(parse_args())
+    parser = init_args()
+    main(parse_args(parser))

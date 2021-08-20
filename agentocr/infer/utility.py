@@ -200,15 +200,15 @@ def init_args():
     return parser
 
 
-def parse_args(config=None):
-    parser = init_args()
+def parse_args(parser, config=None):
     args = parser.parse_known_args()[0]
+    argparse_dict = vars(args)
+
     if config:
         with open(config, 'r', encoding='UTF-8') as f:
             json_dict = json.load(f)
-
-        argparse_dict = vars(args)
         argparse_dict.update(json_dict)
+
     return args, argparse_dict
 
 

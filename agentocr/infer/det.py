@@ -24,7 +24,7 @@ import cv2
 import time
 import numpy as np
 
-from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args, draw_text_det_res
+from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args, draw_text_det_res, init_args
 from ..imaug import create_operators, transform
 from ..postprocess import build_post_process
 
@@ -226,5 +226,5 @@ def main(args, image_dir, process_id=0):
         logger.info("The visualized image saved in {}".format(img_path))
 
 if __name__ == "__main__":
-    main(parse_args())
-
+    parser = init_args()
+    main(parse_args(parser))

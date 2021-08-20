@@ -8,11 +8,11 @@ from .infer import TextSystem, predict_system
 from .infer import TextDetector, predict_det
 from .infer import TextClassifier, predict_cls
 from .infer import TextRecognizer, predict_rec
-from .infer.utility import parse_args, init_args, get_config, get_logger
+from .infer.utility import parse_args, init_args, get_config, get_logger, init_args
 
 
 class OCRSystem:
-    def __init__(self, config='ch', **kwargs):
+    def __init__(self, config=None, **kwargs):
         self.logger = get_logger()
         available_providers = [
             provider[:-17]
@@ -20,8 +20,12 @@ class OCRSystem:
         ]
         self.logger.info(
             'All available providers: {}'.format(available_providers))
+
+        if config is None:
+            config = 'ch'
         config = get_config(config)
-        self.args, self.argparse_dict = parse_args(config)
+        parser = init_args()
+        self.args, self.argparse_dict = parse_args(parser, config)
 
         self.argparse_dict.update(kwargs)
         self.load()
@@ -82,7 +86,7 @@ def command():
     parser.add_argument("--config", type=str)
     parser.add_argument("--image_dir", type=str, required=True)
     args = parser.parse_known_args()[0]
-    args, argparse_dict = parse_args(args.config)
+    args, argparse_dict = parse_args(parser, args.config)
     ocr = OCRSystem(**argparse_dict)
 
     if args.mode == 'cls':

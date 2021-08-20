@@ -31,7 +31,7 @@ from .det import TextDetector
 from .cls import TextClassifier
 from .rec import TextRecognizer
 from .utility import draw_ocr_box_txt, get_rotate_crop_image
-from .utility import get_image_file_list, check_and_read_gif, get_logger, parse_args, get_vis_font
+from .utility import get_image_file_list, check_and_read_gif, get_logger, parse_args, get_vis_font, init_args
 
 
 logger = get_logger()
@@ -200,4 +200,5 @@ def main(args, image_dir, process_id=0):
 
 
 if __name__ == "__main__":
-    main(parse_args())
+    parser = init_args()
+    main(parse_args(parser))
