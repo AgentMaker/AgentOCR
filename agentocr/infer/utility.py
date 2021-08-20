@@ -160,7 +160,6 @@ def init_args():
     parser.add_argument("--det_db_thresh", type=float, default=0.3)
     parser.add_argument("--det_db_box_thresh", type=float, default=0.6)
     parser.add_argument("--det_db_unclip_ratio", type=float, default=1.5)
-    parser.add_argument("--max_batch_size", type=int, default=8)
     parser.add_argument("--use_dilation", type=bool, default=False)
     parser.add_argument("--det_db_score_mode", type=str, default="fast")
 

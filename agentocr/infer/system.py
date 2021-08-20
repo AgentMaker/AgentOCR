@@ -43,11 +43,9 @@ class TextSystem(object):
             logger.setLevel(logging.INFO)
 
         self.text_detector = TextDetector(args)
+        self.text_classifier = TextClassifier(args)
         self.text_recognizer = TextRecognizer(args)
-        self.use_angle_cls = args.use_angle_cls
         self.drop_score = args.drop_score
-        if self.use_angle_cls:
-            self.text_classifier = TextClassifier(args)
 
     def print_draw_crop_rec_res(self, img_crop_list, rec_res):
         bbox_num = len(img_crop_list)
@@ -74,7 +72,7 @@ class TextSystem(object):
         else:
             img_crop_list.append(img)
 
-        if self.use_angle_cls and cls:
+        if cls:
             img_crop_list, angle_list, elapse = self.text_classifier(
                 img_crop_list)
             logger.debug("cls num  : {}, elapse : {}".format(
