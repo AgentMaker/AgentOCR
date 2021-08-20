@@ -117,7 +117,8 @@ def get_vis_font(vis_font_path):
             vis_font_path = temp_path+'.ttf'
     return vis_font_path
 
-def str2providers(str):
+
+def str2providers(str, logger):
     available_providers = ort.get_available_providers()
 
     providers_dict = {
@@ -137,8 +138,10 @@ def str2providers(str):
     ]
 
     if len(select_providers) == 0:
+        logger.error('No available providers: {}'.format(str.split(',')))
+        logger.error('Automatically sets the available providers as the default providers!'.format(str.split(',')))
         select_providers = available_providers
-
+        
     return select_providers
 
 def init_args():
@@ -235,7 +238,7 @@ def create_session(args, mode, logger):
         sys.exit(0)
 
     sess_options = ort.SessionOptions()
-    providers = str2providers(args.providers)
+    providers = str2providers(args.providers, logger)
     logger.info('Using providers: {}'.format([provider[:-17] for provider in providers]))
     if 'DmlExecutionProvider' in providers:
         logger.info('Disable mem_pattern because using the Dml Provider.')
@@ -248,23 +251,6 @@ def create_session(args, mode, logger):
     output_names = [output.name for output in session.get_outputs()]
 
     return session, input_names, output_names
-
-
-
-def draw_e2e_res(dt_boxes, strs, img_path):
-    src_im = cv2.imread(img_path)
-    for box, str in zip(dt_boxes, strs):
-        box = box.astype(np.int32).reshape((-1, 1, 2))
-        cv2.polylines(src_im, [box], True, color=(255, 255, 0), thickness=2)
-        cv2.putText(
-            src_im,
-            str,
-            org=(int(box[0, 0, 0]), int(box[0, 0, 1])),
-            fontFace=cv2.FONT_HERSHEY_COMPLEX,
-            fontScale=0.7,
-            color=(0, 255, 0),
-            thickness=1)
-    return src_im
 
 
 def draw_text_det_res(dt_boxes, img_path):
