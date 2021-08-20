@@ -14,7 +14,7 @@ setup(name='agentocr',
       ],
       include_package_data=True,
       entry_points={"console_scripts": ["agentocr = agentocr:command"]},
-      version='1.1.1',
+      version='1.1.2',
       install_requires=[
           'shapely', 'pyclipper', 'numpy', 'opencv-python', 'pillow', 'wget'
       ],

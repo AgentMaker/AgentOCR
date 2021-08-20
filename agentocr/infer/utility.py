@@ -121,6 +121,9 @@ def get_vis_font(vis_font_path):
 def str2providers(str, logger):
     available_providers = ort.get_available_providers()
 
+    if str.lower() == 'auto':
+        return available_providers
+
     providers_dict = {
         provider.lower(): provider 
         for provider in available_providers
@@ -148,7 +151,7 @@ def init_args():
     parser = argparse.ArgumentParser()
 
     # params for onnx engine
-    parser.add_argument("--providers", type=str, default='')
+    parser.add_argument("--providers", type=str, default='auto')
     
     # params for text detector
     parser.add_argument("--det_algorithm", type=str, default='DB')
