@@ -77,7 +77,6 @@ class OCRSystem:
 
 
 def command():
-    import json
     parser = init_args()
     parser.add_argument(dest='mode', type=str)
     parser.add_argument("--config", type=str)
