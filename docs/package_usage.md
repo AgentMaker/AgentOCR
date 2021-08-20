@@ -227,28 +227,34 @@
 ### 3.2 参数说明
 | 字段       | 说明                                                                                                               | 默认值                  |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
-| providers               | 使用的计算后端，使用字符串设定使用顺序，使用逗号分隔，不区分大小写，如 “cuda,cpu”，默认空字符串，为所有可用后端自动选择（可能并非最佳顺序）                  |  ""                |
+| providers               | 使用的计算后端，使用字符串设定使用顺序，使用逗号分隔，不区分大小写，如 “cuda,cpu”，默认空字符串，为所有可用后端自动选择（可能并非最佳顺序）                  |                  |
 | det_algorithm           | 使用的检测算法类型                                                                                                                                                                                                   | DB                      |
 | det_model_dir          |  检测模型文件,文件名或文件路径 |   ch_ppocr_mobile_v2.0_det        |
 | det_max_side_len        | 检测算法前向时图片长边的最大尺寸，当长边超出这个值时会将长边resize到这个大小，短边等比例缩放                                                                                                                         | 960                     |
 |  det_limit_type        | 检测的限制类型 | max |
 | det_db_thresh           | DB模型输出预测图的二值化阈值                                                                                                                                                                                         | 0.3                     |
-| det_db_box_thresh       | DB模型输出框的阈值，低于此值的预测框会被丢弃                                                                                                                                                                           | 0.5                     |
-| det_db_unclip_ratio     | DB模型输出框扩大的比例                                                                                                                                                                                               | 2                       |
+| det_db_box_thresh       | DB模型输出框的阈值，低于此值的预测框会被丢弃                                                                                                                                                                           | 0.6                     |
+| det_db_unclip_ratio     | DB模型输出框扩大的比例                                                                                                                                                                                               | 1.5                       |
+| use_dilation | 是否使用空洞卷积 | False |
+| det_db_score_mode | DB 分数计算模式（slow or fast） | fast |
 | det_east_score_thresh   | EAST模型输出预测图的二值化阈值                                                                                                                                                                                       | 0.8                     |
 | det_east_cover_thresh   | EAST模型输出框的阈值，低于此值的预测框会被丢弃                                                                                                                                                                         | 0.1                     |
 | det_east_nms_thresh     | EAST模型输出框NMS的阈值                                                                                                                                                                                              | 0.2                     |
+|det_sast_polygon|是否使用 SAST polygon| False |
 | rec_algorithm           | 使用的识别算法类型                                                                                                                                                                                             | CRNN                    |
 | rec_model_dir          | 识别模型文件，文件名或文件路径       | ch_ppocr_mobile_v2.0_rec |
-| rec_image_shape         | 识别算法的输入图片尺寸                                                                                                                                                                                             | "3,32,320"              |
+| rec_image_shape         | 识别算法的输入图片尺寸                                                                                                                                                                                             | 3,32,320             |
 | rec_char_type           | 识别算法的字符类型，中英文(ch)、英文(en)、法语(french)、德语(german)、韩语(korean)、日语(japan)                                                                                                                                                                               | ch                      |
 | rec_batch_num           | 进行识别时，同时前向的图片数                                                                                                                                                                                         | 8                      |
 | max_text_length         | 识别算法能识别的最大文字长度                                                                                                                                                                                         | 25                      |
 | rec_char_dict_path      | 识别模型字典，文件名或文件路径                                                                                                    | ppocr_keys_v1                        |
-| use_space_char          | 是否识别空格                                                                                                                                                                                                         | TRUE                    |
+| use_space_char          | 是否识别空格                                                                                                                                                                                                         | True                    |
+|vis_font_path|可视化字体，文件名或者文件路径| simfang |
 | drop_score          | 对输出按照分数（来自于识别模型）进行过滤，低于此分数的不返回                                                                                                                                                                                                         | 0.5                    |
 | cls_model_dir          | 分类模型文件（文件名或者文件路径） | ch_ppocr_mobile_v2.0_cls                    |
-| cls_image_shape          | 分类算法的输入图片尺寸                                                                           | "3, 48, 192"                    |
+| cls_image_shape          | 分类算法的输入图片尺寸                                                                           | 3, 48, 192                   |
 | label_list          | 分类算法的标签列表                                                                           | ['0', '180']                  |
 | cls_batch_num          | 进行分类时，同时前向的图片数                                                                          | 8                 |
-| show_log                     | 是否打印 log                                                                                                                                                                                                | FALSE                    |
+|cls_thresh|分类器阈值|0.9|
+|total_process_num|进程数量|1|
+| show_log                     | 是否打印 log                                                                                                                                                                                                | False                    |
