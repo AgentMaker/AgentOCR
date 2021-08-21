@@ -1,6 +1,6 @@
 import cv2
-import onnxruntime
 import numpy as np
+import onnxruntime as ort
 
 from multiprocessing import Process
 
@@ -16,7 +16,7 @@ class OCRSystem:
         self.logger = get_logger()
         available_providers = [
             provider[:-17]
-            for provider in onnxruntime.get_available_providers()
+            for provider in ort.get_available_providers()
         ]
         self.logger.info(
             'All available providers: {}'.format(available_providers))

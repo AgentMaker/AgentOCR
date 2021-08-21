@@ -25,7 +25,7 @@ import time
 import numpy as np
 
 from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args, draw_text_det_res, init_args
-from ..imaug import create_operators, transform
+from ..preprocess import create_operators, transform
 from ..postprocess import build_post_process
 
 logger = get_logger()

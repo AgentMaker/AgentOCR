@@ -9,12 +9,12 @@ def readme():
 
 setup(name='agentocr',
       packages=[
-          'agentocr', 'agentocr.imaug', 'agentocr.infer',
+          'agentocr', 'agentocr.preprocess', 'agentocr.infer',
           'agentocr.postprocess'
       ],
       include_package_data=True,
       entry_points={"console_scripts": ["agentocr = agentocr:command"]},
-      version='1.1.2',
+      version='1.1.3',
       install_requires=[
           'shapely', 'pyclipper', 'numpy', 'opencv-python', 'pillow', 'wget'
       ],
