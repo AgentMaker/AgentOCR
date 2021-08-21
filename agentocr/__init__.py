@@ -12,7 +12,7 @@ from .infer.utility import parse_args, init_args, get_config, get_logger, init_a
 
 
 class OCRSystem:
-    def __init__(self, config=None, **kwargs):
+    def __init__(self, config='ch', **kwargs):
         self.logger = get_logger()
         available_providers = [
             provider[:-17] for provider in ort.get_available_providers()
@@ -20,8 +20,6 @@ class OCRSystem:
         self.logger.info(
             'All available providers: {}'.format(available_providers))
 
-        if config is None:
-            config = 'ch'
         config = get_config(config)
         parser = init_args()
         self.args, self.argparse_dict = parse_args(parser, config)
@@ -82,8 +80,8 @@ class OCRSystem:
 def command():
     parser = init_args()
     parser.add_argument(dest='mode', type=str)
-    parser.add_argument("--config", type=str)
-    parser.add_argument("--image_dir", type=str, required=True)
+    parser.add_argument(dest="image_dir", type=str)
+    parser.add_argument("--config", "-c", type=str, default='ch')
     args = parser.parse_known_args()[0]
     args, argparse_dict = parse_args(parser, args.config)
     ocr = OCRSystem(**argparse_dict)
