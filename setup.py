@@ -1,4 +1,5 @@
 from setuptools import setup
+from agentocr import version
 
 
 def readme():
@@ -14,7 +15,7 @@ setup(name='agentocr',
       ],
       include_package_data=True,
       entry_points={"console_scripts": ["agentocr = agentocr:command"]},
-      version='1.1.3',
+      version=version,
       install_requires=[
           'shapely', 'pyclipper', 'numpy', 'opencv-python', 'pillow', 'wget'
       ],

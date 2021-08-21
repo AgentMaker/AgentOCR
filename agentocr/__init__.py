@@ -10,13 +10,14 @@ from .infer import TextClassifier, predict_cls
 from .infer import TextRecognizer, predict_rec
 from .infer.utility import parse_args, init_args, get_config, get_logger, init_args
 
+version = '1.1.3'
+
 
 class OCRSystem:
     def __init__(self, config=None, **kwargs):
         self.logger = get_logger()
         available_providers = [
-            provider[:-17]
-            for provider in ort.get_available_providers()
+            provider[:-17] for provider in ort.get_available_providers()
         ]
         self.logger.info(
             'All available providers: {}'.format(available_providers))
