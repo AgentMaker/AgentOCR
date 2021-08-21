@@ -3,6 +3,7 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/AgentMaker/AgentOCR)
 ![Pypi Downloads](https://pepy.tech/badge/agentocr)
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/AgentMaker/AgentOCR?include_prereleases)
+![Test](https://github.com/AgentMaker/AgentOCR/actions/workflows/test.yml/badge.svg?branch=main)
 ![GitHub](https://img.shields.io/github/license/AgentMaker/AgentOCR)  
 
 ## 简介
