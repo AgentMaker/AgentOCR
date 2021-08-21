@@ -25,6 +25,15 @@ jobs:
     - name: Test
       run: |
         touch test.py
-        echo "from agentocr import OCRSystem\nimport cv2\nocr = OCRSystem()\nout=ocr.ocr(cv2.imread(images/ch.jpg))\nprint(out)" >> test.py
+        echo "from agentocr import OCRSystem" >> test.py
+        echo >> test.py
+        echo "import cv2" >> test.py
+        echo >> test.py
+        echo "ocr = OCRSystem()" >> test.py
+        echo >> test.py
+        echo "out=ocr.ocr(cv2.imread(images/ch.jpg))" >> test.py
+        echo >> test.py
+        echo "print(out)" >> test.py
+        echo >> test.py
         python test.py
         agentocr system --image_dir images
