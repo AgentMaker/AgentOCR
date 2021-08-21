@@ -31,7 +31,7 @@ jobs:
         echo >> test.py
         echo "ocr = OCRSystem()" >> test.py
         echo >> test.py
-        echo "out=ocr.ocr(cv2.imread(images/ch.jpg))" >> test.py
+        echo "out=ocr.ocr(cv2.imread('images/ch.jpg'))" >> test.py
         echo >> test.py
         echo "print(out)" >> test.py
         echo >> test.py
