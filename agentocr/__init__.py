@@ -83,7 +83,8 @@ def command():
     parser.add_argument(dest="image_dir", type=str)
     parser.add_argument("--config", "-c", type=str, default='ch')
     args = parser.parse_known_args()[0]
-    args, argparse_dict = parse_args(parser, args.config)
+    config = get_config(args.config)
+    args, argparse_dict = parse_args(parser, config)
     ocr = OCRSystem(**argparse_dict)
 
     if args.mode == 'cls':
