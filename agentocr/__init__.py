@@ -10,8 +10,6 @@ from .infer import TextClassifier, predict_cls
 from .infer import TextRecognizer, predict_rec
 from .infer.utility import parse_args, init_args, get_config, get_logger, init_args
 
-version = '1.1.3'
-
 
 class OCRSystem:
     def __init__(self, config=None, **kwargs):
