@@ -28,6 +28,14 @@ class OCRSystem:
         logger.info('OCRSystem config:{}'.format(self.argparse_dict))
         logger.info('All available providers: {}'.format(available_providers))
         self.load()
+        self.warmup()
+
+    def warmup(self):
+        fake_img = np.zeros((720, 1280, 3))
+        for _ in range(3):
+            self.text_sys.text_detector(fake_img)
+            self.text_sys.text_classifier([fake_img])
+            self.text_sys.text_recognizer([fake_img])
 
     def load(self):
         self.text_sys = TextSystem(self.args)
