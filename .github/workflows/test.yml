@@ -36,4 +36,4 @@ jobs:
         echo "print(out)" >> test.py
         echo >> test.py
         python test.py
-        agentocr system images -c ch
+        agentocr system --config ch --image_dir image
