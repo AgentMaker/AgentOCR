@@ -12,14 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import os
-import sys
-
-__dir__ = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(__dir__)
-sys.path.append(os.path.abspath(os.path.join(__dir__, '../..')))
-
-os.environ["FLAGS_allocator_strategy"] = 'auto_growth'
-
 import cv2
 import copy
 import time
@@ -32,7 +24,6 @@ from .cls import TextClassifier
 from .rec import TextRecognizer
 from .utility import draw_ocr_box_txt, get_rotate_crop_image
 from .utility import get_image_file_list, check_and_read_gif, get_logger, parse_args, get_vis_font, init_args
-
 
 logger = get_logger()
 
@@ -54,58 +45,62 @@ class TextSystem(object):
             logger.info(bno, rec_res[bno])
 
     def __call__(self, img, det=True, cls=False, rec=True, return_cls=False):
-        ori_im = img.copy()
-        dt_boxes, elapse = self.text_detector(img)
-
-        logger.debug("dt_boxes num : {}, elapse : {}".format(
-            len(dt_boxes), elapse))
-        if dt_boxes is None:
-            return None, None
-        img_crop_list = []
         if det:
+            dt_boxes, elapse = self.text_detector(img)
+
+            logger.debug("dt_boxes num : {}, elapse : {}".format(
+                len(dt_boxes), elapse))
+
+            if dt_boxes is None:
+                return None, None
+
+            img_crop_list = []
             dt_boxes = sorted_boxes(dt_boxes)
 
             for bno in range(len(dt_boxes)):
                 tmp_box = copy.deepcopy(dt_boxes[bno])
-                img_crop = get_rotate_crop_image(ori_im, tmp_box)
+                img_crop = get_rotate_crop_image(img, tmp_box)
                 img_crop_list.append(img_crop)
+
+            dt_boxes = [box.astype('float').tolist() for box in dt_boxes]
         else:
-            img_crop_list.append(img)
+            img_crop_list = [img]
 
         if cls:
             img_crop_list, angle_list, elapse = self.text_classifier(
                 img_crop_list)
             logger.debug("cls num  : {}, elapse : {}".format(
                 len(img_crop_list), elapse))
+
         if rec:
             rec_res, elapse = self.text_recognizer(img_crop_list)
             logger.debug("rec_res num  : {}, elapse : {}".format(
                 len(rec_res), elapse))
 
         results = []
-        dt_boxes = [box.astype('float').tolist() for box in dt_boxes]
         if det and rec:
             if return_cls and cls:
-                for box, rec_reuslt, angle in zip(dt_boxes, rec_res, angle_list):
-                    text, score = rec_reuslt
+                for box, rec_reuslt, angle in zip(dt_boxes, rec_res,
+                                                  angle_list):
+                    _, score = rec_reuslt
                     if score >= self.drop_score:
-                        results.append([box, [text, score], angle])
+                        results.append([box, rec_reuslt, angle])
             else:
                 for box, rec_reuslt in zip(dt_boxes, rec_res):
-                    text, score = rec_reuslt
+                    _, score = rec_reuslt
                     if score >= self.drop_score:
-                        results.append([box, [text, score]])
+                        results.append([box, rec_reuslt])
         elif rec:
             if return_cls and cls:
                 for rec_reuslt, angle in zip(rec_res, angle_list):
-                    text, score = rec_reuslt
+                    _, score = rec_reuslt
                     if score >= self.drop_score:
-                        results.append([[text, score], angle])
+                        results.append([rec_reuslt, angle])
             else:
                 for rec_reuslt in rec_res:
-                    text, score = rec_reuslt
+                    _, score = rec_reuslt
                     if score >= self.drop_score:
-                        results.append([text, score])
+                        results.append(rec_reuslt)
         elif det:
             if return_cls and cls:
                 for det_reuslt, angle in zip(dt_boxes, angle_list):
@@ -115,7 +110,7 @@ class TextSystem(object):
 
         elif cls:
             results = angle_list
-    
+
         return results
 
 
@@ -175,13 +170,12 @@ def main(args, image_dir, process_id=0):
             txts = [results[i][1][0] for i in range(len(results))]
             scores = [results[i][1][1] for i in range(len(results))]
 
-            draw_img = draw_ocr_box_txt(
-                image,
-                boxes,
-                txts,
-                scores,
-                drop_score=drop_score,
-                font_path=font_path)
+            draw_img = draw_ocr_box_txt(image,
+                                        boxes,
+                                        txts,
+                                        scores,
+                                        drop_score=drop_score,
+                                        font_path=font_path)
             draw_img_save = "./inference_results/"
             if not os.path.exists(draw_img_save):
                 os.makedirs(draw_img_save)

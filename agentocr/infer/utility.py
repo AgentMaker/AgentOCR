@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 import os
 import sys
 import cv2
@@ -31,31 +30,52 @@ file_dir = os.path.split(file_path)[0]
 
 model_urls = {
     'cls': {
-        'ch_ppocr_mobile_v2.0_cls': 'https://bj.bcebos.com/v1/ai-studio-online/0c29ed105d984b7bba9c09ecb6dcde7075330fd74fa7449fafca316603e1aaed?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_cls.onnx',
+        'ch_ppocr_mobile_v2.0_cls':
+        'https://bj.bcebos.com/v1/ai-studio-online/0c29ed105d984b7bba9c09ecb6dcde7075330fd74fa7449fafca316603e1aaed?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_cls.onnx',
     },
     'det': {
-        'ch_ppocr_mobile_v2.0_det': 'https://bj.bcebos.com/v1/ai-studio-online/55d7b7e1890c4b81ae17a2d0c4b457d89f47a05407be4563a5b2e212b3fdf70b?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_det.onnx',
-        'ch_ppocr_server_v2.0_det': 'https://bj.bcebos.com/v1/ai-studio-online/65e5a792fa464c2994814b0a2af2334ada2a9c8150fa42f6ab3cfd22bb744708?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_det.onnx',
-        'en_ppocr_mobile_v2.0_det': 'https://bj.bcebos.com/v1/ai-studio-online/e02ba8dfb2b34febb9c468114031ca7f4a6e320359a14f5aaa4067b66c3d99bf?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_det.onnx',
-        'en_ppocr_mobile_v2.0_table_det': 'https://bj.bcebos.com/v1/ai-studio-online/d28ba772eb1d48a582a7ce16894885d662399f1ee12a4bfaa73d2b4987c3dc31?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_det.onnx',
-    }, 
+        'ch_ppocr_mobile_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/55d7b7e1890c4b81ae17a2d0c4b457d89f47a05407be4563a5b2e212b3fdf70b?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_det.onnx',
+        'ch_ppocr_server_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/65e5a792fa464c2994814b0a2af2334ada2a9c8150fa42f6ab3cfd22bb744708?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_det.onnx',
+        'en_ppocr_mobile_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/e02ba8dfb2b34febb9c468114031ca7f4a6e320359a14f5aaa4067b66c3d99bf?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_det.onnx',
+        'en_ppocr_mobile_v2.0_table_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/d28ba772eb1d48a582a7ce16894885d662399f1ee12a4bfaa73d2b4987c3dc31?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_det.onnx',
+    },
     'rec': {
-        'ch_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/77e67a9bb1cc421a97e037462838f159526b2d0ba3d94a3eb0da35408174edb7?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_rec.onnx',
-        'ch_ppocr_server_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/5f6546d18a84448486abe778b9f1b1ba21da2efbd6b84aaa808936e94771ec68?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_rec.onnx',
-        'ka_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/85cdc2462b6f4ff3a3474b724a33308112b3c55d9bf541469b858b0b0035872c?responseContentDisposition=attachment%3B%20filename%3Dka_mobile_v2.0_rec.onnx',
-        'te_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/a6d61a705348461b93821b963769ddb56502e57bdc47470d9e8c7ed29f80c016?responseContentDisposition=attachment%3B%20filename%3Dte_mobile_v2.0_rec.onnx',
-        'ta_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/ef955098816b47be82538a9fff2487516a8a5da3ec454b689406e01b4031fd41?responseContentDisposition=attachment%3B%20filename%3Dta_mobile_v2.0_rec.onnx',
-        'cht_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/85d2cfd9c24e47319ebb48184f4e8ed3cdef007a8731476eb8efbd3d7b4f5ff9?responseContentDisposition=attachment%3B%20filename%3Dchinese_cht_mobile_v2.0_rec.onnx',
-        'japan_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/df453e13ad144138978ac3d121b5ec73adfccd9a014e4d1281fe9a4015e2cf92?responseContentDisposition=attachment%3B%20filename%3Djapan_mobile_v2.0_rec.onnx',
-        'latin_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/159e47bf6fab45efbe786dc4d932cd71d28f74b0bf9e4144b82f00ebd1a467a5?responseContentDisposition=attachment%3B%20filename%3Dlatin_ppocr_mobile_v2.0_rec.onnx',
-        'arabic_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/27521b051c96454eb10f13f403ca699a819d997e6d2d4afa9721f2f80ad3aed7?responseContentDisposition=attachment%3B%20filename%3Darabic_ppocr_mobile_v2.0_rec.onnx',
-        'korean_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/20d94b1440654ed9aadbe61b565430702629de85021a4e14ad644fae5896ed77?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx',
-        'french_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/cdc0503a71274172b0d43e07a7c285745231381b52d34be584babe1e1202a9d9?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx',
-        'german_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/87356bfc558f481fbeaae6fa28b6ea50194c2ae94f4d4165a95927dd9ad4d669?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx',
-        'cyrillic_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/3f3b53e4b2b74cedaa24b4998e35d4b1c527cc7eb3f645859695de80bb14b625?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_ppocr_mobile_v2.0_rec.onnx',
-        'en_ppocr_mobile_v2.0_table_rec': 'https://bj.bcebos.com/v1/ai-studio-online/c9d6e42c99fe40ae9448ee9d07973d2b603f1e68fffa4a29b8f8cc45b3dc16f5?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_rec.onnx',
-        'en_ppocr_mobile_v2.0_number_rec': 'https://bj.bcebos.com/v1/ai-studio-online/a31fc2aed28841b4ac861c7ae4639d3f62b102d7f5e0416088544a9763affeec?responseContentDisposition=attachment%3B%20filename%3Den_number_mobile_v2.0_rec.onnx',
-        'devanagari_ppocr_mobile_v2.0_rec': 'https://bj.bcebos.com/v1/ai-studio-online/a78a9384579d451988858aa97e99d4cc2518902128174b089fabac2a150c8822?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_ppocr_mobile_v2.0_rec.onnx',
+        'ch_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/77e67a9bb1cc421a97e037462838f159526b2d0ba3d94a3eb0da35408174edb7?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_rec.onnx',
+        'ch_ppocr_server_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/5f6546d18a84448486abe778b9f1b1ba21da2efbd6b84aaa808936e94771ec68?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_rec.onnx',
+        'ka_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/85cdc2462b6f4ff3a3474b724a33308112b3c55d9bf541469b858b0b0035872c?responseContentDisposition=attachment%3B%20filename%3Dka_mobile_v2.0_rec.onnx',
+        'te_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/a6d61a705348461b93821b963769ddb56502e57bdc47470d9e8c7ed29f80c016?responseContentDisposition=attachment%3B%20filename%3Dte_mobile_v2.0_rec.onnx',
+        'ta_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/ef955098816b47be82538a9fff2487516a8a5da3ec454b689406e01b4031fd41?responseContentDisposition=attachment%3B%20filename%3Dta_mobile_v2.0_rec.onnx',
+        'cht_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/85d2cfd9c24e47319ebb48184f4e8ed3cdef007a8731476eb8efbd3d7b4f5ff9?responseContentDisposition=attachment%3B%20filename%3Dchinese_cht_mobile_v2.0_rec.onnx',
+        'japan_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/df453e13ad144138978ac3d121b5ec73adfccd9a014e4d1281fe9a4015e2cf92?responseContentDisposition=attachment%3B%20filename%3Djapan_mobile_v2.0_rec.onnx',
+        'latin_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/159e47bf6fab45efbe786dc4d932cd71d28f74b0bf9e4144b82f00ebd1a467a5?responseContentDisposition=attachment%3B%20filename%3Dlatin_ppocr_mobile_v2.0_rec.onnx',
+        'arabic_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/27521b051c96454eb10f13f403ca699a819d997e6d2d4afa9721f2f80ad3aed7?responseContentDisposition=attachment%3B%20filename%3Darabic_ppocr_mobile_v2.0_rec.onnx',
+        'korean_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/20d94b1440654ed9aadbe61b565430702629de85021a4e14ad644fae5896ed77?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx',
+        'french_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/cdc0503a71274172b0d43e07a7c285745231381b52d34be584babe1e1202a9d9?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx',
+        'german_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/87356bfc558f481fbeaae6fa28b6ea50194c2ae94f4d4165a95927dd9ad4d669?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx',
+        'cyrillic_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/3f3b53e4b2b74cedaa24b4998e35d4b1c527cc7eb3f645859695de80bb14b625?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_ppocr_mobile_v2.0_rec.onnx',
+        'en_ppocr_mobile_v2.0_table_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/c9d6e42c99fe40ae9448ee9d07973d2b603f1e68fffa4a29b8f8cc45b3dc16f5?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_rec.onnx',
+        'en_ppocr_mobile_v2.0_number_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/a31fc2aed28841b4ac861c7ae4639d3f62b102d7f5e0416088544a9763affeec?responseContentDisposition=attachment%3B%20filename%3Den_number_mobile_v2.0_rec.onnx',
+        'devanagari_ppocr_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/a78a9384579d451988858aa97e99d4cc2518902128174b089fabac2a150c8822?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_ppocr_mobile_v2.0_rec.onnx',
     }
 }
 
@@ -80,8 +100,10 @@ def get_config(config):
             'gom', 'sa', 'bgc'
         ]
         others_language = [
-            'ch', 'cht', 'en', 'french', 'german', 'japan', 'ka', 'ta', 'te', 'korean'
+            'ch', 'cht', 'en', 'french', 'german', 'japan', 'ka', 'ta', 'te',
+            'korean'
         ]
+
         if config in latin_language:
             language = "latin"
         elif config in arabic_language:
@@ -93,28 +115,32 @@ def get_config(config):
         elif config in others_language:
             language = config
         else:
-            raise ValueError ('Please check your config.')
-        
-        config = os.path.join(file_dir, '..', 'resources', 'configs', language+'.json')
+            raise ValueError('Please check your config.')
+
+        config = os.path.join(file_dir, '..', 'resources', 'configs',
+                              language + '.json')
         return config
 
 
 def get_char_dict(char_dict_path):
     if not os.path.isfile(char_dict_path):
-        temp_path = os.path.join(file_dir, '..', 'resources', 'char_dicts', char_dict_path)
+        temp_path = os.path.join(file_dir, '..', 'resources', 'char_dicts',
+                                 char_dict_path)
         if os.path.isfile(temp_path):
             char_dict_path = temp_path
-        elif os.path.isfile(temp_path+'.txt'):
-            char_dict_path = temp_path+'.txt'
+        elif os.path.isfile(temp_path + '.txt'):
+            char_dict_path = temp_path + '.txt'
     return char_dict_path
+
 
 def get_vis_font(vis_font_path):
     if not os.path.isfile(vis_font_path):
-        temp_path = os.path.join(file_dir, '..', 'resources', 'fonts', vis_font_path)
+        temp_path = os.path.join(file_dir, '..', 'resources', 'fonts',
+                                 vis_font_path)
         if os.path.isfile(temp_path):
             vis_font_path = temp_path
-        elif os.path.isfile(temp_path+'.ttf'):
-            vis_font_path = temp_path+'.ttf'
+        elif os.path.isfile(temp_path + '.ttf'):
+            vis_font_path = temp_path + '.ttf'
     return vis_font_path
 
 
@@ -125,34 +151,34 @@ def str2providers(str, logger):
         return available_providers
 
     providers_dict = {
-        provider.lower(): provider 
+        provider.lower(): provider
         for provider in available_providers
     }
 
-    provider_strs = [
-        (provider_str+'ExecutionProvider').lower() 
-        for provider_str in str.split(',')
-    ]
-    
+    provider_strs = [(provider_str + 'ExecutionProvider').lower()
+                     for provider_str in str.split(',')]
+
     select_providers = [
-        providers_dict[provider_str] 
-        for provider_str in provider_strs 
+        providers_dict[provider_str] for provider_str in provider_strs
         if provider_str in providers_dict.keys()
     ]
 
     if len(select_providers) == 0:
         logger.error('No available providers: {}'.format(str.split(',')))
-        logger.error('Automatically sets the available providers as the default providers!'.format(str.split(',')))
+        logger.error(
+            'Automatically sets the available providers as the default providers!'
+            .format(str.split(',')))
         select_providers = available_providers
-        
+
     return select_providers
+
 
 def init_args():
     parser = argparse.ArgumentParser()
 
     # params for onnx engine
     parser.add_argument("--providers", type=str, default='auto')
-    
+
     # params for text detector
     parser.add_argument("--det_algorithm", type=str, default='DB')
     parser.add_argument("--det_model_dir", type=str, default='ch_ppocr_mobile_v2.0_det')
@@ -232,7 +258,7 @@ def create_session(args, mode, logger):
         url = model_urls[mode][model_dir]
         if not os.path.exists('pretrained_models'):
             os.mkdir('pretrained_models')
-        model_dir = os.path.join('pretrained_models', model_dir+'.onnx')
+        model_dir = os.path.join('pretrained_models', model_dir + '.onnx')
         if not os.path.isfile(model_dir):
             wget.download(url, out=model_dir)
 
@@ -242,12 +268,16 @@ def create_session(args, mode, logger):
 
     sess_options = ort.SessionOptions()
     providers = str2providers(args.providers, logger)
-    logger.info('Using providers: {}'.format([provider[:-17] for provider in providers]))
+    logger.info('Using providers: {}'.format(
+        [provider[:-17] for provider in providers]))
+
     if 'DmlExecutionProvider' in providers:
         logger.info('Disable mem_pattern because using the Dml Provider.')
         sess_options.enable_mem_pattern = False
-    
-    session = ort.InferenceSession(model_dir, providers=providers, sess_options=sess_options)
+
+    session = ort.InferenceSession(model_dir,
+                                   providers=providers,
+                                   sess_options=sess_options)
 
     input_names = [input.name for input in session.get_inputs()]
 
@@ -296,22 +326,24 @@ def draw_ocr(image,
     """
     if scores is None:
         scores = [1] * len(boxes)
+
     box_num = len(boxes)
+
     for i in range(box_num):
-        if scores is not None and (scores[i] < drop_score or
-                                   math.isnan(scores[i])):
+        if scores is not None and (scores[i] < drop_score
+                                   or math.isnan(scores[i])):
             continue
         box = np.reshape(np.array(boxes[i]), [-1, 1, 2]).astype(np.int64)
         image = cv2.polylines(np.array(image), [box], True, (255, 0, 0), 2)
+
     if txts is not None:
         img = np.array(resize_img(image, input_size=600))
-        txt_img = text_visual(
-            txts,
-            scores,
-            img_h=img.shape[0],
-            img_w=600,
-            threshold=drop_score,
-            font_path=font_path)
+        txt_img = text_visual(txts,
+                              scores,
+                              img_h=img.shape[0],
+                              img_w=600,
+                              threshold=drop_score,
+                              font_path=font_path)
         img = np.concatenate([np.array(img), np.array(txt_img)], axis=1)
         return img
     return image
@@ -332,36 +364,42 @@ def draw_ocr_box_txt(image,
     random.seed(0)
     draw_left = ImageDraw.Draw(img_left)
     draw_right = ImageDraw.Draw(img_right)
+
     for idx, (box, txt) in enumerate(zip(boxes, txts)):
         if scores is not None and scores[idx] < drop_score:
             continue
         color = (random.randint(0, 255), random.randint(0, 255),
                  random.randint(0, 255))
         draw_left.polygon([tuple(point) for point in box], fill=color)
-        draw_right.polygon(
-            [
-                box[0][0], box[0][1], box[1][0], box[1][1], box[2][0],
-                box[2][1], box[3][0], box[3][1]
-            ],
-            outline=color)
-        box_height = math.sqrt((box[0][0] - box[3][0])**2 + (box[0][1] - box[3][
-            1])**2)
-        box_width = math.sqrt((box[0][0] - box[1][0])**2 + (box[0][1] - box[1][
-            1])**2)
+        draw_right.polygon([
+            box[0][0], box[0][1], box[1][0], box[1][1], box[2][0], box[2][1],
+            box[3][0], box[3][1]
+        ],
+                           outline=color)
+        box_height = math.sqrt((box[0][0] - box[3][0])**2 +
+                               (box[0][1] - box[3][1])**2)
+        box_width = math.sqrt((box[0][0] - box[1][0])**2 +
+                              (box[0][1] - box[1][1])**2)
+
         if box_height > 2 * box_width:
             font_size = max(int(box_width * 0.9), 10)
             font = ImageFont.truetype(font_path, font_size, encoding="utf-8")
             cur_y = box[0][1]
             for c in txt:
                 char_size = font.getsize(c)
-                draw_right.text(
-                    (box[0][0] + 3, cur_y), c, fill=(0, 0, 0), font=font)
+                draw_right.text((box[0][0] + 3, cur_y),
+                                c,
+                                fill=(0, 0, 0),
+                                font=font)
                 cur_y += char_size[1]
         else:
             font_size = max(int(box_height * 0.8), 10)
             font = ImageFont.truetype(font_path, font_size, encoding="utf-8")
-            draw_right.text(
-                [box[0][0], box[0][1]], txt, fill=(0, 0, 0), font=font)
+            draw_right.text([box[0][0], box[0][1]],
+                            txt,
+                            fill=(0, 0, 0),
+                            font=font)
+
     img_left = Image.blend(image, img_left, 0.5)
     img_show = Image.new('RGB', (w * 2, h), (255, 255, 255))
     img_show.paste(img_left, (0, 0, w, h))
@@ -501,28 +539,27 @@ def get_rotate_crop_image(img, points):
     '''
     assert len(points) == 4, "shape of points must be 4*2"
     img_crop_width = int(
-        max(
-            np.linalg.norm(points[0] - points[1]),
+        max(np.linalg.norm(points[0] - points[1]),
             np.linalg.norm(points[2] - points[3])))
     img_crop_height = int(
-        max(
-            np.linalg.norm(points[0] - points[3]),
+        max(np.linalg.norm(points[0] - points[3]),
             np.linalg.norm(points[1] - points[2])))
     pts_std = np.float32([[0, 0], [img_crop_width, 0],
                           [img_crop_width, img_crop_height],
                           [0, img_crop_height]])
     M = cv2.getPerspectiveTransform(points, pts_std)
-    dst_img = cv2.warpPerspective(
-        img,
-        M, (img_crop_width, img_crop_height),
-        borderMode=cv2.BORDER_REPLICATE,
-        flags=cv2.INTER_CUBIC)
+    dst_img = cv2.warpPerspective(img,
+                                  M, (img_crop_width, img_crop_height),
+                                  borderMode=cv2.BORDER_REPLICATE,
+                                  flags=cv2.INTER_CUBIC)
     dst_img_height, dst_img_width = dst_img.shape[0:2]
     if dst_img_height * 1.0 / dst_img_width >= 1.5:
         dst_img = np.rot90(dst_img)
     return dst_img
 
+
 ###################################################################
+
 
 def print_dict(d, logger, delimiter=0):
     """

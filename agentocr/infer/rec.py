@@ -11,15 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import os
-import sys
-
-__dir__ = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(__dir__)
-sys.path.append(os.path.abspath(os.path.join(__dir__, '../..')))
-
-os.environ["FLAGS_allocator_strategy"] = 'auto_growth'
-
 import cv2
 import math
 import time
@@ -34,7 +25,9 @@ logger = get_logger()
 
 class TextRecognizer(object):
     def __init__(self, args):
-        self.rec_image_shape = [int(v) for v in args.rec_image_shape.split(",")]
+        self.rec_image_shape = [
+            int(v) for v in args.rec_image_shape.split(",")
+        ]
         self.character_type = args.rec_char_type
         self.rec_batch_num = args.rec_batch_num
         self.rec_algorithm = args.rec_algorithm
@@ -60,7 +53,8 @@ class TextRecognizer(object):
                 "use_space_char": args.use_space_char
             }
         self.postprocess_op = build_post_process(postprocess_params)
-        self.session, self.input_names, self.output_names = create_session(args, 'rec', logger)
+        self.session, self.input_names, self.output_names = create_session(
+            args, 'rec', logger)
 
     def resize_norm_img(self, img, max_wh_ratio):
         imgC, imgH, imgW = self.rec_image_shape
@@ -109,7 +103,6 @@ class TextRecognizer(object):
         return np.reshape(img_black, (c, row, col)).astype(np.float32)
 
     def srn_other_inputs(self, image_shape, num_heads, max_text_length):
-
         imgC, imgH, imgW = image_shape
         feature_dim = int((imgH / 8) * (imgW / 8))
 
@@ -169,10 +162,12 @@ class TextRecognizer(object):
             end_img_no = min(img_num, beg_img_no + batch_num)
             norm_img_batch = []
             max_wh_ratio = 0
+
             for ino in range(beg_img_no, end_img_no):
                 h, w = img_list[indices[ino]].shape[0:2]
                 wh_ratio = w * 1.0 / h
                 max_wh_ratio = max(max_wh_ratio, wh_ratio)
+
             for ino in range(beg_img_no, end_img_no):
                 if self.rec_algorithm != "SRN":
                     norm_img = self.resize_norm_img(img_list[indices[ino]],
@@ -180,8 +175,9 @@ class TextRecognizer(object):
                     norm_img = norm_img[np.newaxis, :]
                     norm_img_batch.append(norm_img)
                 else:
-                    norm_img = self.process_image_srn(
-                        img_list[indices[ino]], self.rec_image_shape, 8, 25)
+                    norm_img = self.process_image_srn(img_list[indices[ino]],
+                                                      self.rec_image_shape, 8,
+                                                      25)
                     encoder_word_pos_list = []
                     gsrm_word_pos_list = []
                     gsrm_slf_attn_bias1_list = []
@@ -191,6 +187,7 @@ class TextRecognizer(object):
                     gsrm_slf_attn_bias1_list.append(norm_img[3])
                     gsrm_slf_attn_bias2_list.append(norm_img[4])
                     norm_img_batch.append(norm_img[0])
+
             norm_img_batch = np.concatenate(norm_img_batch)
             norm_img_batch = norm_img_batch.copy()
 
@@ -211,32 +208,18 @@ class TextRecognizer(object):
                 ]
                 input_dict = {k: v for k, v in zip(self.input_names, inputs)}
                 outputs = self.session.run(self.output_names, input_dict)
-                # input_names = self.predictor.get_input_names()
-                # for i in range(len(input_names)):
-                #     input_tensor = self.predictor.get_input_handle(input_names[
-                #         i])
-                #     input_tensor.copy_from_cpu(inputs[i])
-                # self.predictor.run()
-                # outputs = []
-                # for output_tensor in self.output_tensors:
-                #     output = output_tensor.copy_to_cpu()
-                #     outputs.append(output)
-
                 preds = {"predict": outputs[2]}
             else:
-                
-                outputs = self.session.run(self.output_names, {self.input_names[0]: norm_img_batch})
-                # self.input_tensor.copy_from_cpu(norm_img_batch)
-                # self.predictor.run()
-
-                # outputs = []
-                # for output_tensor in self.output_tensors:
-                #     output = output_tensor.copy_to_cpu()
-                #     outputs.append(output)
+                outputs = self.session.run(
+                    self.output_names, {self.input_names[0]: norm_img_batch})
                 preds = outputs[0]
+
             rec_result = self.postprocess_op(preds)
+
             for rno in range(len(rec_result)):
-                rec_res[indices[beg_img_no + rno]] = rec_result[rno]
+                label, score = rec_result[rno]
+                rec_res[indices[beg_img_no + rno]] = [label, float(score)]
+
         return rec_res, time.time() - st
 
 
