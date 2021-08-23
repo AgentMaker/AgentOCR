@@ -48,7 +48,34 @@
 在 API 接口的使用上，基本和 PPOCR Package 保持一致
 
 ### 2.1 代码使用
+#### 2.1.1 API 接口
+* 接口介绍：
 
+    ```python
+    class OCRSystem:
+        
+        def __init__(self, config='ch', warmup=True, **kwargs):
+            '''
+            The Inference OCR System of AgentOCR.
+
+            Params:
+                config: 配置文件名称或路径, 默认为 'ch'.
+                warmup: 初始化时进行模型预热, 默认为 True.
+                **kwargs: 更多配置参数，这些参数会覆盖配置文件中的相同配置.
+            '''
+
+        def ocr(self, img, det=True, cls=False, rec=True, return_cls=False):
+            '''
+            Params:
+                img: 图片路径或者图片数组.
+                det: 文本位置定位, 默认为 True.
+                cls: 文本方向分类, 默认为 False.
+                rec: 文本内容识别, 默认为 True.
+                return_cls: 返回文本方向分类结果, 默认为 False.
+            '''
+    ```
+
+#### 2.1.2 使用样例
 * 检测 + 方向分类器 + 识别全流程
 
     ```python
@@ -158,6 +185,60 @@
 
         # 结果是一个list，每个item只包含分类结果和分类置信度
         ['0', 0.9999924]
+
+### 2.2 服务器部署
+
+#### 2.2.1 启动 OCR 服务
+* 通过命令行启动：
+
+    ```bash
+    # config 配置文件 / host 监听地址 / port 监听接口 / 其他配置参数
+    $ agentocr server \
+        --config ch \
+        --host 127.0.0.1 \
+        --port 5000 \
+        --providers cpu
+    ```
+
+#### 2.2.2 接口调用
+* 接口地址：http://{host}:{port}/ocr
+* 请求类型：Post
+* 使用 Python 调用 OCR 服务接口：
+
+    ```python
+    import cv2
+    import json
+    import base64
+    import requests
+
+    # 图片 Base64 编码
+    def cv2_to_base64(image):
+        data = cv2.imencode('.jpg', image)[1]
+        image_base64 = base64.b64encode(data.tobytes()).decode('UTF-8')
+        return image_base64
+
+
+    # 读取图片
+    image = cv2.imread('test.jpg')
+    image_base64 = cv2_to_base64(image)
+
+    # 构建请求数据
+    data = {
+        'image': image_base64,
+        'det': True,
+        'cls': True,
+        'rec': True
+    }
+
+    # 发送请求
+    url = "http://127.0.0.1:5000/ocr"
+    r = requests.post(url=url, data=json.dumps(data))
+
+    # 打印预测结果
+    print(r.json())
+    ```
+
+
 
 ## 3 配置
 
