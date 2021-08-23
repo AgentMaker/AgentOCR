@@ -2,8 +2,6 @@ import cv2
 import numpy as np
 import onnxruntime as ort
 
-from multiprocessing import Process
-
 from .infer import TextSystem, predict_system
 from .infer import TextDetector, predict_det
 from .infer import TextClassifier, predict_cls
@@ -44,6 +42,7 @@ class OCRSystem:
     def run(self, func, image_dir):
         del self.text_sys
         if self.args.total_process_num > 1:
+            from multiprocessing import Process
             p_list = []
             for process_id in range(self.args.total_process_num):
                 p = Process(target=func,
@@ -90,6 +89,7 @@ class OCRSystem:
 
 def command():
     global ocr
+
     parser = init_args()
     # Command mode
     parser.add_argument(dest="mode", type=str)
