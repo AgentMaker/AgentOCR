@@ -7,6 +7,12 @@ def readme():
     return README
 
 
+def requirements():
+    with open('requirements.txt', 'r', encoding='UTF-8') as f:
+        REQUIREMENTS = f.read().split('\n')
+    return REQUIREMENTS
+
+
 setup(name='agentocr',
       packages=[
           'agentocr', 'agentocr.preprocess', 'agentocr.infer',
@@ -15,9 +21,7 @@ setup(name='agentocr',
       include_package_data=True,
       entry_points={"console_scripts": ["agentocr = agentocr:command"]},
       version='1.2.0',
-      install_requires=[
-          'shapely', 'pyclipper', 'numpy', 'opencv-python', 'pillow', 'wget'
-      ],
+      install_requires=requirements(),
       license='Apache License 2.0',
       description='An easy-to-use OCR package with multilingual support.',
       url='https://github.com/AgentMaker/AgentOCR',

@@ -1,5 +1,7 @@
 wget
 numpy
+flask
+gevent
 pillow
 shapely
 pyclipper
