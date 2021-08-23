@@ -13,6 +13,14 @@ logger = get_logger()
 
 class OCRSystem:
     def __init__(self, config='ch', warmup=True, **kwargs):
+        '''
+        The Inference OCR System of AgentOCR.
+
+        Params:
+            config: the name or path of the configuration file, default 'ch'.
+            warmup: warm up the model during initialization, default True.
+            **kwargs: more config of the OCRSystem, these options override the same options in the configuration file.
+        '''
         available_providers = [
             provider[:-17] for provider in ort.get_available_providers()
         ]
@@ -56,9 +64,25 @@ class OCRSystem:
         self.load()
 
     def __call__(self, img, det=True, cls=False, rec=True, return_cls=False):
+        '''
+        Params:
+            img: the path or ndarray of the input image file.
+            det: text location detection, default True.
+            cls: text direction classification, default False.
+            rec: text content recognition, default True.
+            return_cls: return the results of text direction classification, default False.
+        '''
         return self.ocr(img, det=det, cls=cls, rec=rec, return_cls=return_cls)
 
     def ocr(self, img, det=True, cls=False, rec=True, return_cls=False):
+        '''
+        Params:
+            img: the path or ndarray of the input image file.
+            det: text location detection, default True.
+            cls: text direction classification, default False.
+            rec: text content recognition, default True.
+            return_cls: return the results of text direction classification, default False.
+        '''
         if isinstance(img, np.ndarray):
             results = self.text_sys(img,
                                     det=det,
