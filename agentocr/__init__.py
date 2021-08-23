@@ -14,8 +14,7 @@ logger = get_logger()
 
 
 class OCRSystem:
-    def __init__(self, config='ch', **kwargs):
-
+    def __init__(self, config='ch', warmup=True, **kwargs):
         available_providers = [
             provider[:-17] for provider in ort.get_available_providers()
         ]
@@ -28,11 +27,13 @@ class OCRSystem:
         logger.info('OCRSystem config:{}'.format(self.argparse_dict))
         logger.info('All available providers: {}'.format(available_providers))
         self.load()
-        self.warmup()
+
+        if warmup:
+            self.warmup()
 
     def warmup(self):
         fake_img = np.zeros((720, 1280, 3))
-        for _ in range(3):
+        for _ in range(5):
             self.text_sys.text_detector(fake_img)
             self.text_sys.text_classifier([fake_img])
             self.text_sys.text_recognizer([fake_img])
