@@ -1,35 +1,32 @@
 import cv2
-import json
 import numpy as np
 import onnxruntime as ort
 
 from multiprocessing import Process
-from flask import Flask, request
-from gevent.pywsgi import WSGIServer
 
 from .infer import TextSystem, predict_system
 from .infer import TextDetector, predict_det
 from .infer import TextClassifier, predict_cls
 from .infer import TextRecognizer, predict_rec
-from .infer.utility import parse_args, init_args, get_config, get_logger, init_args, base64_to_cv2
+from .infer.utility import parse_args, init_args, get_config, get_logger, init_args
 
-app = Flask(__name__)
 logger = get_logger()
+
 
 class OCRSystem:
     def __init__(self, config='ch', **kwargs):
-        
+
         available_providers = [
             provider[:-17] for provider in ort.get_available_providers()
         ]
-        logger.info(
-            'All available providers: {}'.format(available_providers))
 
         config = get_config(config)
         parser = init_args()
         self.args, self.argparse_dict = parse_args(parser, config)
 
         self.argparse_dict.update(kwargs)
+        logger.info('OCRSystem config:{}'.format(self.argparse_dict))
+        logger.info('All available providers: {}'.format(available_providers))
         self.load()
 
     def load(self):
@@ -82,24 +79,6 @@ class OCRSystem:
         self.run(predict_system, image_dir)
 
 
-@app.route("/ocr", methods=['POST'])
-def predict_server():
-    if not request.data:
-        return ('fail')
-
-    request_data = request.data.decode('utf-8')
-    request_json = json.loads(request_data)
-
-    if 'image' not in request_json:
-        return ('fail')
-
-    image_base64 = request_json.pop('image')
-    image = base64_to_cv2(image_base64)
-    results = ocr(image, **request_json)
-
-    return json.dumps(results, ensure_ascii=False)
-
-
 def command():
     global ocr
     parser = init_args()
@@ -130,7 +109,11 @@ def command():
     elif args.mode == 'system':
         ocr.predict_system(args.image_dir)
     elif args.mode == 'server':
-        server = WSGIServer((args.host, args.port), app)
+        from gevent.pywsgi import WSGIServer
+        from .infer.server import ocr_server
+        logger.info('AgentOCR server is running on http://{}:{}/'.format(
+            args.host, args.port))
+        server = WSGIServer((args.host, args.port), ocr_server)
         server.serve_forever()
     else:
         raise ValueError('Please check the mode.')
