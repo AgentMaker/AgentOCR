@@ -26,7 +26,8 @@ import onnxruntime as ort
 from PIL import Image, ImageDraw, ImageFont
 
 file_path = os.path.abspath(__file__)
-file_dir = os.path.split(file_path)[0]
+infer_dir = os.path.dirname(file_path)
+package_dir = os.path.dirname(infer_dir)
 
 model_urls = {
     'cls': {
@@ -117,14 +118,14 @@ def get_config(config):
         else:
             raise ValueError('Please check your config.')
 
-        config = os.path.join(file_dir, '..', 'resources', 'configs',
+        config = os.path.join(package_dir, 'resources', 'configs',
                               language + '.json')
         return config
 
 
 def get_char_dict(char_dict_path):
     if not os.path.isfile(char_dict_path):
-        temp_path = os.path.join(file_dir, '..', 'resources', 'char_dicts',
+        temp_path = os.path.join(package_dir, 'resources', 'char_dicts',
                                  char_dict_path)
         if os.path.isfile(temp_path):
             char_dict_path = temp_path
@@ -135,7 +136,7 @@ def get_char_dict(char_dict_path):
 
 def get_vis_font(vis_font_path):
     if not os.path.isfile(vis_font_path):
-        temp_path = os.path.join(file_dir, '..', 'resources', 'fonts',
+        temp_path = os.path.join(package_dir, 'resources', 'fonts',
                                  vis_font_path)
         if os.path.isfile(temp_path):
             vis_font_path = temp_path
