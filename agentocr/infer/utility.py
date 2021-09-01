@@ -80,7 +80,7 @@ model_urls = {
 language_dict = {
     'ch': 'chinese_simplified',
     'cht': 'chinese_traditional',
-    'ka': 'kanadaven',
+    'ka': 'kannada',
     'te': 'telugu',
     'ta': 'tamil',
     'jp': 'japanese',
@@ -90,7 +90,8 @@ language_dict = {
     'ger': 'german',
     'cy': 'cyrillic',
     'en': 'english',
-    'de': 'devanagari'
+    'de': 'devanagari',
+    'la': 'latin'
 }
 
 def get_config(config):
