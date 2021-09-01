@@ -31,96 +31,89 @@ package_dir = os.path.dirname(infer_dir)
 
 model_urls = {
     'cls': {
-        'ch_ppocr_mobile_v2.0_cls':
-        'https://bj.bcebos.com/v1/ai-studio-online/0c29ed105d984b7bba9c09ecb6dcde7075330fd74fa7449fafca316603e1aaed?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_cls.onnx',
+        'chinese_multilingual_mobile_v2.0_cls':
+        'https://bj.bcebos.com/v1/ai-studio-online/a4efe143749e49039f15448ea8c73d99c0534997a54d4d018bc6bec19c518a37?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_server_v2.0_det.onnx',
     },
     'det': {
-        'ch_ppocr_mobile_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/55d7b7e1890c4b81ae17a2d0c4b457d89f47a05407be4563a5b2e212b3fdf70b?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_det.onnx',
-        'ch_ppocr_server_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/65e5a792fa464c2994814b0a2af2334ada2a9c8150fa42f6ab3cfd22bb744708?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_det.onnx',
-        'en_ppocr_mobile_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/e02ba8dfb2b34febb9c468114031ca7f4a6e320359a14f5aaa4067b66c3d99bf?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_det.onnx',
-        'en_ppocr_mobile_v2.0_table_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/d28ba772eb1d48a582a7ce16894885d662399f1ee12a4bfaa73d2b4987c3dc31?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_det.onnx',
-    },
+        'chinese_multilingual_mobile_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/6a97ec7f4a2348749887988071733bef674546f8ad7049b79bf3597c8bf9b5a1?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_det.onnx',
+        'chinese_multilingual_server_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/a4efe143749e49039f15448ea8c73d99c0534997a54d4d018bc6bec19c518a37?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_server_v2.0_det.onnx',
+        'english_multilingual_mobile_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/90c32bb78fe34870bf3ed7c8d8fdf1a4897abfd42d984a678c865cd92b25b91d?responseContentDisposition=attachment%3B%20filename%3Denglish_multilingual_mobile_v2.0_det.onnx',
+        },
     'rec': {
-        'ch_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/77e67a9bb1cc421a97e037462838f159526b2d0ba3d94a3eb0da35408174edb7?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_rec.onnx',
-        'ch_ppocr_server_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/5f6546d18a84448486abe778b9f1b1ba21da2efbd6b84aaa808936e94771ec68?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_rec.onnx',
-        'ka_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/85cdc2462b6f4ff3a3474b724a33308112b3c55d9bf541469b858b0b0035872c?responseContentDisposition=attachment%3B%20filename%3Dka_mobile_v2.0_rec.onnx',
-        'te_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/a6d61a705348461b93821b963769ddb56502e57bdc47470d9e8c7ed29f80c016?responseContentDisposition=attachment%3B%20filename%3Dte_mobile_v2.0_rec.onnx',
-        'ta_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/ef955098816b47be82538a9fff2487516a8a5da3ec454b689406e01b4031fd41?responseContentDisposition=attachment%3B%20filename%3Dta_mobile_v2.0_rec.onnx',
-        'cht_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/85d2cfd9c24e47319ebb48184f4e8ed3cdef007a8731476eb8efbd3d7b4f5ff9?responseContentDisposition=attachment%3B%20filename%3Dchinese_cht_mobile_v2.0_rec.onnx',
-        'japan_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/df453e13ad144138978ac3d121b5ec73adfccd9a014e4d1281fe9a4015e2cf92?responseContentDisposition=attachment%3B%20filename%3Djapan_mobile_v2.0_rec.onnx',
-        'latin_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/159e47bf6fab45efbe786dc4d932cd71d28f74b0bf9e4144b82f00ebd1a467a5?responseContentDisposition=attachment%3B%20filename%3Dlatin_ppocr_mobile_v2.0_rec.onnx',
-        'arabic_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/27521b051c96454eb10f13f403ca699a819d997e6d2d4afa9721f2f80ad3aed7?responseContentDisposition=attachment%3B%20filename%3Darabic_ppocr_mobile_v2.0_rec.onnx',
-        'korean_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/20d94b1440654ed9aadbe61b565430702629de85021a4e14ad644fae5896ed77?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx',
-        'french_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/cdc0503a71274172b0d43e07a7c285745231381b52d34be584babe1e1202a9d9?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx',
-        'german_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/87356bfc558f481fbeaae6fa28b6ea50194c2ae94f4d4165a95927dd9ad4d669?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx',
-        'cyrillic_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/3f3b53e4b2b74cedaa24b4998e35d4b1c527cc7eb3f645859695de80bb14b625?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_ppocr_mobile_v2.0_rec.onnx',
-        'en_ppocr_mobile_v2.0_table_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/c9d6e42c99fe40ae9448ee9d07973d2b603f1e68fffa4a29b8f8cc45b3dc16f5?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_rec.onnx',
-        'en_ppocr_mobile_v2.0_number_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/a31fc2aed28841b4ac861c7ae4639d3f62b102d7f5e0416088544a9763affeec?responseContentDisposition=attachment%3B%20filename%3Den_number_mobile_v2.0_rec.onnx',
-        'devanagari_ppocr_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/a78a9384579d451988858aa97e99d4cc2518902128174b089fabac2a150c8822?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_ppocr_mobile_v2.0_rec.onnx',
+        'chinese_simplified_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/6ae9a6f87f3d4126aab5a92b4df35359bce2159e177a4ed6b2c85a38f9987004?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_mobile_v2.0_rec.onnx',
+        'chinese_simplified_server_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/bd641ce2efe842f6a0c53a502c8595ab4121051b66d748ff8cbe555d41ee3c2d?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_server_v2.0_rec.onnx',
+        'chinese_traditional_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/1733802270dd42e7b1535a954dad0373cf03b73a0fc14fa5b4f44aa5ecceb351?responseContentDisposition=attachment%3B%20filename%3Dchinese_traditional_mobile_v2.0_rec.onnx',
+        'kannada_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/e26c16c208d64af9840a5c8fd721d5edbaf86dbbbb2c4c5397839d6d078933d4?responseContentDisposition=attachment%3B%20filename%3Dkannada_mobile_v2.0_rec.onnx',
+        'telugu_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/8b85b803a2364f0e9238683b6c8032922ac30cbec4774a1795183195bd717bad?responseContentDisposition=attachment%3B%20filename%3Dtelugu_mobile_v2.0_rec.onnx',
+        'tamil_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/0dc7fc1b438d4ed6ab401b596dcc1407101b9143d9c54d7db6a6ec032cc7f3d2?responseContentDisposition=attachment%3B%20filename%3Dtamil_mobile_v2.0_rec.onnx',
+        'japanese_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/ff50e398096d48889f154910a085af1f170d95d18eac4d6885ad8d1c9f2010f8?responseContentDisposition=attachment%3B%20filename%3Djapanese_mobile_v2.0_rec.onnx',
+        'latin_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/d24e03a0022a4de4805a6e2b60b6a74ad09b2f6ec4cd4397a301048bae4e8a09?responseContentDisposition=attachment%3B%20filename%3Dlatin_mobile_v2.0_rec.onnx',
+        'arabic_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/ea236583c3074d858025f2c5fb9bf01ed45f8416e78146639c40585397eea954?responseContentDisposition=attachment%3B%20filename%3Darabic_mobile_v2.0_rec.onnx',
+        'korean_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/f6d69c38fe9a46569403acf6a1d8cbe5451ed51ad2e64fb2bc9743848fd6f91d?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx',
+        'french_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/e2ebf93ff016446189e7ad23a988ccaf94d54c883315485f923cc2c555693459?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx',
+        'german_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/74b5039facea46329ebdfb9f4cd366c8a38b16ed0eac44c190bc9597e7795a56?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx',
+        'cyrillic_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/4137cfd82c334f4094cae36884478e38ce16416e97eb4dc9a95a192ee70ac42c?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_mobile_v2.0_rec.onnx',
+        'english_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/46da49d9b0ff4da4a8788c31d73029f4bfd132d0cedb4fd3893e40ddadc15d04?responseContentDisposition=attachment%3B%20filename%3Denglish_mobile_v2.0_rec.onnx',
+        'devanagari_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/634d1c1635e5492aac93b195d3b57e5d5013815ea2684d8e96b75d3838bc76b0?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_mobile_v2.0_rec.onnx',
     }
 }
 
 
+language_dict = {
+    'ch': 'chinese_simplified',
+    'cht': 'chinese_traditional',
+    'ka': 'kanadaven',
+    'te': 'telugu',
+    'ta': 'tamil',
+    'jp': 'japanese',
+    'ar': 'arabic',
+    'kr': 'korean',
+    'fr': 'french',
+    'ger': 'german',
+    'cy': 'cyrillic',
+    'en': 'english',
+    'de': 'devanagari'
+}
+
 def get_config(config):
     if os.path.isfile(config):
-        return config
+        with open(config, 'r', encoding='UTF-8') as f:
+            kwargs = json.load(f)
+        return kwargs
     else:
-        latin_language = [
-            'af', 'az', 'bs', 'cs', 'cy', 'da', 'de', 'es', 'et', 'fr', 'ga',
-            'hr', 'hu', 'id', 'is', 'it', 'ku', 'la', 'lt', 'lv', 'mi', 'ms',
-            'mt', 'nl', 'no', 'oc', 'pi', 'pl', 'pt', 'ro', 'rs_latin', 'sk',
-            'sl', 'sq', 'sv', 'sw', 'tl', 'tr', 'uz', 'vi'
-        ]
-        arabic_language = ['ar', 'fa', 'ug', 'ur']
-        cyrillic_language = [
-            'ru', 'rs_cyrillic', 'be', 'bg', 'uk', 'mn', 'abq', 'ady', 'kbd',
-            'ava', 'dar', 'inh', 'che', 'lbe', 'lez', 'tab'
-        ]
-        devanagari_language = [
-            'hi', 'mr', 'ne', 'bh', 'mai', 'ang', 'bho', 'mah', 'sck', 'new',
-            'gom', 'sa', 'bgc'
-        ]
-        others_language = [
-            'ch', 'cht', 'en', 'french', 'german', 'japan', 'ka', 'ta', 'te',
-            'korean'
-        ]
-
-        if config in latin_language:
-            language = "latin"
-        elif config in arabic_language:
-            language = "arabic"
-        elif config in cyrillic_language:
-            language = "cyrillic"
-        elif config in devanagari_language:
-            language = "devanagari"
-        elif config in others_language:
-            language = config
+        if config in language_dict:
+            language_name = language_dict[config]
+            if config in ['ch', 'cht']:
+                det_model = 'chinese_multilingual_mobile_v2.0_det'
+            else:
+                det_model = 'english_multilingual_mobile_v2.0_det'
+            kwargs = {
+                "det_model": det_model,
+                "rec_model": "%s_mobile_v2.0_rec" % language_name,
+                "rec_char_dict_path": "%s_dict" % language_name,
+            }
         else:
             raise ValueError('Please check your config.')
 
-        config = os.path.join(package_dir, 'resources', 'configs',
-                              language + '.json')
-        return config
+        return kwargs
 
 
 def get_char_dict(char_dict_path):
@@ -182,7 +175,7 @@ def init_args():
 
     # params for text detector
     parser.add_argument("--det_algorithm", type=str, default='DB')
-    parser.add_argument("--det_model_dir", type=str, default='ch_ppocr_mobile_v2.0_det')
+    parser.add_argument("--det_model", type=str, default='chinese_multilingual_mobile_v2.0_det')
     parser.add_argument("--det_limit_side_len", type=float, default=960)
     parser.add_argument("--det_limit_type", type=str, default='max')
 
@@ -205,18 +198,16 @@ def init_args():
 
     # params for text recognizer
     parser.add_argument("--rec_algorithm", type=str, default='CRNN')
-    parser.add_argument("--rec_model_dir", type=str, default='ch_ppocr_mobile_v2.0_rec')
+    parser.add_argument("--rec_model", type=str, default='chinese_simplified_mobile_v2.0_rec')
     parser.add_argument("--rec_image_shape", type=str, default="3, 32, 320")
-    parser.add_argument("--rec_char_type", type=str, default='ch')
+    parser.add_argument("--rec_char_type", type=str, default='dict')
     parser.add_argument("--rec_batch_num", type=int, default=8)
     parser.add_argument("--max_text_length", type=int, default=25)
-    parser.add_argument("--rec_char_dict_path", type=str, default="ppocr_keys_v1")
-    parser.add_argument("--use_space_char", type=bool, default=True)
-    parser.add_argument("--vis_font_path", type=str, default="simfang")
+    parser.add_argument("--rec_char_dict_path", type=str, default="chinese_simplified_dict")
     parser.add_argument("--drop_score", type=float, default=0.5)
 
     # params for text classifier
-    parser.add_argument("--cls_model_dir", type=str, default='ch_ppocr_mobile_v2.0_cls')
+    parser.add_argument("--cls_model", type=str, default='chinese_multilingual_mobile_v2.0_cls')
     parser.add_argument("--cls_image_shape", type=str, default="3, 48, 192")
     parser.add_argument("--label_list", type=list, default=['0', '180'])
     parser.add_argument("--cls_batch_num", type=int, default=8)
@@ -231,29 +222,22 @@ def init_args():
     return parser
 
 
-def parse_args(parser, config=None):
+def parse_args(parser, **kwargs):
     args = parser.parse_known_args()[0]
-    argparse_dict = vars(args)
 
-    if config:
-        with open(config, 'r', encoding='UTF-8') as f:
-            json_dict = json.load(f)
-        argparse_dict.update(json_dict)
+    argparse_dict = vars(args)
+    argparse_dict.update(kwargs)
 
     return args, argparse_dict
 
 
 def create_session(args, mode, logger):
     if mode == "det":
-        model_dir = args.det_model_dir
+        model_dir = args.det_model
     elif mode == 'cls':
-        model_dir = args.cls_model_dir
+        model_dir = args.cls_model
     elif mode == 'rec':
-        model_dir = args.rec_model_dir
-    elif mode == 'table':
-        model_dir = args.table_model_dir
-    else:
-        model_dir = args.e2e_model_dir
+        model_dir = args.rec_model
 
     if model_dir in model_urls[mode]:
         url = model_urls[mode][model_dir]

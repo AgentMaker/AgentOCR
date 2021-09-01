@@ -35,8 +35,7 @@ class TextRecognizer(object):
         postprocess_params = {
             'name': 'CTCLabelDecode',
             "character_type": args.rec_char_type,
-            "character_dict_path": rec_char_dict_path,
-            "use_space_char": args.use_space_char
+            "character_dict_path": rec_char_dict_path
         }
         if self.rec_algorithm == "SRN":
             postprocess_params = {

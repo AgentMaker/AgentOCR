@@ -25,11 +25,10 @@ class OCRSystem:
             provider[:-17] for provider in ort.get_available_providers()
         ]
 
-        config = get_config(config)
+        config_kwargs = get_config(config)
         parser = init_args()
-        self.args, self.argparse_dict = parse_args(parser, config)
-
-        self.argparse_dict.update(kwargs)
+        config_kwargs.update(kwargs)
+        self.args, self.argparse_dict = parse_args(parser, **config_kwargs)
         logger.info('OCRSystem config:{}'.format(self.argparse_dict))
         logger.info('All available providers: {}'.format(available_providers))
         self.load()
@@ -129,9 +128,8 @@ def command():
     parser.add_argument("--port", type=int, default=5000)
 
     args = parser.parse_known_args()[0]
-    config = get_config(args.config)
-    args, argparse_dict = parse_args(parser, config)
-    ocr = OCRSystem(**argparse_dict)
+
+    ocr = OCRSystem(config=args.config)
 
     if args.mode == 'cls':
         ocr.predict_cls(args.image_dir)

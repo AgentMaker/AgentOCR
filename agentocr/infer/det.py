@@ -11,13 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import os
 import sys
 import cv2
 import time
 import numpy as np
 
-from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args, draw_text_det_res, init_args
+from .utility import get_image_file_list, check_and_read_gif, get_logger, create_session, parse_args, init_args
 from ..preprocess import create_operators, transform
 from ..postprocess import build_post_process
 
@@ -198,10 +197,6 @@ def main(args, image_dir, process_id=0):
     text_detector = TextDetector(args)
     count = 0
     total_time = 0
-    draw_img_save = "./inference_results"
-
-    if not os.path.exists(draw_img_save):
-        os.makedirs(draw_img_save)
 
     for image_file in image_file_list:
         img, flag = check_and_read_gif(image_file)
@@ -222,12 +217,6 @@ def main(args, image_dir, process_id=0):
         count += 1
 
         logger.info("Predict time of {}: {}".format(image_file, elapse))
-        src_im = draw_text_det_res(dt_boxes, image_file)
-        img_name_pure = os.path.split(image_file)[-1]
-        img_path = os.path.join(draw_img_save,
-                                "det_res_{}".format(img_name_pure))
-        cv2.imwrite(img_path, src_im)
-        logger.info("The visualized image saved in {}".format(img_path))
 
 
 if __name__ == "__main__":

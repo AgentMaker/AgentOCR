@@ -20,17 +20,7 @@ class BaseRecLabelDecode(object):
 
     def __init__(self,
                  character_dict_path=None,
-                 character_type='ch',
-                 use_space_char=False):
-        support_character_type = [
-            'ch', 'en', 'EN_symbol', 'french', 'german', 'japan', 'korean',
-            'it', 'xi', 'pu', 'ru', 'ar', 'ta', 'ug', 'fa', 'ur', 'rs', 'oc',
-            'rsc', 'bg', 'uk', 'be', 'te', 'ka', 'chinese_cht', 'hi', 'mr',
-            'ne', 'EN', 'latin', 'arabic', 'cyrillic', 'devanagari'
-        ]
-        assert character_type in support_character_type, "Only {} are supported now but get {}".format(
-            support_character_type, character_type)
-
+                 character_type='dict'):
         self.beg_str = "sos"
         self.end_str = "eos"
 
@@ -41,7 +31,7 @@ class BaseRecLabelDecode(object):
             # same with ASTER setting (use 94 char).
             self.character_str = string.printable[:-6]
             dict_character = list(self.character_str)
-        elif character_type in support_character_type:
+        elif character_type == 'dict':
             self.character_str = []
             assert character_dict_path is not None, "character_dict_path should not be None when character_type is {}".format(
                 character_type)
@@ -50,12 +40,10 @@ class BaseRecLabelDecode(object):
                 for line in lines:
                     line = line.decode('utf-8').strip("\n").strip("\r\n")
                     self.character_str.append(line)
-            if use_space_char:
-                self.character_str.append(" ")
             dict_character = list(self.character_str)
-
         else:
             raise NotImplementedError
+
         self.character_type = character_type
         dict_character = self.add_special_char(dict_character)
         self.dict = {}
@@ -101,11 +89,10 @@ class CTCLabelDecode(BaseRecLabelDecode):
 
     def __init__(self,
                  character_dict_path=None,
-                 character_type='ch',
-                 use_space_char=False,
+                 character_type='dict',
                  **kwargs):
         super(CTCLabelDecode, self).__init__(character_dict_path,
-                                             character_type, use_space_char)
+                                             character_type)
 
     def __call__(self, preds, label=None, *args, **kwargs):
         preds_idx = preds.argmax(axis=2)
@@ -129,13 +116,12 @@ class DistillationCTCLabelDecode(CTCLabelDecode):
 
     def __init__(self,
                  character_dict_path=None,
-                 character_type='ch',
-                 use_space_char=False,
+                 character_type='dict',
                  model_name=["student"],
                  key=None,
                  **kwargs):
         super(DistillationCTCLabelDecode, self).__init__(
-            character_dict_path, character_type, use_space_char)
+            character_dict_path, character_type)
         if not isinstance(model_name, list):
             model_name = [model_name]
         self.model_name = model_name
@@ -157,11 +143,10 @@ class AttnLabelDecode(BaseRecLabelDecode):
 
     def __init__(self,
                  character_dict_path=None,
-                 character_type='ch',
-                 use_space_char=False,
+                 character_type='dict',
                  **kwargs):
         super(AttnLabelDecode, self).__init__(character_dict_path,
-                                              character_type, use_space_char)
+                                              character_type)
 
     def add_special_char(self, dict_character):
         self.beg_str = "sos"
@@ -238,10 +223,9 @@ class SRNLabelDecode(BaseRecLabelDecode):
     def __init__(self,
                  character_dict_path=None,
                  character_type='en',
-                 use_space_char=False,
                  **kwargs):
         super(SRNLabelDecode, self).__init__(character_dict_path,
-                                             character_type, use_space_char)
+                                             character_type)
         self.max_text_length = kwargs.get('max_text_length', 25)
 
     def __call__(self, preds, label=None, *args, **kwargs):

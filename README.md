@@ -59,7 +59,7 @@
 
             # 图片 Base64 编码
             def cv2_to_base64(image):
-                data = cv2.imencode('.jpg', image)[1]
+                data = cv2.imencode('.jpg image)[1]
                 image_base64 = base64.b64encode(data.tobytes()).decode('UTF-8')
                 return image_base64
 
@@ -88,105 +88,68 @@
 ## 多语言支持
 * 目前预置了如下语言的配置文件，可通过语言缩写直接调用该配置文件：
 
-    | 语种 | 描述 | 缩写 | | 语种 | 描述 | 缩写 |
-    | --- | --- | --- | ---|--- | --- | --- |
-    |中文|chinese and english|ch| |保加利亚文|Bulgarian |bg|
-    |英文|english|en| |乌克兰文|Ukranian|uk|
-    |法文|french|fr| |白俄罗斯文|Belarusian|be|
-    |德文|german|ger| |泰卢固文|Telugu |te|
-    |日文|japan|jp| |阿巴扎文|Abaza |abq|
-    |韩文|korean|kr| |泰米尔文|Tamil |ta|
-    |中文繁体|chinese traditional |cht| |南非荷兰文 |Afrikaans |af|
-    |意大利文| Italian |it| |阿塞拜疆文 |Azerbaijani    |az|
-    |西班牙文|Spanish |es| |波斯尼亚文|Bosnian|bs|
-    |葡萄牙文| Portuguese|pt| |捷克文|Czech|cs|
-    |俄罗斯文|Russia|ru| |威尔士文 |Welsh |cy|
-    |阿拉伯文|Arabic|ar| |丹麦文 |Danish|da|
-    |印地文|Hindi|hi| |爱沙尼亚文 |Estonian |et|
-    |维吾尔|Uyghur|ug| |爱尔兰文 |Irish |ga|
-    |波斯文|Persian|fa| |克罗地亚文|Croatian |hr|
-    |乌尔都文|Urdu|ur| |匈牙利文|Hungarian |hu|
-    |塞尔维亚文（latin)| Serbian(latin) |rs_la| |印尼文|Indonesian|id|
-    |欧西坦文|Occitan |oc| |冰岛文 |Icelandic|is|
-    |马拉地文|Marathi|mr| |库尔德文 |Kurdish|ku|
-    |尼泊尔文|Nepali|ne| |立陶宛文|Lithuanian |lt|
-    |塞尔维亚文（cyrillic)|Serbian(cyrillic)|rs_cy| |拉脱维亚文 |Latvian |lv|
-    |毛利文|Maori|mi| | 达尔瓦文|Dargwa |dar|
-    |马来文 |Malay|ms| | 因古什文|Ingush |inh|
-    |马耳他文 |Maltese |mt| | 拉克文|Lak |lbe|
-    |荷兰文 |Dutch |nl| | 莱兹甘文|Lezghian |lez|
-    |挪威文 |Norwegian |no| |塔巴萨兰文 |Tabassaran |tab|
-    |波兰文|Polish |pl| | 比尔哈文|Bihari |bh|
-    | 罗马尼亚文|Romanian |ro| | 迈蒂利文|Maithili |mai|
-    | 斯洛伐克文|Slovak |sk| | 昂加文|Angika |ang|
-    | 斯洛文尼亚文|Slovenian |sl| | 孟加拉文|Bhojpuri |bho|
-    | 阿尔巴尼亚文|Albanian |sq| | 摩揭陀文 |Magahi |mah|
-    | 瑞典文|Swedish |sv| | 那格浦尔文|Nagpur |sck|
-    | 西瓦希里文|Swahili |sw| | 尼瓦尔文|Newari |new|
-    | 塔加洛文|Tagalog |tl| | 保加利亚文 |Goan Konkani|gom|
-    | 土耳其文|Turkish |tr| | 沙特阿拉伯文|Saudi Arabia|sa|
-    | 乌兹别克文|Uzbek |uz| | 阿瓦尔文|Avar |ava|
-    | 越南文|Vietnamese |vi| | 阿瓦尔文|Avar |ava|
-    | 蒙古文|Mongolian |mn| | 阿迪赫文|Adyghe |ady|
+    | 语言 | 说明 | 缩写 |
+    |:-:|:-:|:-:|
+    |chinese_simplified|简体中文|ch|
+    |chinese_traditional|繁体中文|cht|
+    |english|英文|en|
+    |french|法文|fr|
+    |german|德文|ger|
+    |korean|韩文|kr|
+    |japanese|日文|jp|
+    |kannada|卡纳达文|ka|
+    |telugu|泰卢固文|te|
+    |tamil|泰米尔文|ta|
+    |latin|拉丁文|la|
+    |cyrillic|西里尔文|cy|
+    |devanagari|梵文|de|
+
+
 
 ## 预训练模型
-* 检测模型：
+* 模型列表：
 
-    | Model Name | Model Type | Pretrained Model |
-    |:-:|:-:|:-:|
-    | ch_ppocr_mobile_v2.0_det | det | [Download][ch_ppocr_mobile_v2.0_det] |
-    | ch_ppocr_server_v2.0_det | det | [Download][ch_ppocr_server_v2.0_det] |
-    | en_ppocr_mobile_v2.0_det | det | [Download][en_ppocr_mobile_v2.0_det] |
-
-* 分类模型：
-
-    | Model Name | Model Type | Pretrained Model |
-    |:-:|:-:|:-:|
-    | ch_ppocr_mobile_v2.0_cls | cls | [Download][ch_ppocr_mobile_v2.0_cls] |
-
-* 识别模型：
-
-    | Model Name | Model Type | Pretrained Model |
-    |:-:|:-:|:-:|
-    | ch_ppocr_mobile_v2.0_rec | rec | [Download][ch_ppocr_mobile_v2.0_rec] |
-    | ch_ppocr_server_v2.0_rec | rec | [Download][ch_ppocr_server_v2.0_rec] |
-    | ka_ppocr_mobile_v2.0_rec | rec | [Download][ka_ppocr_mobile_v2.0_rec] |
-    | te_ppocr_mobile_v2.0_rec | rec | [Download][te_ppocr_mobile_v2.0_rec] |
-    | ta_ppocr_mobile_v2.0_rec | rec | [Download][ta_ppocr_mobile_v2.0_rec] |
-    | cht_ppocr_mobile_v2.0_rec | rec | [Download][cht_ppocr_mobile_v2.0_rec] |
-    | japan_ppocr_mobile_v2.0_rec | rec | [Download][japan_ppocr_mobile_v2.0_rec] |
-    | latin_ppocr_mobile_v2.0_rec | rec | [Download][latin_ppocr_mobile_v2.0_rec] |
-    | arabic_ppocr_mobile_v2.0_rec | rec | [Download][arabic_ppocr_mobile_v2.0_rec] |
-    | korean_ppocr_mobile_v2.0_rec | rec | [Download][korean_ppocr_mobile_v2.0_rec] |
-    | french_ppocr_mobile_v2.0_rec | rec | [Download][french_ppocr_mobile_v2.0_rec] |
-    | german_ppocr_mobile_v2.0_rec | rec | [Download][german_ppocr_mobile_v2.0_rec] |
-    | cyrillic_ppocr_mobile_v2.0_rec | rec | [Download][cyrillic_ppocr_mobile_v2.0_rec] |
-    | en_ppocr_mobile_v2.0_number_rec | rec | [Download][en_ppocr_mobile_v2.0_number_rec] |
-    | devanagari_ppocr_mobile_v2.0_rec | rec | [Download][devanagari_ppocr_mobile_v2.0_rec] |
+    | 模型名称 | 类型 | 预训练模型 | 说明 |
+    |:-:|:-:|:-:|:-:|
+    | chinese_multilingual_mobile_v2.0_det | det | [Download][chinese_multilingual_mobile_v2.0_det] |移动端中文（多语言）文本位置检测模型|
+    | chinese_multilingual_server_v2.0_det | det | [Download][chinese_multilingual_server_v2.0_det] |服务端中文（多语言）文本位置检测模型|
+    | english_multilingual_mobile_v2.0_det | det | [Download][english_multilingual_mobile_v2.0_det] |移动端英文（多语言）文本位置检测模型|
+    | chinese_multilingual_mobile_v2.0_cls | cls | [Download][chinese_multilingual_mobile_v2.0_cls] |移动端中文（多语言）文本方向分类模型|
+    | chinese_simplified_mobile_v2.0_rec | rec | [Download][chinese_simplified_mobile_v2.0_rec] |移动端简体中文文本内容识别模型|
+    | chinese_simplified_server_v2.0_rec | rec | [Download][chinese_simplified_server_v2.0_rec] |服务端简体中文文本内容识别模型|
+    | chinese_traditional_mobile_v2.0_rec | rec | [Download][chinese_traditional_mobile_v2.0_rec] |移动端繁体中文文本内容识别模型|
+    | english_mobile_v2.0_rec | rec | [Download][english_mobile_v2.0_rec] |移动端英文文本内容识别模型|
+    | korean_mobile_v2.0_rec | rec | [Download][korean_mobile_v2.0_rec] |移动端韩文文本内容识别模型|
+    | french_mobile_v2.0_rec | rec | [Download][french_mobile_v2.0_rec] |移动端法文文本内容识别模型|
+    | german_mobile_v2.0_rec | rec | [Download][german_mobile_v2.0_rec] |移动端德文文本内容识别模型|
+    | japanese_mobile_v2.0_rec | rec | [Download][japanese_mobile_v2.0_rec] |移动端日文文本内容识别模型|
+    | telugu_mobile_v2.0_rec | rec | [Download][telugu_mobile_v2.0_rec] |移动端泰卢固文文本内容识别模型|
+    | tamil_mobile_v2.0_rec | rec | [Download][tamil_mobile_v2.0_rec] |移动端泰米尔文文本内容识别模型|
+    | latin_mobile_v2.0_rec | rec | [Download][latin_mobile_v2.0_rec] |移动端拉丁文文本内容识别模型|
+    | arabic_mobile_v2.0_rec | rec | [Download][arabic_mobile_v2.0_rec] |移动端阿拉伯文文本内容识别模型|
+    | cyrillic_mobile_v2.0_rec | rec | [Download][cyrillic_mobile_v2.0_rec] |移动端西里尔文文本内容识别模型|
+    | kannada_mobile_v2.0_rec | rec | [Download][kannada_mobile_v2.0_rec] |移动端卡纳达文文本内容识别模型|
+    | devanagari_mobile_v2.0_rec | rec | [Download][devanagari_mobile_v2.0_rec] |移动端梵文文本内容识别模型|
 
 
 
 
-[ch_ppocr_mobile_v2.0_cls]:https://bj.bcebos.com/v1/ai-studio-online/0c29ed105d984b7bba9c09ecb6dcde7075330fd74fa7449fafca316603e1aaed?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_cls.onnx
-
-[ch_ppocr_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/55d7b7e1890c4b81ae17a2d0c4b457d89f47a05407be4563a5b2e212b3fdf70b?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_det.onnx
-[ch_ppocr_server_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/65e5a792fa464c2994814b0a2af2334ada2a9c8150fa42f6ab3cfd22bb744708?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_det.onnx
-[en_ppocr_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/e02ba8dfb2b34febb9c468114031ca7f4a6e320359a14f5aaa4067b66c3d99bf?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_det.onnx
-[en_ppocr_mobile_v2.0_table_det]:https://bj.bcebos.com/v1/ai-studio-online/d28ba772eb1d48a582a7ce16894885d662399f1ee12a4bfaa73d2b4987c3dc31?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_det.onnx
-
-[ch_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/77e67a9bb1cc421a97e037462838f159526b2d0ba3d94a3eb0da35408174edb7?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_mobile_v2.0_rec.onnx
-[ch_ppocr_server_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/5f6546d18a84448486abe778b9f1b1ba21da2efbd6b84aaa808936e94771ec68?responseContentDisposition=attachment%3B%20filename%3Dch_ppocr_server_v2.0_rec.onnx
-[ka_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/85cdc2462b6f4ff3a3474b724a33308112b3c55d9bf541469b858b0b0035872c?responseContentDisposition=attachment%3B%20filename%3Dka_mobile_v2.0_rec.onnx
-[te_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/a6d61a705348461b93821b963769ddb56502e57bdc47470d9e8c7ed29f80c016?responseContentDisposition=attachment%3B%20filename%3Dte_mobile_v2.0_rec.onnx
-[ta_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/ef955098816b47be82538a9fff2487516a8a5da3ec454b689406e01b4031fd41?responseContentDisposition=attachment%3B%20filename%3Dta_mobile_v2.0_rec.onnx
-[cht_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/85d2cfd9c24e47319ebb48184f4e8ed3cdef007a8731476eb8efbd3d7b4f5ff9?responseContentDisposition=attachment%3B%20filename%3Dchinese_cht_mobile_v2.0_rec.onnx
-[japan_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/df453e13ad144138978ac3d121b5ec73adfccd9a014e4d1281fe9a4015e2cf92?responseContentDisposition=attachment%3B%20filename%3Djapan_mobile_v2.0_rec.onnx
-[latin_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/159e47bf6fab45efbe786dc4d932cd71d28f74b0bf9e4144b82f00ebd1a467a5?responseContentDisposition=attachment%3B%20filename%3Dlatin_ppocr_mobile_v2.0_rec.onnx
-[arabic_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/27521b051c96454eb10f13f403ca699a819d997e6d2d4afa9721f2f80ad3aed7?responseContentDisposition=attachment%3B%20filename%3Darabic_ppocr_mobile_v2.0_rec.onnx
-[korean_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/20d94b1440654ed9aadbe61b565430702629de85021a4e14ad644fae5896ed77?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx
-[french_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/cdc0503a71274172b0d43e07a7c285745231381b52d34be584babe1e1202a9d9?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx
-[german_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/87356bfc558f481fbeaae6fa28b6ea50194c2ae94f4d4165a95927dd9ad4d669?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx
-[cyrillic_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/3f3b53e4b2b74cedaa24b4998e35d4b1c527cc7eb3f645859695de80bb14b625?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_ppocr_mobile_v2.0_rec.onnx
-[en_ppocr_mobile_v2.0_table_rec]:https://bj.bcebos.com/v1/ai-studio-online/c9d6e42c99fe40ae9448ee9d07973d2b603f1e68fffa4a29b8f8cc45b3dc16f5?responseContentDisposition=attachment%3B%20filename%3Den_ppocr_mobile_v2.0_table_rec.onnx
-[en_ppocr_mobile_v2.0_number_rec]:https://bj.bcebos.com/v1/ai-studio-online/a31fc2aed28841b4ac861c7ae4639d3f62b102d7f5e0416088544a9763affeec?responseContentDisposition=attachment%3B%20filename%3Den_number_mobile_v2.0_rec.onnx
-[devanagari_ppocr_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/a78a9384579d451988858aa97e99d4cc2518902128174b089fabac2a150c8822?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_ppocr_mobile_v2.0_rec.onnx
+[chinese_multilingual_mobile_v2.0_cls]:https://bj.bcebos.com/v1/ai-studio-online/a4efe143749e49039f15448ea8c73d99c0534997a54d4d018bc6bec19c518a37?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_server_v2.0_det.onnx
+[chinese_multilingual_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/6a97ec7f4a2348749887988071733bef674546f8ad7049b79bf3597c8bf9b5a1?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_det.onnx
+[chinese_multilingual_server_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/a4efe143749e49039f15448ea8c73d99c0534997a54d4d018bc6bec19c518a37?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_server_v2.0_det.onnx
+[english_multilingual_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/90c32bb78fe34870bf3ed7c8d8fdf1a4897abfd42d984a678c865cd92b25b91d?responseContentDisposition=attachment%3B%20filename%3Denglish_multilingual_mobile_v2.0_det.onnx
+[chinese_simplified_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/6ae9a6f87f3d4126aab5a92b4df35359bce2159e177a4ed6b2c85a38f9987004?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_mobile_v2.0_rec.onnx
+[chinese_simplified_server_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/bd641ce2efe842f6a0c53a502c8595ab4121051b66d748ff8cbe555d41ee3c2d?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_server_v2.0_rec.onnx
+[chinese_traditional_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/1733802270dd42e7b1535a954dad0373cf03b73a0fc14fa5b4f44aa5ecceb351?responseContentDisposition=attachment%3B%20filename%3Dchinese_traditional_mobile_v2.0_rec.onnx
+[kannada_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/e26c16c208d64af9840a5c8fd721d5edbaf86dbbbb2c4c5397839d6d078933d4?responseContentDisposition=attachment%3B%20filename%3Dkannada_mobile_v2.0_rec.onnx
+[telugu_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/8b85b803a2364f0e9238683b6c8032922ac30cbec4774a1795183195bd717bad?responseContentDisposition=attachment%3B%20filename%3Dtelugu_mobile_v2.0_rec.onnx
+[tamil_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/0dc7fc1b438d4ed6ab401b596dcc1407101b9143d9c54d7db6a6ec032cc7f3d2?responseContentDisposition=attachment%3B%20filename%3Dtamil_mobile_v2.0_rec.onnx
+[japanese_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/ff50e398096d48889f154910a085af1f170d95d18eac4d6885ad8d1c9f2010f8?responseContentDisposition=attachment%3B%20filename%3Djapanese_mobile_v2.0_rec.onnx
+[latin_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/d24e03a0022a4de4805a6e2b60b6a74ad09b2f6ec4cd4397a301048bae4e8a09?responseContentDisposition=attachment%3B%20filename%3Dlatin_mobile_v2.0_rec.onnx
+[arabic_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/ea236583c3074d858025f2c5fb9bf01ed45f8416e78146639c40585397eea954?responseContentDisposition=attachment%3B%20filename%3Darabic_mobile_v2.0_rec.onnx
+[korean_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/f6d69c38fe9a46569403acf6a1d8cbe5451ed51ad2e64fb2bc9743848fd6f91d?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx
+[french_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/e2ebf93ff016446189e7ad23a988ccaf94d54c883315485f923cc2c555693459?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx
+[german_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/74b5039facea46329ebdfb9f4cd366c8a38b16ed0eac44c190bc9597e7795a56?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx
+[cyrillic_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/4137cfd82c334f4094cae36884478e38ce16416e97eb4dc9a95a192ee70ac42c?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_mobile_v2.0_rec.onnx
+[english_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/46da49d9b0ff4da4a8788c31d73029f4bfd132d0cedb4fd3893e40ddadc15d04?responseContentDisposition=attachment%3B%20filename%3Denglish_mobile_v2.0_rec.onnx
+[devanagari_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/634d1c1635e5492aac93b195d3b57e5d5013815ea2684d8e96b75d3838bc76b0?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_mobile_v2.0_rec.onnx
