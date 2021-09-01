@@ -93,9 +93,9 @@
     |中文|chinese and english|ch| |保加利亚文|Bulgarian |bg|
     |英文|english|en| |乌克兰文|Ukranian|uk|
     |法文|french|fr| |白俄罗斯文|Belarusian|be|
-    |德文|german|german| |泰卢固文|Telugu |te|
-    |日文|japan|japan| |阿巴扎文|Abaza |abq|
-    |韩文|korean|korean| |泰米尔文|Tamil |ta|
+    |德文|german|ger| |泰卢固文|Telugu |te|
+    |日文|japan|jp| |阿巴扎文|Abaza |abq|
+    |韩文|korean|kr| |泰米尔文|Tamil |ta|
     |中文繁体|chinese traditional |cht| |南非荷兰文 |Afrikaans |af|
     |意大利文| Italian |it| |阿塞拜疆文 |Azerbaijani    |az|
     |西班牙文|Spanish |es| |波斯尼亚文|Bosnian|bs|
@@ -106,11 +106,11 @@
     |维吾尔|Uyghur|ug| |爱尔兰文 |Irish |ga|
     |波斯文|Persian|fa| |克罗地亚文|Croatian |hr|
     |乌尔都文|Urdu|ur| |匈牙利文|Hungarian |hu|
-    |塞尔维亚文（latin)| Serbian(latin) |rs_latin| |印尼文|Indonesian|id|
+    |塞尔维亚文（latin)| Serbian(latin) |rs_la| |印尼文|Indonesian|id|
     |欧西坦文|Occitan |oc| |冰岛文 |Icelandic|is|
     |马拉地文|Marathi|mr| |库尔德文 |Kurdish|ku|
     |尼泊尔文|Nepali|ne| |立陶宛文|Lithuanian |lt|
-    |塞尔维亚文（cyrillic)|Serbian(cyrillic)|rs_cyrillic| |拉脱维亚文 |Latvian |lv|
+    |塞尔维亚文（cyrillic)|Serbian(cyrillic)|rs_cy| |拉脱维亚文 |Latvian |lv|
     |毛利文|Maori|mi| | 达尔瓦文|Dargwa |dar|
     |马来文 |Malay|ms| | 因古什文|Ingush |inh|
     |马耳他文 |Maltese |mt| | 拉克文|Lak |lbe|
@@ -137,7 +137,6 @@
     | ch_ppocr_mobile_v2.0_det | det | [Download][ch_ppocr_mobile_v2.0_det] |
     | ch_ppocr_server_v2.0_det | det | [Download][ch_ppocr_server_v2.0_det] |
     | en_ppocr_mobile_v2.0_det | det | [Download][en_ppocr_mobile_v2.0_det] |
-    | en_ppocr_mobile_v2.0_table_det | det | [Download][en_ppocr_mobile_v2.0_table_det] |
 
 * 分类模型：
 
@@ -162,7 +161,6 @@
     | french_ppocr_mobile_v2.0_rec | rec | [Download][french_ppocr_mobile_v2.0_rec] |
     | german_ppocr_mobile_v2.0_rec | rec | [Download][german_ppocr_mobile_v2.0_rec] |
     | cyrillic_ppocr_mobile_v2.0_rec | rec | [Download][cyrillic_ppocr_mobile_v2.0_rec] |
-    | en_ppocr_mobile_v2.0_table_rec | rec | [Download][en_ppocr_mobile_v2.0_table_rec] |
     | en_ppocr_mobile_v2.0_number_rec | rec | [Download][en_ppocr_mobile_v2.0_number_rec] |
     | devanagari_ppocr_mobile_v2.0_rec | rec | [Download][devanagari_ppocr_mobile_v2.0_rec] |
 
