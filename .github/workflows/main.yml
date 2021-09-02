@@ -1,0 +1,49 @@
+name: Build_Test
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install onnxruntime wheel
+        python setup.py install
+    - name: Download
+      run: |
+        mkdir images
+        wget https://ai-studio-static-online.cdn.bcebos.com/c4c758456cc74d9e997a72a25c47a3a57707b0664ed546819e4d5981ba765b13 -O images/ch.jpg
+    - name: Test
+      run: |
+        touch test.py
+        echo "from agentocr import OCRSystem" >> test.py
+        echo >> test.py
+        echo "import cv2" >> test.py
+        echo >> test.py
+        echo "ocr = OCRSystem()" >> test.py
+        echo >> test.py
+        echo "out=ocr.ocr(cv2.imread('images/ch.jpg'))" >> test.py
+        echo >> test.py
+        echo "print(out)" >> test.py
+        echo >> test.py
+        python test.py
+        agentocr system --config ch --image_dir images
+    - name: Package
+      run: |
+        python setup.py sdist bdist_wheel
+    - name: Publish
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        password: ${{ secrets.PYPI_TEST_API_TOKEN }}
+        repository_url: https://test.pypi.org/legacy/
