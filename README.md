@@ -1,4 +1,17 @@
 # AgentOCR
+
+
+```
+                                     _        ____     _____   _____  
+      /\                            | |      / __ \   / ____| |  __ \ 
+     /  \      __ _    ___   _ __   | |_    | |  | | | |      | |__) |
+    / /\ \    / _` |  / _ \ | '_ \  | __|   | |  | | | |      |  _  / 
+   / ____ \  | (_| | |  __/ | | | | | |_    | |__| | | |____  | | \ \ 
+  /_/    \_\  \__, |  \___| |_| |_|  \__|    \____/   \_____| |_|  \_\
+               __/ |                                                  
+              |___/                                                   
+```
+
 ![GitHub forks](https://img.shields.io/github/forks/AgentMaker/AgentOCR)
 ![GitHub Repo stars](https://img.shields.io/github/stars/AgentMaker/AgentOCR)
 ![Pypi Downloads](https://pepy.tech/badge/agentocr)
