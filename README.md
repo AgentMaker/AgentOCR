@@ -120,7 +120,7 @@
 
 
 ## 预训练模型
-* 模型列表：
+* 常规模型列表：
 
     | 模型名称 | 类型 | 预训练模型 | 说明 |
     |:-:|:-:|:-:|:-:|
@@ -144,7 +144,12 @@
     | kannada_mobile_v2.0_rec | rec | [Download][kannada_mobile_v2.0_rec] |移动端卡纳达文文本内容识别模型|
     | devanagari_mobile_v2.0_rec | rec | [Download][devanagari_mobile_v2.0_rec] |移动端梵文文本内容识别模型|
 
+* 特色模型列表：
 
+    | 模型名称 | 类型 | 预训练模型 | 说明 |
+    |:-:|:-:|:-:|:-:|
+    | chinese_license_plate_mobile_v2.0_rec | rec | [Download][] |移动端中文车牌文本内容识别模型|
+    | chinese_license_plate_server_v2.0_rec | rec | [Download][] |服务端中文车牌文本内容识别模型|
 
 
 [chinese_multilingual_mobile_v2.0_cls]:https://bj.bcebos.com/v1/ai-studio-online/71ac2df69f8b41f3be5ea646a3df985b36b96f0494634056bae1305d22e8eedd?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_cls.onnx
