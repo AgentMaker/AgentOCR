@@ -98,8 +98,8 @@
     * Jupyter Notebook：[【快速使用】](examples/quick_start.ipynb)
     * 更多安装使用细节请参考：[【Package 使用指南】](docs/package_usage.md)
 
-## 多语言支持
-* 目前预置了如下语言的配置文件，可通过语言缩写直接调用该配置文件：
+## 预设配置选项
+* 多语言模型配置：
 
     | 语言 | 说明 | 缩写 | 字典 |
     |:-:|:-:|:-:|:-:|
@@ -117,7 +117,11 @@
     |cyrillic|西里尔文|cy|[Link](./agentocr/resources/char_dicts/cyrillic_dict.txt)|
     |devanagari|梵文|de|[Link](./agentocr/resources/char_dicts/devanagari_dict.txt)|
 
+* 特色模型配置：
 
+    | 名称 | 说明 | 缩写 | 字典 |
+    |:-:|:-:|:-:|:-:|
+    |chinese_license_plate|中国车牌识别|clp|[Link](./agentocr/resources/char_dicts/chinese_license_plate_dict.txt)|
 
 ## 预训练模型
 * 常规模型列表：
@@ -148,8 +152,8 @@
 
     | 模型名称 | 类型 | 预训练模型 | 说明 |
     |:-:|:-:|:-:|:-:|
-    | chinese_license_plate_mobile_v2.0_rec | rec | [Download][] |移动端中文车牌文本内容识别模型|
-    | chinese_license_plate_server_v2.0_rec | rec | [Download][] |服务端中文车牌文本内容识别模型|
+    | chinese_license_plate_mobile_v2.0_rec | rec | [Download][chinese_license_plate_mobile_v2.0_rec] |移动端中国车牌文本内容识别模型|
+    | chinese_license_plate_server_v2.0_rec | rec | [Download][chinese_license_plate_server_v2.0_rec] |服务端中国车牌文本内容识别模型|
 
 
 [chinese_multilingual_mobile_v2.0_cls]:https://bj.bcebos.com/v1/ai-studio-online/71ac2df69f8b41f3be5ea646a3df985b36b96f0494634056bae1305d22e8eedd?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_cls.onnx
