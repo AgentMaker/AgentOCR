@@ -73,6 +73,10 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/46da49d9b0ff4da4a8788c31d73029f4bfd132d0cedb4fd3893e40ddadc15d04?responseContentDisposition=attachment%3B%20filename%3Denglish_mobile_v2.0_rec.onnx',
         'devanagari_mobile_v2.0_rec':
         'https://bj.bcebos.com/v1/ai-studio-online/634d1c1635e5492aac93b195d3b57e5d5013815ea2684d8e96b75d3838bc76b0?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_mobile_v2.0_rec.onnx',
+        'chinese_license_plate_mobile_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/16714ee6aa514e1eaa6946dc0189f87d90f168e51db54696bc9cc51002881ce7?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_rec.onnx',
+        'chinese_license_plate_server_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/df3afb41fa244b3d90b59d95a47dc53ba3313fe42c0a438ba8c227ee9e56a699?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_server_v2.0_rec.onnx',
     }
 }
 
@@ -91,7 +95,9 @@ language_dict = {
     'cy': 'cyrillic',
     'en': 'english',
     'de': 'devanagari',
-    'la': 'latin'
+    'la': 'latin',
+
+    'clp': 'chinese_license_plate'
 }
 
 def get_config(config):
