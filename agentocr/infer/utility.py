@@ -41,6 +41,8 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/a4efe143749e49039f15448ea8c73d99c0534997a54d4d018bc6bec19c518a37?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_server_v2.0_det.onnx',
         'english_multilingual_mobile_v2.0_det':
         'https://bj.bcebos.com/v1/ai-studio-online/90c32bb78fe34870bf3ed7c8d8fdf1a4897abfd42d984a678c865cd92b25b91d?responseContentDisposition=attachment%3B%20filename%3Denglish_multilingual_mobile_v2.0_det.onnx',
+        'chinese_license_plate_mobile_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/e06c2624609843e69a0b8f231aa09e5108d406e653f643d2b9d524bdc95f2263?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_det.onnx',
         },
     'rec': {
         'chinese_simplified_mobile_v2.0_rec':
@@ -110,6 +112,8 @@ def get_config(config):
             language_name = language_dict[config]
             if config in ['ch', 'cht']:
                 det_model = 'chinese_multilingual_mobile_v2.0_det'
+            elif config in ['clp']:
+                det_model = 'chinese_license_plate_mobile_v2.0_det'
             else:
                 det_model = 'english_multilingual_mobile_v2.0_det'
             kwargs = {
