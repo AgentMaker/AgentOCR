@@ -162,7 +162,7 @@
 
 * 特色功能模型配置：
 
-    | 名称 | 说明 | 缩写 | 字典 |
+    | 功能 | 说明 | 缩写 | 字典 |
     |:-:|:-:|:-:|:-:|
     |chinese_license_plate|中国车牌识别|clp|[Link](./agentocr/resources/char_dicts/chinese_license_plate_dict.txt)|
 
