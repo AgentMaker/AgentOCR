@@ -159,7 +159,7 @@
     |cyrillic|西里尔文|cy|[Link](./agentocr/resources/char_dicts/cyrillic_dict.txt)|
     |devanagari|梵文|de|[Link](./agentocr/resources/char_dicts/devanagari_dict.txt)|
 
-* 特色模型配置：
+* 特色功能模型配置：
 
     | 名称 | 说明 | 缩写 | 字典 |
     |:-:|:-:|:-:|:-:|
@@ -190,7 +190,7 @@
     | kannada_mobile_v2.0_rec | rec | [Download][kannada_mobile_v2.0_rec] |移动端卡纳达文文本内容识别模型|
     | devanagari_mobile_v2.0_rec | rec | [Download][devanagari_mobile_v2.0_rec] |移动端梵文文本内容识别模型|
 
-* 特色模型列表：
+* 特色功能模型列表：
 
     | 模型名称 | 类型 | 预训练模型 | 说明 |
     |:-:|:-:|:-:|:-:|
