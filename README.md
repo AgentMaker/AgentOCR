@@ -164,7 +164,7 @@
 
     | 功能 | 说明 | 缩写 | 字典 | 检测模型 | 分类模型 | 识别模型 |
     |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-    |chinese_license_plate|中国车牌识别|clp|[dict][chinese_license_plate_dict]|[chinese_license_plate_mobile][chinese_license_plate_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_license_plate_mobile][chinese_license_plate_mobile]
+    |chinese_license_plate|中国车牌识别|clp|[dict][chinese_license_plate_dict]|[mobile][chinese_license_plate_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][chinese_license_plate_mobile]
 
 [chinese_simplified_dict]:./agentocr/resources/char_dicts/chinese_simplified_dict.txt
 [chinese_traditional_dict]:./agentocr/resources/char_dicts/chinese_traditional_dict.txt
