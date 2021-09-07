@@ -178,7 +178,7 @@
     | chinese_multilingual_mobile_v2.0_cls | cls | [Download][chinese_multilingual_mobile_v2.0_cls] |移动端中文（多语言）文本方向分类模型|
     | chinese_simplified_mobile_v2.0_rec | rec | [Download][chinese_simplified_mobile_v2.0_rec] |移动端简体中文文本内容识别模型|
     | chinese_simplified_server_v2.0_rec | rec | [Download][chinese_simplified_server_v2.0_rec] |服务端简体中文文本内容识别模型|
-    | chinese_simplified_v2_common_v2.0_rec.0_rec | rec | [Download][chinese_simplified_v2_common_v2.0_rec.0_rec] |V2 版本通用简体中文文本内容识别模型|
+    | chinese_simplified_v2_common_v2.0_rec | rec | [Download][chinese_simplified_v2_common_v2.0_rec] |V2 版本通用简体中文文本内容识别模型|
     | chinese_traditional_mobile_v2.0_rec | rec | [Download][chinese_traditional_mobile_v2.0_rec] |移动端繁体中文文本内容识别模型|
     | english_mobile_v2.0_rec | rec | [Download][english_mobile_v2.0_rec] |移动端英文文本内容识别模型|
     | korean_mobile_v2.0_rec | rec | [Download][korean_mobile_v2.0_rec] |移动端韩文文本内容识别模型|
