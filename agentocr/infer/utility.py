@@ -43,6 +43,8 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/90c32bb78fe34870bf3ed7c8d8fdf1a4897abfd42d984a678c865cd92b25b91d?responseContentDisposition=attachment%3B%20filename%3Denglish_multilingual_mobile_v2.0_det.onnx',
         'chinese_license_plate_mobile_v2.0_det':
         'https://bj.bcebos.com/v1/ai-studio-online/e06c2624609843e69a0b8f231aa09e5108d406e653f643d2b9d524bdc95f2263?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_det.onnx',
+        'chinese_multilingual_v2_common_v2.0_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/cddca5cc473f47b9b9405161cf03d0d20b83f96b0f784828bbe98833d01a925a?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_v2_common_v2.0_det.onnx',
         },
     'rec': {
         'chinese_simplified_mobile_v2.0_rec':
@@ -79,6 +81,8 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/16714ee6aa514e1eaa6946dc0189f87d90f168e51db54696bc9cc51002881ce7?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_rec.onnx',
         'chinese_license_plate_server_v2.0_rec':
         'https://bj.bcebos.com/v1/ai-studio-online/df3afb41fa244b3d90b59d95a47dc53ba3313fe42c0a438ba8c227ee9e56a699?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_server_v2.0_rec.onnx',
+        'chinese_simplified_v2_common_v2.0_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/e199a08f2d884261975f7181da69910cad353121666e4dcf931ecb4e59bf83db?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_v2_common_v2.0_rec.onnx',
     }
 }
 
@@ -111,15 +115,23 @@ def get_config(config):
         if config in language_dict:
             language_name = language_dict[config]
             if config in ['ch', 'cht']:
-                det_model = 'chinese_multilingual_mobile_v2.0_det'
+                det_model = 'chinese_multilingual_v2_common_v2.0_det'
             elif config in ['clp']:
                 det_model = 'chinese_license_plate_mobile_v2.0_det'
             else:
                 det_model = 'english_multilingual_mobile_v2.0_det'
+            
+            if config == 'ch':
+                rec_model = 'chinese_simplified_v2_common_v2.0_rec'
+            else:
+                rec_model = "%s_mobile_v2.0_rec" % language_name
+            
+            char_dict = "%s_dict" % language_name
+
             kwargs = {
                 "det_model": det_model,
-                "rec_model": "%s_mobile_v2.0_rec" % language_name,
-                "rec_char_dict_path": "%s_dict" % language_name,
+                "rec_model": rec_model,
+                "rec_char_dict_path": char_dict,
             }
         else:
             raise ValueError('Please check your config.')
