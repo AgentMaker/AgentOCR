@@ -146,25 +146,25 @@
 
     | 语言 | 说明 | 缩写 | 字典 | 检测模型 | 分类模型 | 识别模型 |
     |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-    |chinese_simplified|简体中文|ch|[chinese_simplified_dict][chinese_simplified_dict]|[chinese_multilingual_v2_common][chinese_multilingual_v2_common]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_simplified_v2_common][chinese_simplified_v2_common]|
-    |chinese_traditional|繁体中文|cht|[chinese_traditional_dict][chinese_traditional_dict]|[chinese_multilingual_v2_common][chinese_multilingual_v2_common]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_traditional_mobile][chinese_traditional_mobile]|
-    |english|英文|en|[english_dict][english_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[english_mobile][english_mobile]|
-    |french|法文|fr|[french_dict][french_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[french_mobile][french_mobile]|
-    |german|德文|ger|[german_dict][german_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[german_mobile][german_mobile]|
-    |korean|韩文|kr|[korean_dict][korean_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[korean_mobile][korean_mobile]|
-    |japanese|日文|jp|[japanese_dict][japanese_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[japanese_mobile][japanese_mobile]|
-    |kannada|卡纳达文|ka|[kannada_dict][kannada_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[kannada_mobile][kannada_mobile]|
-    |telugu|泰卢固文|te|[telugu_dict][telugu_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[telugu_mobile][telugu_mobile]|
-    |tamil|泰米尔文|ta|[tamil_dict][tamil_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[tamil_mobile][tamil_mobile]|
-    |latin|拉丁文|la|[latin_dict][latin_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[latin_mobile][latin_mobile]|
-    |cyrillic|西里尔文|cy|[cyrillic_dict][cyrillic_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[cyrillic_mobile][cyrillic_mobile]|
-    |devanagari|梵文|de|[devanagari_dict][devanagari_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[devanagari_mobile][devanagari_mobile]|
+    |chinese_simplified|简体中文|ch|[dict][chinese_simplified_dict]|[chinese_multilingual_v2_common][chinese_multilingual_v2_common]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_simplified_v2_common][chinese_simplified_v2_common]|
+    |chinese_traditional|繁体中文|cht|[dict][chinese_traditional_dict]|[chinese_multilingual_v2_common][chinese_multilingual_v2_common]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_traditional_mobile][chinese_traditional_mobile]|
+    |english|英文|en|[dict][english_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[english_mobile][english_mobile]|
+    |french|法文|fr|[dict][french_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[french_mobile][french_mobile]|
+    |german|德文|ger|[dict][german_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[german_mobile][german_mobile]|
+    |korean|韩文|kr|[dict][korean_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[korean_mobile][korean_mobile]|
+    |japanese|日文|jp|[dict][japanese_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[japanese_mobile][japanese_mobile]|
+    |kannada|卡纳达文|ka|[dict][kannada_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[kannada_mobile][kannada_mobile]|
+    |telugu|泰卢固文|te|[dict][telugu_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[telugu_mobile][telugu_mobile]|
+    |tamil|泰米尔文|ta|[dict][tamil_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[tamil_mobile][tamil_mobile]|
+    |latin|拉丁文|la|[dict][latin_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[latin_mobile][latin_mobile]|
+    |cyrillic|西里尔文|cy|[dict][cyrillic_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[cyrillic_mobile][cyrillic_mobile]|
+    |devanagari|梵文|de|[dict][devanagari_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[devanagari_mobile][devanagari_mobile]|
 
 * 特色功能模型配置：
 
     | 功能 | 说明 | 缩写 | 字典 | 检测模型 | 分类模型 | 识别模型 |
     |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-    |chinese_license_plate|中国车牌识别|clp|[chinese_license_plate_dict][chinese_license_plate_dict]|[chinese_license_plate_mobile][chinese_license_plate_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_license_plate_mobile][chinese_license_plate_mobile]
+    |chinese_license_plate|中国车牌识别|clp|[dict][chinese_license_plate_dict]|[chinese_license_plate_mobile][chinese_license_plate_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_license_plate_mobile][chinese_license_plate_mobile]
 
 [chinese_simplified_dict]:./agentocr/resources/char_dicts/chinese_simplified_dict.txt
 [chinese_traditional_dict]:./agentocr/resources/char_dicts/chinese_traditional_dict.txt
