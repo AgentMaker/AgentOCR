@@ -173,10 +173,12 @@
     |:-:|:-:|:-:|:-:|
     | chinese_multilingual_mobile_v2.0_det | det | [Download][chinese_multilingual_mobile_v2.0_det] |移动端中文（多语言）文本位置检测模型|
     | chinese_multilingual_server_v2.0_det | det | [Download][chinese_multilingual_server_v2.0_det] |服务端中文（多语言）文本位置检测模型|
+    | chinese_multilingual_v2_common_v2.0_det | det | [Download][chinese_multilingual_v2_common_v2.0_det] |V2 版本通用中文（多语言）文本位置检测模型|
     | english_multilingual_mobile_v2.0_det | det | [Download][english_multilingual_mobile_v2.0_det] |移动端英文（多语言）文本位置检测模型|
     | chinese_multilingual_mobile_v2.0_cls | cls | [Download][chinese_multilingual_mobile_v2.0_cls] |移动端中文（多语言）文本方向分类模型|
     | chinese_simplified_mobile_v2.0_rec | rec | [Download][chinese_simplified_mobile_v2.0_rec] |移动端简体中文文本内容识别模型|
     | chinese_simplified_server_v2.0_rec | rec | [Download][chinese_simplified_server_v2.0_rec] |服务端简体中文文本内容识别模型|
+    | chinese_simplified_v2_common_v2.0_rec.0_rec | rec | [Download][chinese_simplified_v2_common_v2.0_rec.0_rec] |V2 版本通用简体中文文本内容识别模型|
     | chinese_traditional_mobile_v2.0_rec | rec | [Download][chinese_traditional_mobile_v2.0_rec] |移动端繁体中文文本内容识别模型|
     | english_mobile_v2.0_rec | rec | [Download][english_mobile_v2.0_rec] |移动端英文文本内容识别模型|
     | korean_mobile_v2.0_rec | rec | [Download][korean_mobile_v2.0_rec] |移动端韩文文本内容识别模型|
@@ -224,3 +226,7 @@
 [chinese_license_plate_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/e06c2624609843e69a0b8f231aa09e5108d406e653f643d2b9d524bdc95f2263?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_det.onnx
 [chinese_license_plate_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/16714ee6aa514e1eaa6946dc0189f87d90f168e51db54696bc9cc51002881ce7?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_rec.onnx
 [chinese_license_plate_server_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/df3afb41fa244b3d90b59d95a47dc53ba3313fe42c0a438ba8c227ee9e56a699?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_server_v2.0_rec.onnx
+
+
+[chinese_simplified_v2_common_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/e199a08f2d884261975f7181da69910cad353121666e4dcf931ecb4e59bf83db?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_v2_common_v2.0_rec.onnx
+[chinese_multilingual_v2_common_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/cddca5cc473f47b9b9405161cf03d0d20b83f96b0f784828bbe98833d01a925a?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_v2_common_v2.0_det.onnx
