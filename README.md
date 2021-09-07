@@ -144,21 +144,21 @@
 ## 预设配置选项
 * 多语言模型配置：
 
-    | 语言 | 说明 | 缩写 | 字典 |
-    |:-:|:-:|:-:|:-:|
-    |chinese_simplified|简体中文|ch|[Link](./agentocr/resources/char_dicts/chinese_simplified_dict.txt)|
-    |chinese_traditional|繁体中文|cht|[Link](./agentocr/resources/char_dicts/chinese_traditional_dict.txt)|
-    |english|英文|en|[Link](./agentocr/resources/char_dicts/english_dict.txt)|
-    |french|法文|fr|[Link](./agentocr/resources/char_dicts/french_dict.txt)|
-    |german|德文|ger|[Link](./agentocr/resources/char_dicts/german_dict.txt)|
-    |korean|韩文|kr|[Link](./agentocr/resources/char_dicts/korean_dict.txt)|
-    |japanese|日文|jp|[Link](./agentocr/resources/char_dicts/japanese_dict.txt)|
-    |kannada|卡纳达文|ka|[Link](./agentocr/resources/char_dicts/kannada_dict.txt)|
-    |telugu|泰卢固文|te|[Link](./agentocr/resources/char_dicts/telugu_dict.txt)|
-    |tamil|泰米尔文|ta|[Link](./agentocr/resources/char_dicts/tamil_dict.txt)|
-    |latin|拉丁文|la|[Link](./agentocr/resources/char_dicts/latin_dict.txt)|
-    |cyrillic|西里尔文|cy|[Link](./agentocr/resources/char_dicts/cyrillic_dict.txt)|
-    |devanagari|梵文|de|[Link](./agentocr/resources/char_dicts/devanagari_dict.txt)|
+    | 语言 | 说明 | 缩写 | 字典 | 检测模型 | 分类模型 | 识别模型 |
+    |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+    |chinese_simplified|简体中文|ch|[Link](./agentocr/resources/char_dicts/chinese_simplified_dict.txt)|[Link](./README.md#:~:text=chinese_multilingual_v2_common_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=chinese_simplified_v2_common_v2.0_rec)|
+    |chinese_traditional|繁体中文|cht|[Link](./agentocr/resources/char_dicts/chinese_traditional_dict.txt)|[Link](./README.md#:~:text=chinese_multilingual_v2_common_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=chinese_traditional_mobile_v2.0_rec)|
+    |english|英文|en|[Link](./agentocr/resources/char_dicts/english_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=english_mobile_v2.0_rec)|
+    |french|法文|fr|[Link](./agentocr/resources/char_dicts/french_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=french_mobile_v2.0_rec)|
+    |german|德文|ger|[Link](./agentocr/resources/char_dicts/german_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=german_mobile_v2.0_rec)|
+    |korean|韩文|kr|[Link](./agentocr/resources/char_dicts/korean_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=korean_mobile_v2.0_rec)|
+    |japanese|日文|jp|[Link](./agentocr/resources/char_dicts/japanese_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=japanese_mobile_v2.0_rec)|
+    |kannada|卡纳达文|ka|[Link](./agentocr/resources/char_dicts/kannada_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=kannada_mobile_v2.0_rec)|
+    |telugu|泰卢固文|te|[Link](./agentocr/resources/char_dicts/telugu_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=telugu_mobile_v2.0_rec)|
+    |tamil|泰米尔文|ta|[Link](./agentocr/resources/char_dicts/tamil_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=tamil_mobile_v2.0_rec)|
+    |latin|拉丁文|la|[Link](./agentocr/resources/char_dicts/latin_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=latin_mobile_v2.0_rec)|
+    |cyrillic|西里尔文|cy|[Link](./agentocr/resources/char_dicts/cyrillic_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=cyrillic_mobile_v2.0_rec)|
+    |devanagari|梵文|de|[Link](./agentocr/resources/char_dicts/devanagari_dict.txt)|[Link](./README.md#:~:text=english_multilingual_mobile_v2.0_det)|[Link](./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls)|[Link](./README.md#:~:text=devanagari_mobile_v2.0_rec)|
 
 * 特色功能模型配置：
 
