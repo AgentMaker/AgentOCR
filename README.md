@@ -198,8 +198,8 @@
 
 [chinese_license_plate_dict]:./agentocr/resources/char_dicts/chinese_license_plate_dict.txt
 
-[chinese_license_plate_mobile_v2.0_det]:./README.md#:~:text=chinese_license_plate_mobile_v2.0_det
-[chinese_license_plate_mobile_v2.0_rec]:./README.md#:~:text=chinese_license_plate_mobile_v2.0_rec
+[chinese_license_plate_mobile]:./README.md#:~:text=chinese_license_plate_mobile_v2.0_det
+[chinese_license_plate_mobile]:./README.md#:~:text=chinese_license_plate_mobile_v2.0_rec
 
 ## 预训练模型
 * 常规模型列表：
