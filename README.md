@@ -146,19 +146,19 @@
 
     | 语言 | 说明 | 缩写 | 字典 | 检测模型 | 分类模型 | 识别模型 |
     |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-    |chinese_simplified|简体中文|ch|[dict][chinese_simplified_dict]|[chinese_multilingual_v2_common][chinese_multilingual_v2_common]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_simplified_v2_common][chinese_simplified_v2_common]|
-    |chinese_traditional|繁体中文|cht|[dict][chinese_traditional_dict]|[chinese_multilingual_v2_common][chinese_multilingual_v2_common]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[chinese_traditional_mobile][chinese_traditional_mobile]|
-    |english|英文|en|[dict][english_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[english_mobile][english_mobile]|
-    |french|法文|fr|[dict][french_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[french_mobile][french_mobile]|
-    |german|德文|ger|[dict][german_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[german_mobile][german_mobile]|
-    |korean|韩文|kr|[dict][korean_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[korean_mobile][korean_mobile]|
-    |japanese|日文|jp|[dict][japanese_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[japanese_mobile][japanese_mobile]|
-    |kannada|卡纳达文|ka|[dict][kannada_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[kannada_mobile][kannada_mobile]|
-    |telugu|泰卢固文|te|[dict][telugu_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[telugu_mobile][telugu_mobile]|
-    |tamil|泰米尔文|ta|[dict][tamil_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[tamil_mobile][tamil_mobile]|
-    |latin|拉丁文|la|[dict][latin_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[latin_mobile][latin_mobile]|
-    |cyrillic|西里尔文|cy|[dict][cyrillic_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[cyrillic_mobile][cyrillic_mobile]|
-    |devanagari|梵文|de|[dict][devanagari_dict]|[english_multilingual_mobile][english_multilingual_mobile]|[chinese_multilingual_mobile][chinese_multilingual_mobile]|[devanagari_mobile][devanagari_mobile]|
+    |chinese_simplified|简体中文|ch|[dict][chinese_simplified_dict]|[v2_common][chinese_multilingual_v2_common]|[mobile][chinese_multilingual_mobile]|[v2_common][chinese_simplified_v2_common]|
+    |chinese_traditional|繁体中文|cht|[dict][chinese_traditional_dict]|[v2_common][chinese_multilingual_v2_common]|[mobile][chinese_multilingual_mobile]|[mobile][chinese_traditional_mobile]|
+    |english|英文|en|[dict][english_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][english_mobile]|
+    |french|法文|fr|[dict][french_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][french_mobile]|
+    |german|德文|ger|[dict][german_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][german_mobile]|
+    |korean|韩文|kr|[dict][korean_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][korean_mobile]|
+    |japanese|日文|jp|[dict][japanese_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][japanese_mobile]|
+    |kannada|卡纳达文|ka|[dict][kannada_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][kannada_mobile]|
+    |telugu|泰卢固文|te|[dict][telugu_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][telugu_mobile]|
+    |tamil|泰米尔文|ta|[dict][tamil_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][tamil_mobile]|
+    |latin|拉丁文|la|[dict][latin_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][latin_mobile]|
+    |cyrillic|西里尔文|cy|[dict][cyrillic_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][cyrillic_mobile]|
+    |devanagari|梵文|de|[dict][devanagari_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][devanagari_mobile]|
 
 * 特色功能模型配置：
 
