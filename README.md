@@ -184,6 +184,7 @@
 [english_multilingual_mobile]:./README.md#:~:text=english_multilingual_mobile_v2.0_det
 [chinese_multilingual_mobile]:./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls
 [chinese_simplified_v2_common]:./README.md#:~:text=chinese_simplified_v2_common_v2.0_rec
+[chinese_traditional_mobile]:./README.md#:~:text=chinese_traditional_mobile_v2.0_rec
 [english_mobile]:./README.md#:~:text=english_mobile_v2.0_rec
 [french_mobile]:./README.md#:~:text=french_mobile_v2.0_rec
 [german_mobile]:./README.md#:~:text=german_mobile_v2.0_rec
@@ -194,6 +195,7 @@
 [tamil_mobile]:./README.md#:~:text=tamil_mobile_v2.0_rec
 [latin_mobile]:./README.md#:~:text=latin_mobile_v2.0_rec
 [cyrillic_mobile]:./README.md#:~:text=cyrillic_mobile_v2.0_rec
+[devanagari_mobile]:./README.md#:~:text=devanagari_mobile_v2.0_rec
 
 
 [chinese_license_plate_dict]:./agentocr/resources/char_dicts/chinese_license_plate_dict.txt
