@@ -1,0 +1,3 @@
+[submodule "labeling"]
+	path = labeling
+	url = https://github.com/AgentMaker/AgentOCRLabeling/
