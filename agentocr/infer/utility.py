@@ -31,58 +31,56 @@ package_dir = os.path.dirname(infer_dir)
 
 model_urls = {
     'cls': {
-        'chinese_multilingual_mobile_v2.0_cls':
-        'https://bj.bcebos.com/v1/ai-studio-online/71ac2df69f8b41f3be5ea646a3df985b36b96f0494634056bae1305d22e8eedd?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_cls.onnx',
+        'ch_mul_m_cls':
+        'https://bj.bcebos.com/v1/ai-studio-online/1fce1485ebe647c89754fd9f2aeee0a8e815de59b1644875af9013f0b93f56cf?responseContentDisposition=attachment%3B%20filename%3Dch_mul_m_cls.onnx',
     },
     'det': {
-        'chinese_multilingual_mobile_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/6a97ec7f4a2348749887988071733bef674546f8ad7049b79bf3597c8bf9b5a1?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_det.onnx',
-        'chinese_multilingual_server_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/a4efe143749e49039f15448ea8c73d99c0534997a54d4d018bc6bec19c518a37?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_server_v2.0_det.onnx',
-        'english_multilingual_mobile_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/90c32bb78fe34870bf3ed7c8d8fdf1a4897abfd42d984a678c865cd92b25b91d?responseContentDisposition=attachment%3B%20filename%3Denglish_multilingual_mobile_v2.0_det.onnx',
-        'chinese_license_plate_mobile_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/e06c2624609843e69a0b8f231aa09e5108d406e653f643d2b9d524bdc95f2263?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_det.onnx',
-        'chinese_multilingual_v2_common_v2.0_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/cddca5cc473f47b9b9405161cf03d0d20b83f96b0f784828bbe98833d01a925a?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_v2_common_v2.0_det.onnx',
+        'ch_mul_m_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/a0fc871ef7354119a35af83b53fea5dd16826a3e291b4500af8fc1feb0b6b2a6?responseContentDisposition=attachment%3B%20filename%3Dch_mul_m_det.onnx',
+        'ch_mul_s_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/c905bf277fc44368a2b122b361143cad704d1d4ff5a74a13a9d4c749b02e9d48?responseContentDisposition=attachment%3B%20filename%3Dch_mul_s_det.onnx',
+        'en_mul_m_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/a85db324f5c54a618712ef670fe6a3a5b4dcf68630744b16a322141c577bf39b?responseContentDisposition=attachment%3B%20filename%3Den_mul_m_det.onnx',
+        'ch_mul_v2_c_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/485da521bb90456b86469443a4bc6ad25f0e7db1aa624a54b4bc9d2f1dc9db67?responseContentDisposition=attachment%3B%20filename%3Dch_mul_v2_c_det.onnx',
+        # 'clp_m_det':
+        # 'https://bj.bcebos.com/v1/ai-studio-online/e06c2624609843e69a0b8f231aa09e5108d406e653f643d2b9d524bdc95f2263?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_m_det.onnx',
         },
     'rec': {
-        'chinese_simplified_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/6ae9a6f87f3d4126aab5a92b4df35359bce2159e177a4ed6b2c85a38f9987004?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_mobile_v2.0_rec.onnx',
-        'chinese_simplified_server_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/bd641ce2efe842f6a0c53a502c8595ab4121051b66d748ff8cbe555d41ee3c2d?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_server_v2.0_rec.onnx',
-        'chinese_traditional_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/1733802270dd42e7b1535a954dad0373cf03b73a0fc14fa5b4f44aa5ecceb351?responseContentDisposition=attachment%3B%20filename%3Dchinese_traditional_mobile_v2.0_rec.onnx',
-        'kannada_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/e26c16c208d64af9840a5c8fd721d5edbaf86dbbbb2c4c5397839d6d078933d4?responseContentDisposition=attachment%3B%20filename%3Dkannada_mobile_v2.0_rec.onnx',
-        'telugu_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/8b85b803a2364f0e9238683b6c8032922ac30cbec4774a1795183195bd717bad?responseContentDisposition=attachment%3B%20filename%3Dtelugu_mobile_v2.0_rec.onnx',
-        'tamil_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/0dc7fc1b438d4ed6ab401b596dcc1407101b9143d9c54d7db6a6ec032cc7f3d2?responseContentDisposition=attachment%3B%20filename%3Dtamil_mobile_v2.0_rec.onnx',
-        'japanese_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/ff50e398096d48889f154910a085af1f170d95d18eac4d6885ad8d1c9f2010f8?responseContentDisposition=attachment%3B%20filename%3Djapanese_mobile_v2.0_rec.onnx',
-        'latin_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/d24e03a0022a4de4805a6e2b60b6a74ad09b2f6ec4cd4397a301048bae4e8a09?responseContentDisposition=attachment%3B%20filename%3Dlatin_mobile_v2.0_rec.onnx',
-        'arabic_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/ea236583c3074d858025f2c5fb9bf01ed45f8416e78146639c40585397eea954?responseContentDisposition=attachment%3B%20filename%3Darabic_mobile_v2.0_rec.onnx',
-        'korean_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/f6d69c38fe9a46569403acf6a1d8cbe5451ed51ad2e64fb2bc9743848fd6f91d?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx',
-        'french_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/e2ebf93ff016446189e7ad23a988ccaf94d54c883315485f923cc2c555693459?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx',
-        'german_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/74b5039facea46329ebdfb9f4cd366c8a38b16ed0eac44c190bc9597e7795a56?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx',
-        'cyrillic_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/4137cfd82c334f4094cae36884478e38ce16416e97eb4dc9a95a192ee70ac42c?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_mobile_v2.0_rec.onnx',
-        'english_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/46da49d9b0ff4da4a8788c31d73029f4bfd132d0cedb4fd3893e40ddadc15d04?responseContentDisposition=attachment%3B%20filename%3Denglish_mobile_v2.0_rec.onnx',
-        'devanagari_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/634d1c1635e5492aac93b195d3b57e5d5013815ea2684d8e96b75d3838bc76b0?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_mobile_v2.0_rec.onnx',
-        'chinese_license_plate_mobile_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/16714ee6aa514e1eaa6946dc0189f87d90f168e51db54696bc9cc51002881ce7?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_rec.onnx',
-        'chinese_license_plate_server_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/df3afb41fa244b3d90b59d95a47dc53ba3313fe42c0a438ba8c227ee9e56a699?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_server_v2.0_rec.onnx',
-        'chinese_simplified_v2_common_v2.0_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/e199a08f2d884261975f7181da69910cad353121666e4dcf931ecb4e59bf83db?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_v2_common_v2.0_rec.onnx',
+        'ch_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/78a4d8d082e347798c0b46962c74b7a96aa545c79d2642999aa7a138dc0f3793?responseContentDisposition=attachment%3B%20filename%3Dch_m_rec.onnx',
+        'ch_s_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/b8a79b079e084148a1c8fbcbe713496d395ae68efd06419fbfdbf1d1d0046e63?responseContentDisposition=attachment%3B%20filename%3Dch_s_rec.onnx',
+        'cht_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/debddf1e4116481196c03e25bb9f8dd37b525adbc9874bd8bb6857d1f4b8ca5b?responseContentDisposition=attachment%3B%20filename%3Dcht_m_rec.onnx',
+        'ka_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/a2925709eef94299b1b64e833150c236a81e0b91ded34ab985ff0524030354d9?responseContentDisposition=attachment%3B%20filename%3Dka_m_rec.onnx',
+        'te_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/97505fd278cf47e49b04bb1ad3131012e66211948da1432980fbea445ca95ac4?responseContentDisposition=attachment%3B%20filename%3Dte_m_rec.onnx',
+        'ta_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/19c24681007e496ba71ed329b7d11628a0660bf05a7b4970a8eb1828f54e6b10?responseContentDisposition=attachment%3B%20filename%3Dta_m_rec.onnx',
+        'jp_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/ce668ac53692411fba4762a5c9bd93e930ff7a3557404706ac87bd5730cdbc13?responseContentDisposition=attachment%3B%20filename%3Djp_m_rec.onnx',
+        'la_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/a33861210f9c4a21b0cbfcbc5b69da56dec4343734ac484c801886d7574cfa13?responseContentDisposition=attachment%3B%20filename%3Dla_m_rec.onnx',
+        'ar_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/3e04471737084487a12bdaab0585f2de25012e9eb5ce4c4b832c83cd15f64377?responseContentDisposition=attachment%3B%20filename%3Dar_m_rec.onnx',
+        'kr_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/9dd5aa5dec9e440e81fbead852845d4779655b960ca9433d8d8178cb21066515?responseContentDisposition=attachment%3B%20filename%3Dkr_m_rec.onnx',
+        'fr_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/0424f2c98e714e9bb085245b98780ccc8dd059cdf17d45e3aeeb947ed9274176?responseContentDisposition=attachment%3B%20filename%3Dfr_m_rec.onnx',
+        'ger_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/219aebb29d4b44d791f4152d97df1a20f3edd69a8ad440bcb596676b63eb4c3a?responseContentDisposition=attachment%3B%20filename%3Dger_m_rec.onnx',
+        'cy_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/1ebdfb414e2e4fa2a8a8d7b823b43b3bf2cb5890511440588e20e356414d2de1?responseContentDisposition=attachment%3B%20filename%3Dcy_m_rec.onnx',
+        'en_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/68b2ee780b2f4017be955fcb226091e4e557935898004e899614709e9874cc16?responseContentDisposition=attachment%3B%20filename%3Den_m_rec.onnx',
+        'de_m_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/d4e698603f6243e98bbf8b7e28585d168e831d6bd852426cb1cbe11a7c487c71?responseContentDisposition=attachment%3B%20filename%3Dde_m_rec.onnx',
+        # 'clp_v2_c_rec':
+        # 'https://bj.bcebos.com/v1/ai-studio-online/df3afb41fa244b3d90b59d95a47dc53ba3313fe42c0a438ba8c227ee9e56a699?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_server_v2.0_rec.onnx',
+        'ch_v2_c_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/365e482fd2f94052924bfe4f5d44aac34866850e00f74625a716fb928da32163?responseContentDisposition=attachment%3B%20filename%3Dch_v2_c_rec.onnx',
     }
 }
 
@@ -103,7 +101,7 @@ language_dict = {
     'de': 'devanagari',
     'la': 'latin',
 
-    'clp': 'chinese_license_plate'
+    # 'clp': 'chinese_license_plate'
 }
 
 def get_config(config):
@@ -113,18 +111,18 @@ def get_config(config):
         return kwargs
     else:
         if config in language_dict:
-            language_name = language_dict[config]
+            language_name = config
             if config in ['ch', 'cht']:
-                det_model = 'chinese_multilingual_v2_common_v2.0_det'
-            elif config in ['clp']:
-                det_model = 'chinese_license_plate_mobile_v2.0_det'
+                det_model = 'ch_mul_m_det'
+            # elif config in ['clp']:
+            #     det_model = 'clp_m_det'
             else:
-                det_model = 'english_multilingual_mobile_v2.0_det'
+                det_model = 'en_mul_m_det'
             
             if config == 'ch':
-                rec_model = 'chinese_simplified_v2_common_v2.0_rec'
+                rec_model = 'ch_v2_c_rec'
             else:
-                rec_model = "%s_mobile_v2.0_rec" % language_name
+                rec_model = "%s_m_rec" % language_name
             
             char_dict = "%s_dict" % language_name
 
@@ -198,7 +196,7 @@ def init_args():
 
     # params for text detector
     parser.add_argument("--det_algorithm", type=str, default='DB')
-    parser.add_argument("--det_model", type=str, default='chinese_multilingual_mobile_v2.0_det')
+    parser.add_argument("--det_model", type=str, default='ch_mul_m_det')
     parser.add_argument("--det_limit_side_len", type=float, default=960)
     parser.add_argument("--det_limit_type", type=str, default='max')
 
@@ -221,16 +219,16 @@ def init_args():
 
     # params for text recognizer
     parser.add_argument("--rec_algorithm", type=str, default='CRNN')
-    parser.add_argument("--rec_model", type=str, default='chinese_simplified_mobile_v2.0_rec')
+    parser.add_argument("--rec_model", type=str, default='ch_v2_c_rec')
     parser.add_argument("--rec_image_shape", type=str, default="3, 32, 320")
     parser.add_argument("--rec_char_type", type=str, default='dict')
     parser.add_argument("--rec_batch_num", type=int, default=8)
     parser.add_argument("--max_text_length", type=int, default=25)
-    parser.add_argument("--rec_char_dict_path", type=str, default="chinese_simplified_dict")
+    parser.add_argument("--rec_char_dict_path", type=str, default="ch_dict")
     parser.add_argument("--drop_score", type=float, default=0.5)
 
     # params for text classifier
-    parser.add_argument("--cls_model", type=str, default='chinese_multilingual_mobile_v2.0_cls')
+    parser.add_argument("--cls_model", type=str, default='ch_mul_m_cls')
     parser.add_argument("--cls_image_shape", type=str, default="3, 48, 192")
     parser.add_argument("--label_list", type=list, default=['0', '180'])
     parser.add_argument("--cls_batch_num", type=int, default=8)
