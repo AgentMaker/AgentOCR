@@ -113,7 +113,7 @@ def get_config(config):
         if config in language_dict:
             language_name = config
             if config in ['ch', 'cht']:
-                det_model = 'ch_mul_m_det'
+                det_model = 'ch_mul_v2_c_det'
             # elif config in ['clp']:
             #     det_model = 'clp_m_det'
             else:
