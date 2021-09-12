@@ -77,8 +77,8 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/68b2ee780b2f4017be955fcb226091e4e557935898004e899614709e9874cc16?responseContentDisposition=attachment%3B%20filename%3Den_m_rec.onnx',
         'de_m_rec':
         'https://bj.bcebos.com/v1/ai-studio-online/d4e698603f6243e98bbf8b7e28585d168e831d6bd852426cb1cbe11a7c487c71?responseContentDisposition=attachment%3B%20filename%3Dde_m_rec.onnx',
-        # 'clp_v2_c_rec':
-        # 'https://bj.bcebos.com/v1/ai-studio-online/df3afb41fa244b3d90b59d95a47dc53ba3313fe42c0a438ba8c227ee9e56a699?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_server_v2.0_rec.onnx',
+        'clp_v2_c_rec':
+        'https://bj.bcebos.com/v1/ai-studio-online/b591fa763ef046559d2f3fce73ca51b35359c3a6c22e4972817daec2902cde69?responseContentDisposition=attachment%3B%20filename%3Dclp_v2_c_rec.onnx',
         'ch_v2_c_rec':
         'https://bj.bcebos.com/v1/ai-studio-online/365e482fd2f94052924bfe4f5d44aac34866850e00f74625a716fb928da32163?responseContentDisposition=attachment%3B%20filename%3Dch_v2_c_rec.onnx',
     }
@@ -114,13 +114,13 @@ def get_config(config):
             language_name = config
             if config in ['ch', 'cht']:
                 det_model = 'ch_mul_v2_c_det'
-            # elif config in ['clp']:
-            #     det_model = 'clp_m_det'
+            elif config in ['clp']:
+                det_model = 'clp_m_det'
             else:
                 det_model = 'en_mul_m_det'
             
-            if config == 'ch':
-                rec_model = 'ch_v2_c_rec'
+            if config in ['ch', 'clp']:
+                rec_model = '%s_v2_c_rec' % language_name
             else:
                 rec_model = "%s_m_rec" % language_name
             
