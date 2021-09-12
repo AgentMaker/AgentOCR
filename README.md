@@ -144,126 +144,24 @@
 ## 预设配置选项
 * 多语言模型配置：
 
-    | 语言 | 说明 | 缩写 | 字典 | 检测模型 | 分类模型 | 识别模型 |
-    |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-    |chinese_simplified|简体中文|ch|[dict][chinese_simplified_dict]|[v2_common][chinese_multilingual_v2_common]|[mobile][chinese_multilingual_mobile]|[v2_common][chinese_simplified_v2_common]|
-    |chinese_traditional|繁体中文|cht|[dict][chinese_traditional_dict]|[v2_common][chinese_multilingual_v2_common]|[mobile][chinese_multilingual_mobile]|[mobile][chinese_traditional_mobile]|
-    |english|英文|en|[dict][english_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][english_mobile]|
-    |french|法文|fr|[dict][french_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][french_mobile]|
-    |german|德文|ger|[dict][german_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][german_mobile]|
-    |korean|韩文|kr|[dict][korean_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][korean_mobile]|
-    |japanese|日文|jp|[dict][japanese_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][japanese_mobile]|
-    |kannada|卡纳达文|ka|[dict][kannada_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][kannada_mobile]|
-    |telugu|泰卢固文|te|[dict][telugu_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][telugu_mobile]|
-    |tamil|泰米尔文|ta|[dict][tamil_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][tamil_mobile]|
-    |latin|拉丁文|la|[dict][latin_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][latin_mobile]|
-    |cyrillic|西里尔文|cy|[dict][cyrillic_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][cyrillic_mobile]|
-    |devanagari|梵文|de|[dict][devanagari_dict]|[mobile][english_multilingual_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][devanagari_mobile]|
+    | 语言 | 缩写 |
+    |:-:|:-:|
+    |简体中文|ch|
+    |繁体中文|cht|
+    |英文|en|
+    |法文|fr|
+    |德文|ger|
+    |韩文|kr|
+    |日文|jp|
+    |卡纳达文|ka|
+    |泰卢固文|te|
+    |泰米尔文|ta|
+    |拉丁文|la|
+    |西里尔文|cy|
+    |梵文|de|
 
 * 特色功能模型配置：
 
-    | 功能 | 说明 | 缩写 | 字典 | 检测模型 | 分类模型 | 识别模型 |
-    |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-    |chinese_license_plate|中国车牌识别|clp|[dict][chinese_license_plate_dict]|[mobile][chinese_license_plate_mobile]|[mobile][chinese_multilingual_mobile]|[mobile][chinese_license_plate_mobile]
-
-[chinese_simplified_dict]:./agentocr/resources/char_dicts/chinese_simplified_dict.txt
-[chinese_traditional_dict]:./agentocr/resources/char_dicts/chinese_traditional_dict.txt
-[english_dict]:./agentocr/resources/char_dicts/english_dict.txt
-[french_dict]:./agentocr/resources/char_dicts/french_dict.txt
-[german_dict]:./agentocr/resources/char_dicts/german_dict.txt
-[korean_dict]:./agentocr/resources/char_dicts/korean_dict.txt
-[japanese_dict]:./agentocr/resources/char_dicts/japanese_dict.txt
-[kannada_dict]:./agentocr/resources/char_dicts/kannada_dict.txt
-[telugu_dict]:./agentocr/resources/char_dicts/telugu_dict.txt
-[tamil_dict]:./agentocr/resources/char_dicts/tamil_dict.txt
-[latin_dict]:./agentocr/resources/char_dicts/latin_dict.txt
-[cyrillic_dict]:./agentocr/resources/char_dicts/cyrillic_dict.txt
-[devanagari_dict]:./agentocr/resources/char_dicts/devanagari_dict.txt
-
-[chinese_multilingual_v2_common]:./README.md#:~:text=chinese_multilingual_v2_common_v2.0_det
-[english_multilingual_mobile]:./README.md#:~:text=english_multilingual_mobile_v2.0_det
-[chinese_multilingual_mobile]:./README.md#:~:text=chinese_multilingual_mobile_v2.0_cls
-[chinese_simplified_v2_common]:./README.md#:~:text=chinese_simplified_v2_common_v2.0_rec
-[chinese_traditional_mobile]:./README.md#:~:text=chinese_traditional_mobile_v2.0_rec
-[english_mobile]:./README.md#:~:text=english_mobile_v2.0_rec
-[french_mobile]:./README.md#:~:text=french_mobile_v2.0_rec
-[german_mobile]:./README.md#:~:text=german_mobile_v2.0_rec
-[korean_mobile]:./README.md#:~:text=korean_mobile_v2.0_rec
-[japanese_mobile]:./README.md#:~:text=japanese_mobile_v2.0_rec
-[kannada_mobile]:./README.md#:~:text=kannada_mobile_v2.0_rec
-[telugu_mobile]:./README.md#:~:text=telugu_mobile_v2.0_rec
-[tamil_mobile]:./README.md#:~:text=tamil_mobile_v2.0_rec
-[latin_mobile]:./README.md#:~:text=latin_mobile_v2.0_rec
-[cyrillic_mobile]:./README.md#:~:text=cyrillic_mobile_v2.0_rec
-[devanagari_mobile]:./README.md#:~:text=devanagari_mobile_v2.0_rec
-
-
-[chinese_license_plate_dict]:./agentocr/resources/char_dicts/chinese_license_plate_dict.txt
-
-[chinese_license_plate_mobile]:./README.md#:~:text=chinese_license_plate_mobile_v2.0_det
-[chinese_license_plate_mobile]:./README.md#:~:text=chinese_license_plate_mobile_v2.0_rec
-
-## 预训练模型
-* 常规模型列表：
-
-    | 模型名称 | 类型 | 预训练模型 | 说明 |
-    |:-:|:-:|:-:|:-:|
-    | chinese_multilingual_mobile_v2.0_det | det | [Download][chinese_multilingual_mobile_v2.0_det] |移动端中文（多语言）文本位置检测模型|
-    | chinese_multilingual_server_v2.0_det | det | [Download][chinese_multilingual_server_v2.0_det] |服务端中文（多语言）文本位置检测模型|
-    | chinese_multilingual_v2_common_v2.0_det | det | [Download][chinese_multilingual_v2_common_v2.0_det] |V2 版本通用中文（多语言）文本位置检测模型|
-    | english_multilingual_mobile_v2.0_det | det | [Download][english_multilingual_mobile_v2.0_det] |移动端英文（多语言）文本位置检测模型|
-    | chinese_multilingual_mobile_v2.0_cls | cls | [Download][chinese_multilingual_mobile_v2.0_cls] |移动端中文（多语言）文本方向分类模型|
-    | chinese_simplified_mobile_v2.0_rec | rec | [Download][chinese_simplified_mobile_v2.0_rec] |移动端简体中文文本内容识别模型|
-    | chinese_simplified_server_v2.0_rec | rec | [Download][chinese_simplified_server_v2.0_rec] |服务端简体中文文本内容识别模型|
-    | chinese_simplified_v2_common_v2.0_rec | rec | [Download][chinese_simplified_v2_common_v2.0_rec] |V2 版本通用简体中文文本内容识别模型|
-    | chinese_traditional_mobile_v2.0_rec | rec | [Download][chinese_traditional_mobile_v2.0_rec] |移动端繁体中文文本内容识别模型|
-    | english_mobile_v2.0_rec | rec | [Download][english_mobile_v2.0_rec] |移动端英文文本内容识别模型|
-    | korean_mobile_v2.0_rec | rec | [Download][korean_mobile_v2.0_rec] |移动端韩文文本内容识别模型|
-    | french_mobile_v2.0_rec | rec | [Download][french_mobile_v2.0_rec] |移动端法文文本内容识别模型|
-    | german_mobile_v2.0_rec | rec | [Download][german_mobile_v2.0_rec] |移动端德文文本内容识别模型|
-    | japanese_mobile_v2.0_rec | rec | [Download][japanese_mobile_v2.0_rec] |移动端日文文本内容识别模型|
-    | telugu_mobile_v2.0_rec | rec | [Download][telugu_mobile_v2.0_rec] |移动端泰卢固文文本内容识别模型|
-    | tamil_mobile_v2.0_rec | rec | [Download][tamil_mobile_v2.0_rec] |移动端泰米尔文文本内容识别模型|
-    | latin_mobile_v2.0_rec | rec | [Download][latin_mobile_v2.0_rec] |移动端拉丁文文本内容识别模型|
-    | arabic_mobile_v2.0_rec | rec | [Download][arabic_mobile_v2.0_rec] |移动端阿拉伯文文本内容识别模型|
-    | cyrillic_mobile_v2.0_rec | rec | [Download][cyrillic_mobile_v2.0_rec] |移动端西里尔文文本内容识别模型|
-    | kannada_mobile_v2.0_rec | rec | [Download][kannada_mobile_v2.0_rec] |移动端卡纳达文文本内容识别模型|
-    | devanagari_mobile_v2.0_rec | rec | [Download][devanagari_mobile_v2.0_rec] |移动端梵文文本内容识别模型|
-
-* 特色功能模型列表：
-
-    | 模型名称 | 类型 | 预训练模型 | 说明 |
-    |:-:|:-:|:-:|:-:|
-    | chinese_license_plate_mobile_v2.0_det | det | [Download][chinese_license_plate_mobile_v2.0_det] |移动端中国车牌文本位置检测模型（支持蓝色/绿色单层车牌）|
-    | chinese_license_plate_mobile_v2.0_rec | rec | [Download][chinese_license_plate_mobile_v2.0_rec] |移动端中国车牌文本内容识别模型|
-    | chinese_license_plate_server_v2.0_rec | rec | [Download][chinese_license_plate_server_v2.0_rec] |服务端中国车牌文本内容识别模型|
-
-
-[chinese_multilingual_mobile_v2.0_cls]:https://bj.bcebos.com/v1/ai-studio-online/71ac2df69f8b41f3be5ea646a3df985b36b96f0494634056bae1305d22e8eedd?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_cls.onnx
-[chinese_multilingual_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/6a97ec7f4a2348749887988071733bef674546f8ad7049b79bf3597c8bf9b5a1?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_mobile_v2.0_det.onnx
-[chinese_multilingual_server_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/a4efe143749e49039f15448ea8c73d99c0534997a54d4d018bc6bec19c518a37?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_server_v2.0_det.onnx
-[english_multilingual_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/90c32bb78fe34870bf3ed7c8d8fdf1a4897abfd42d984a678c865cd92b25b91d?responseContentDisposition=attachment%3B%20filename%3Denglish_multilingual_mobile_v2.0_det.onnx
-[chinese_simplified_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/6ae9a6f87f3d4126aab5a92b4df35359bce2159e177a4ed6b2c85a38f9987004?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_mobile_v2.0_rec.onnx
-[chinese_simplified_server_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/bd641ce2efe842f6a0c53a502c8595ab4121051b66d748ff8cbe555d41ee3c2d?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_server_v2.0_rec.onnx
-[chinese_traditional_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/1733802270dd42e7b1535a954dad0373cf03b73a0fc14fa5b4f44aa5ecceb351?responseContentDisposition=attachment%3B%20filename%3Dchinese_traditional_mobile_v2.0_rec.onnx
-[kannada_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/e26c16c208d64af9840a5c8fd721d5edbaf86dbbbb2c4c5397839d6d078933d4?responseContentDisposition=attachment%3B%20filename%3Dkannada_mobile_v2.0_rec.onnx
-[telugu_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/8b85b803a2364f0e9238683b6c8032922ac30cbec4774a1795183195bd717bad?responseContentDisposition=attachment%3B%20filename%3Dtelugu_mobile_v2.0_rec.onnx
-[tamil_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/0dc7fc1b438d4ed6ab401b596dcc1407101b9143d9c54d7db6a6ec032cc7f3d2?responseContentDisposition=attachment%3B%20filename%3Dtamil_mobile_v2.0_rec.onnx
-[japanese_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/ff50e398096d48889f154910a085af1f170d95d18eac4d6885ad8d1c9f2010f8?responseContentDisposition=attachment%3B%20filename%3Djapanese_mobile_v2.0_rec.onnx
-[latin_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/d24e03a0022a4de4805a6e2b60b6a74ad09b2f6ec4cd4397a301048bae4e8a09?responseContentDisposition=attachment%3B%20filename%3Dlatin_mobile_v2.0_rec.onnx
-[arabic_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/ea236583c3074d858025f2c5fb9bf01ed45f8416e78146639c40585397eea954?responseContentDisposition=attachment%3B%20filename%3Darabic_mobile_v2.0_rec.onnx
-[korean_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/f6d69c38fe9a46569403acf6a1d8cbe5451ed51ad2e64fb2bc9743848fd6f91d?responseContentDisposition=attachment%3B%20filename%3Dkorean_mobile_v2.0_rec.onnx
-[french_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/e2ebf93ff016446189e7ad23a988ccaf94d54c883315485f923cc2c555693459?responseContentDisposition=attachment%3B%20filename%3Dfrench_mobile_v2.0_rec.onnx
-[german_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/74b5039facea46329ebdfb9f4cd366c8a38b16ed0eac44c190bc9597e7795a56?responseContentDisposition=attachment%3B%20filename%3Dgerman_mobile_v2.0_rec.onnx
-[cyrillic_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/4137cfd82c334f4094cae36884478e38ce16416e97eb4dc9a95a192ee70ac42c?responseContentDisposition=attachment%3B%20filename%3Dcyrillic_mobile_v2.0_rec.onnx
-[english_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/46da49d9b0ff4da4a8788c31d73029f4bfd132d0cedb4fd3893e40ddadc15d04?responseContentDisposition=attachment%3B%20filename%3Denglish_mobile_v2.0_rec.onnx
-[devanagari_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/634d1c1635e5492aac93b195d3b57e5d5013815ea2684d8e96b75d3838bc76b0?responseContentDisposition=attachment%3B%20filename%3Ddevanagari_mobile_v2.0_rec.onnx
-
-
-[chinese_license_plate_mobile_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/e06c2624609843e69a0b8f231aa09e5108d406e653f643d2b9d524bdc95f2263?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_det.onnx
-[chinese_license_plate_mobile_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/16714ee6aa514e1eaa6946dc0189f87d90f168e51db54696bc9cc51002881ce7?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_mobile_v2.0_rec.onnx
-[chinese_license_plate_server_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/df3afb41fa244b3d90b59d95a47dc53ba3313fe42c0a438ba8c227ee9e56a699?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_server_v2.0_rec.onnx
-
-
-[chinese_simplified_v2_common_v2.0_rec]:https://bj.bcebos.com/v1/ai-studio-online/e199a08f2d884261975f7181da69910cad353121666e4dcf931ecb4e59bf83db?responseContentDisposition=attachment%3B%20filename%3Dchinese_simplified_v2_common_v2.0_rec.onnx
-[chinese_multilingual_v2_common_v2.0_det]:https://bj.bcebos.com/v1/ai-studio-online/cddca5cc473f47b9b9405161cf03d0d20b83f96b0f784828bbe98833d01a925a?responseContentDisposition=attachment%3B%20filename%3Dchinese_multilingual_v2_common_v2.0_det.onnx
+    | 功能 | 缩写 |
+    |:-:|:-:|
+    |中国车牌识别|clp|
