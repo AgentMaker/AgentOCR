@@ -129,6 +129,10 @@ def get_config(config):
                 "rec_model": rec_model,
                 "rec_char_dict_path": char_dict,
             }
+
+            if config == 'clp':
+                kwargs['det_db_unclip_ratio'] = 0.8
+                kwargs['det_db_score_mode'] ='slow'
         else:
             raise ValueError('Please check your config.')
 
