@@ -43,8 +43,8 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/a85db324f5c54a618712ef670fe6a3a5b4dcf68630744b16a322141c577bf39b?responseContentDisposition=attachment%3B%20filename%3Den_mul_m_det.onnx',
         'ch_mul_v2_c_det':
         'https://bj.bcebos.com/v1/ai-studio-online/485da521bb90456b86469443a4bc6ad25f0e7db1aa624a54b4bc9d2f1dc9db67?responseContentDisposition=attachment%3B%20filename%3Dch_mul_v2_c_det.onnx',
-        # 'clp_m_det':
-        # 'https://bj.bcebos.com/v1/ai-studio-online/e06c2624609843e69a0b8f231aa09e5108d406e653f643d2b9d524bdc95f2263?responseContentDisposition=attachment%3B%20filename%3Dchinese_license_plate_m_det.onnx',
+        'clp_m_det':
+        'https://bj.bcebos.com/v1/ai-studio-online/fecf0ac4d0f34b26a1de6663e260a8aed3b88c1644fd4ee5afb7962b118d76ff?responseContentDisposition=attachment%3B%20filename%3Dclp_m_det.onnx',
         },
     'rec': {
         'ch_m_rec':
