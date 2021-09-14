@@ -101,7 +101,7 @@ language_dict = {
     'de': 'devanagari',
     'la': 'latin',
 
-    # 'clp': 'chinese_license_plate'
+    'clp': 'chinese_license_plate',
 }
 
 def get_config(config):
