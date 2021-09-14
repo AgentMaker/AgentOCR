@@ -131,8 +131,7 @@ def get_config(config):
             }
 
             if config == 'clp':
-                kwargs['det_db_unclip_ratio'] = 0.8
-                kwargs['det_db_score_mode'] ='slow'
+                kwargs['det_db_unclip_ratio'] = 1.0
         else:
             raise ValueError('Please check your config.')
 
