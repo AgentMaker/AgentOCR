@@ -85,7 +85,7 @@ model_urls = {
 }
 
 
-language_dict = {
+configs_dict = {
     'ch': 'chinese_simplified',
     'cht': 'chinese_traditional',
     'ka': 'kannada',
@@ -100,7 +100,6 @@ language_dict = {
     'en': 'english',
     'de': 'devanagari',
     'la': 'latin',
-
     'clp': 'chinese_license_plate',
 }
 
@@ -110,8 +109,7 @@ def get_config(config):
             kwargs = json.load(f)
         return kwargs
     else:
-        if config in language_dict:
-            language_name = config
+        if config in configs_dict:
             if config in ['ch', 'cht']:
                 det_model = 'ch_mul_v2_c_det'
             elif config in ['clp']:
@@ -120,11 +118,11 @@ def get_config(config):
                 det_model = 'en_mul_m_det'
             
             if config in ['ch', 'clp']:
-                rec_model = '%s_v2_c_rec' % language_name
+                rec_model = '%s_v2_c_rec' % config
             else:
-                rec_model = "%s_m_rec" % language_name
+                rec_model = "%s_m_rec" % config
             
-            char_dict = "%s_dict" % language_name
+            char_dict = "%s_dict" % config
 
             kwargs = {
                 "det_model": det_model,
