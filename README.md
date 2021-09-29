@@ -166,17 +166,18 @@
     |梵文|de|
 
 ## 更多功能
+* 更多功能正在持续开发中，敬请期待：
 
-- [x] PaddleOCR 识别模型字典优化
+    - [x] PaddleOCR 识别模型字典优化
 
-- [x] PaddleOCR v2 模型支持
+    - [x] PaddleOCR v2 模型支持
 
-- [ ] PaddleOCR Structure 模型支持
+    - [ ] PaddleOCR Structure 模型支持
 
-- [ ] GUI 图形界面  
+    - [ ] GUI 图形界面  
 
-- [ ] 中国车牌检测识别系统  
+    - [ ] 中国车牌检测识别系统  
 
-- [ ] PaddleOCR -> ONNX 模型转换部署工具
+    - [ ] PaddleOCR -> ONNX 模型转换部署工具
 
-- [ ] 多平台的可执行标注软件  
+    - [ ] 多平台的可执行标注软件  
