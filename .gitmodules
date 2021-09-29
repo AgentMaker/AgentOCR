@@ -1,7 +1,0 @@
-[submodule "AgentOCRLabeling"]
-	path = AgentOCRLabeling
-	url = https://github.com/AgentMaker/AgentOCRLabeling/
-
-[submodule "AgentCLPR"]
-	path = AgentCLPR
-	url = https://github.com/AgentMaker/AgentCLPR/
