@@ -28,7 +28,7 @@
     
     * Python Package **【AgentOCR】** 
     * OCR 标注软件 [**【AgentOCRLabeling】**](AgentOCRLabeling/)
-    * 中国车牌检测识别系统 [**【AgentOCRCLPR】**](AgentOCRCLPR/)
+    * 中国车牌检测识别系统 [**【AgentCLPR】**](AgentCLPR/)
 
 [PaddleOCR]:https://github.com/PaddlePaddle/PaddleOCR
 [ONNXRuntime]:https://github.com/microsoft/onnxruntime
