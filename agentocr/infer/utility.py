@@ -43,9 +43,7 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/a85db324f5c54a618712ef670fe6a3a5b4dcf68630744b16a322141c577bf39b?responseContentDisposition=attachment%3B%20filename%3Den_mul_m_det.onnx',
         'ch_mul_v2_c_det':
         'https://bj.bcebos.com/v1/ai-studio-online/485da521bb90456b86469443a4bc6ad25f0e7db1aa624a54b4bc9d2f1dc9db67?responseContentDisposition=attachment%3B%20filename%3Dch_mul_v2_c_det.onnx',
-        'clp_m_det':
-        'https://bj.bcebos.com/v1/ai-studio-online/fecf0ac4d0f34b26a1de6663e260a8aed3b88c1644fd4ee5afb7962b118d76ff?responseContentDisposition=attachment%3B%20filename%3Dclp_m_det.onnx',
-        },
+    },
     'rec': {
         'ch_m_rec':
         'https://bj.bcebos.com/v1/ai-studio-online/78a4d8d082e347798c0b46962c74b7a96aa545c79d2642999aa7a138dc0f3793?responseContentDisposition=attachment%3B%20filename%3Dch_m_rec.onnx',
@@ -77,8 +75,6 @@ model_urls = {
         'https://bj.bcebos.com/v1/ai-studio-online/68b2ee780b2f4017be955fcb226091e4e557935898004e899614709e9874cc16?responseContentDisposition=attachment%3B%20filename%3Den_m_rec.onnx',
         'de_m_rec':
         'https://bj.bcebos.com/v1/ai-studio-online/d4e698603f6243e98bbf8b7e28585d168e831d6bd852426cb1cbe11a7c487c71?responseContentDisposition=attachment%3B%20filename%3Dde_m_rec.onnx',
-        'clp_v2_c_rec':
-        'https://bj.bcebos.com/v1/ai-studio-online/b591fa763ef046559d2f3fce73ca51b35359c3a6c22e4972817daec2902cde69?responseContentDisposition=attachment%3B%20filename%3Dclp_v2_c_rec.onnx',
         'ch_v2_c_rec':
         'https://bj.bcebos.com/v1/ai-studio-online/365e482fd2f94052924bfe4f5d44aac34866850e00f74625a716fb928da32163?responseContentDisposition=attachment%3B%20filename%3Dch_v2_c_rec.onnx',
     }
@@ -100,7 +96,6 @@ configs_dict = {
     'en': 'english',
     'de': 'devanagari',
     'la': 'latin',
-    'clp': 'chinese_license_plate',
 }
 
 def get_config(config):
@@ -112,12 +107,10 @@ def get_config(config):
         if config in configs_dict:
             if config in ['ch', 'cht']:
                 det_model = 'ch_mul_v2_c_det'
-            elif config in ['clp']:
-                det_model = 'clp_m_det'
             else:
                 det_model = 'en_mul_m_det'
             
-            if config in ['ch', 'clp']:
+            if config in ['ch']:
                 rec_model = '%s_v2_c_rec' % config
             else:
                 rec_model = "%s_m_rec" % config
@@ -129,9 +122,7 @@ def get_config(config):
                 "rec_model": rec_model,
                 "rec_char_dict_path": char_dict,
             }
-
-            if config == 'clp':
-                kwargs['det_db_unclip_ratio'] = 1.0
+            
         else:
             raise ValueError('Please check your config.')
 
