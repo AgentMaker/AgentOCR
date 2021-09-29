@@ -27,8 +27,8 @@
 * 本项目目前包含如下子项目：
     
     * Python Package **【AgentOCR】** 
-    * OCR 标注软件 [**【AgentOCRLabeling】**](AgentOCRLabeling/)
-    * 中国车牌检测识别系统 [**【AgentCLPR】**](AgentCLPR/)
+    * OCR 标注软件 [**【AgentOCRLabeling】**](https://github.com/AgentMaker/AgentOCRLabeling)
+    * 中国车牌检测识别系统 [**【AgentCLPR】**](https://github.com/AgentMaker/AgentCLPR)
 
 [PaddleOCR]:https://github.com/PaddlePaddle/PaddleOCR
 [ONNXRuntime]:https://github.com/microsoft/onnxruntime
