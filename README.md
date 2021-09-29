@@ -167,6 +167,12 @@
 
 ## 更多功能
 
+- [x] PaddleOCR 识别模型字典优化
+
+- [x] PaddleOCR v2 模型支持
+
+- [ ] PaddleOCR Structure 模型支持
+
 - [ ] GUI 图形界面  
 
 - [ ] 中国车牌检测识别系统  
