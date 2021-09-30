@@ -53,11 +53,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install onnxruntime-directml
         python setup.py install
+        choco install wget -y
     - name: Download
       run: |
         mkdir images
-        client = new-object System.Net.WebClient
-        client.DownloadFile('https://ai-studio-static-online.cdn.bcebos.com/c4c758456cc74d9e997a72a25c47a3a57707b0664ed546819e4d5981ba765b13','images/ch.jpg')
+        wget https://ai-studio-static-online.cdn.bcebos.com/c4c758456cc74d9e997a72a25c47a3a57707b0664ed546819e4d5981ba765b13 -O images/ch.jpg
     - name: Test
       run: |
         agentocr system --config ch --image_dir images
