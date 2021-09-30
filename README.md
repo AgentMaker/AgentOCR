@@ -159,11 +159,11 @@
 
     - [x] PaddleOCR v2 模型支持
 
+    - [x] 中国车牌检测识别系统  
+
     - [ ] PaddleOCR Structure 模型支持
 
     - [ ] GUI 图形界面  
-
-    - [ ] 中国车牌检测识别系统  
 
     - [ ] PaddleOCR -> ONNX 模型转换部署工具
 
