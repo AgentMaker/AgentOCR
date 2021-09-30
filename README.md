@@ -5,8 +5,8 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/AgentMaker/AgentOCR?include_prereleases)
 ![GitHub](https://img.shields.io/github/license/AgentMaker/AgentOCR)  
 
-![Test](https://github.com/AgentMaker/AgentOCR/actions/workflows/test.yml/badge.svg?branch=main)
-![Build](https://github.com/AgentMaker/AgentOCR/actions/workflows/build.yml/badge.svg?branch=main)
+![Test build](https://github.com/AgentMaker/AgentOCR/actions/workflows/build_test.yml/badge.svg?branch=release/2.x)
+![Release Build](https://github.com/AgentMaker/AgentOCR/actions/workflows/build.yml/badge.svg?branch=release/2.x)
 
 ## 简介
 * AgentOCR 是一个基于 [PaddleOCR][PaddleOCR] 和 [ONNXRuntime][ONNXRuntime] 项目开发的一个使用简单、调用方便的 OCR 项目
