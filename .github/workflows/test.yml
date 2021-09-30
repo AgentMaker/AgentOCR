@@ -56,19 +56,8 @@ jobs:
     - name: Download
       run: |
         mkdir images
-        wget https://ai-studio-static-online.cdn.bcebos.com/c4c758456cc74d9e997a72a25c47a3a57707b0664ed546819e4d5981ba765b13 -O images/ch.jpg
+        client = new-object System.Net.WebClient
+        client.DownloadFile('https://ai-studio-static-online.cdn.bcebos.com/c4c758456cc74d9e997a72a25c47a3a57707b0664ed546819e4d5981ba765b13','images/ch.jpg')
     - name: Test
       run: |
-        touch test.py
-        echo "from agentocr import OCRSystem" >> test.py
-        echo >> test.py
-        echo "import cv2" >> test.py
-        echo >> test.py
-        echo "ocr = OCRSystem()" >> test.py
-        echo >> test.py
-        echo "out=ocr.ocr(cv2.imread('images/ch.jpg'))" >> test.py
-        echo >> test.py
-        echo "print(out)" >> test.py
-        echo >> test.py
-        python test.py
         agentocr system --config ch --image_dir images
