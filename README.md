@@ -107,7 +107,7 @@
 
             # 图片 Base64 编码
             def cv2_to_base64(image):
-                data = cv2.imencode('.jpg image)[1]
+                data = cv2.imencode('.jpg', image)[1]
                 image_base64 = base64.b64encode(data.tobytes()).decode('UTF-8')
                 return image_base64
 
