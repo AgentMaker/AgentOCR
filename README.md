@@ -111,7 +111,6 @@
                 image_base64 = base64.b64encode(data.tobytes()).decode('UTF-8')
                 return image_base64
 
-
             # 读取图片
             image = cv2.imread('test.jpg')
             image_base64 = cv2_to_base64(image)
