@@ -8,7 +8,7 @@ powerby paddleOCR & onnxruntime
 npm install --save ocr.js
 ```
 
-see examples in `test/test.ts`
+examples in `test/test.ts`
 
 ### 模型推理
 
