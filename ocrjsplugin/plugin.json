@@ -1,0 +1,18 @@
+{
+    "pluginName": "离线OCR插件",
+    "author": "",
+    "description": "离线推理的OCR插件",
+    "main": "dist/index.html",
+    "version": "0.0.2",
+    "logo": "logo.png",
+    "name": "rubick-plugin-ocrjs",
+    "features": [
+        {
+            "code": "ocr",
+            "explain": "离线推理的OCR插件",
+            "cmds": [
+                "ocr"
+            ]
+        }
+    ]
+}

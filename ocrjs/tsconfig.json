@@ -1,0 +1,19 @@
+{
+  "include": ["src/**/*"],
+  "compilerOptions": {
+		"target": "ESNext",
+		"lib": ["ESNext"],
+		"module": "nodenext",
+		"declaration": true,
+		"sourceMap": true,
+		"outDir": "dist",
+		"skipLibCheck": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"moduleResolution": "Node"
+	}
+}

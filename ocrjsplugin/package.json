@@ -1,0 +1,24 @@
+{
+  "name": "rubick-ocr",
+  "author": "sovlookup",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": " vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "ant-design-vue": "^2.2.8",
+    "tesseract.js": "^2.1.5",
+    "less": "^4.1.2",
+    "vue": "^3.2.16",
+    "vue-clipboard3": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@vitejs/plugin-vue": "^1.9.4",
+    "typescript": "^4.4.4",
+    "vite": "^2.6.13",
+    "vue-tsc": "^0.28.10"
+  }
+}
