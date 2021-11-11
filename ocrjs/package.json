@@ -1,0 +1,22 @@
+{
+	"name": "ocrjs",
+	"author": "sovlookup <gonorth@qq.com>",
+	"version": "0.0.1",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc"
+	},
+	"dependencies": {
+		"@silvia-odwyer/photon": "^0.3.11",
+		"@silvia-odwyer/photon-node": "^0.3.1",
+		"cross-fetch": "^3.1.4",
+		"onnxruntime-common": "^1.9.0",
+		"onnxruntime-node": "^1.9.0",
+		"onnxruntime-web": "^1.9.0"
+	},
+	"devDependencies": {
+		"tsup": "^5.4.0",
+		"typescript": "^4.5.0-dev.20211010"
+	}
+}
